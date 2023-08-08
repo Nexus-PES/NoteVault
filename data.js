@@ -1,4 +1,4 @@
-export const featues = [
+export const features = [
     {
         title: 'Features That Empowers',
         description: 'Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.'
