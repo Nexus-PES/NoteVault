@@ -22,11 +22,11 @@ module.exports = {
 			},
 		},
 		fontFamily: {
-		// 	poppins: ['poppins', 'sans-serif'],
-		// 	sb: ['sb', 'serif'],
-		'handlee': ['Handlee'],
-		'poppins': ['Poppins'],
-		}
+			// 	poppins: ['poppins', 'sans-serif'],
+			// 	sb: ['sb', 'serif'],
+			handlee: ["Handlee"],
+			poppins: ["Poppins"],
+		},
 	},
-	plugins: [],
+	plugins: [require("@tailwindcss/forms")],
 };
