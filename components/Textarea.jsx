@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 const Textarea = () => {
 	useEffect(() => {
 		textareaRef.current.addEventListener("input", (e) => {
-			console.log("asdf");
 			e.target.style.height = "auto";
 			e.target.style.height = e.target.scrollHeight + "px";
 		});
