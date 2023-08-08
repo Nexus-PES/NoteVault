@@ -2,7 +2,7 @@ import Sidebar from '@/components/Sidebar'
 
 const layout = ({children}) => {
   return (
-    <div className='flex gap-0'>
+    <div className=''>
         <Sidebar />
         <main>{children}</main>
     </div>
