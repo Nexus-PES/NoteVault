@@ -1,9 +1,9 @@
-import Sidebar from '@/components/Sidebar'
+import SideMenu from '@/components/Sidebar'
 
 const layout = ({children}) => {
   return (
     <div className=''>
-        <Sidebar />
+        <SideMenu />
         <main>{children}</main>
     </div>
   )
