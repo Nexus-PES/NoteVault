@@ -15,7 +15,7 @@ const SideMenu = () => {
 	};
 
 	return (
-		<div
+		<div className="fixed r-0 h-full bg-dark-100"
 			style={{
 				display: "flex",
 				height: "100%",
