@@ -1,8 +1,8 @@
 import Hero from "@/components/Hero";
-import React from "react";
+// import React from "react";
 
 
-import { features } from "@/data";
+import  {features}  from "@/data";
 import Comment from "@/components/Comment";
 
 console.log(features);
@@ -18,6 +18,7 @@ const Home = () => {
 					title={comment.title}
 					key={comment.title}
 					desc={comment.description}
+					
 				/>
 			))}
 
