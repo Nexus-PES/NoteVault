@@ -20,9 +20,17 @@ export const features = [
 
 export const comments = [
     {
+        id: 1,
         ratings: 4.5,
         imageUrl: '',
         name: 'Name 1',
         comment: 'Comment 1',
+    },
+    {
+        id: 2,
+        ratings: 4,
+        imageUrl: '',
+        name: 'Name 2',
+        comment: 'Comment 2',
     },
 ]
