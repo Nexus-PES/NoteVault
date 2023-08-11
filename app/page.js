@@ -11,16 +11,15 @@ const Home = () => {
       {/* Features */}
       <Features />
 
-	  <hr />
+	 
       {/* Comments */}
       <Comment />
 
-	  <hr />
 
       {/* FAQ */}
 	  <FAQ />
-	  <hr />
-
+	  <hr className=" mt-40"/>
+    <div className="bg-[#292929] h-96">{" "}</div>
     </div>
   );
 };
