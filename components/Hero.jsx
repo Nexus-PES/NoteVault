@@ -39,7 +39,7 @@ const Hero = () => {
         </h1>
       </div>
       <br></br>
-      <div className="flex m-[8rem]">
+      <div className="flex ml-[6rem] mt-[4rem]">
         <div className="font-['Poppins'] font-[600]  text-[2.16rem] ">
           Why <span className="text-[#E40000]">NoteVault</span>?
         </div>
