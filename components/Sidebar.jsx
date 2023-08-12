@@ -19,7 +19,7 @@ const SideMenu = () => {
 		<div className="fixed flex flex-col r-0 w-10 py-6 px-1 h-full bg-dark-100"
 			style={{
 				display: "flex",
-				height: "100%",
+				height: "10%",
 			}}
 		>
 
