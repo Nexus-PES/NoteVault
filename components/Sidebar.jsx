@@ -12,43 +12,30 @@ const SideMenu = () => {
 
 	const handleCollapse = () => {
 		setCollapsed(!collapsed);
+		console.log(collapsed)
 	};
 
-	return (
-		<div className="fixed r-0 h-full bg-dark-100"
+	return (<div className="w-auto flex h-auto">
+		<div className="fixed flex flex-col r-0 w-10 py-6 px-1 h-full bg-dark-100"
 			style={{
 				display: "flex",
-				height: "100%",
+				height: "10%",
 			}}
 		>
-			<Sidebar
-				collapsed={collapsed}
-			>
-				<Menu>
-					<button
-						onClick={
-							handleCollapse
-						}
-					>
-						{collapsed
-							? "Expand"
-							: "Collapse"}
-					</button>
 
-					{collapsed ? null : (
-						<>
-							<MenuItem>
-								Item 1
-							</MenuItem>
-							<MenuItem>
-								Item 2
-							</MenuItem>
-						</>
-					)}
-				</Menu>
-			</Sidebar>
+			<div className="rounded-full w-7 h-7 bg-secondary">
+			<button  onClick={handleCollapse} className="w-7 h-7"></button>
+			</div>
+
+
 		</div>
-	);
+			{!collapsed &&
+			<div className=" fixed ml-10 px-2 bg-dark-100 h-full w-52 ">
+			
+			
+			</div>}
+		</div>
+	)
 };
 
 export default SideMenu;
