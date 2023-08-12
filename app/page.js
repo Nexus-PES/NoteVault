@@ -18,8 +18,8 @@ const Home = () => {
 
       {/* FAQ */}
 	  <FAQ />
-	  <hr className=" mt-40"/>
-    <div className="bg-[#292929] h-96">{" "}</div>
+	  <hr className="mt-40"/>
+    <div className="bg-[#292929] h-96 w-full"></div>
     </div>
   );
 };
