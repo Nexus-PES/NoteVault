@@ -16,12 +16,7 @@ const SideMenu = () => {
 	};
 
 	return (<div className="w-auto flex h-auto">
-		<div className="fixed flex flex-col r-0 w-10 py-6 px-1 h-full bg-dark-100"
-			style={{
-				display: "flex",
-				height: "10%",
-			}}
-		>
+		<div className="fixed flex flex-col r-0 w-10 py-6 px-1 h-full bg-dark-100">
 
 			<div className="rounded-full w-7 h-7 bg-secondary">
 			<button  onClick={handleCollapse} className="w-7 h-7"></button>
