@@ -1,6 +1,7 @@
+"use client";
 import Button from "@/components/Button";
 import Textarea from "@/components/Textarea";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./Footer.jsx";
 
 async function Notes({ params }) {
@@ -12,10 +13,17 @@ async function Notes({ params }) {
 	);
 	const data = await res.json();
 
+	// const [saveTime, setSaveTime] =
+	// 	useState(null);
+
+	// const handleClick = () => {
+	// 	const currentTime = new Date();
+	// 	setSaveTime(currentTime);
+	// };
+
 	return (
 		<div className="font-handlee flex text-text-100 flex-col gap-8 sm:p-8 w-full">
 			<div className="flex flex-row-reverse gap-4">
-				<Button>Help</Button>
 				<Button>Save</Button>
 			</div>
 
@@ -35,7 +43,11 @@ async function Notes({ params }) {
 				displayer={data.content}
 			/>
 
-			<Footer></Footer>
+			<Footer
+				words={
+					data.content.length
+				}
+			/>
 		</div>
 	);
 }
