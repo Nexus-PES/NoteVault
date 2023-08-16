@@ -23,5 +23,17 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.4"
-  }
+  },
+  "description": "[Design File](https://www.figma.com/file/ym8CNt559tAIpseV4m6Ret/NoteVault?type=design&node-id=3%3A38&mode=design&t=xuc0UP490ZSuRSHq-1)",
+  "main": "data.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruvasnayak/NoteVault.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhruvasnayak/NoteVault/issues"
+  },
+  "homepage": "https://github.com/dhruvasnayak/NoteVault#readme"
 }
