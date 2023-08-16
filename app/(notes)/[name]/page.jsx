@@ -27,7 +27,6 @@ const UserPage = ({ params }) => {
 		"Greetings, my friend! How's life treating you?",
 		"Salutations! What's new in your world?",
 		"Ahoy there! Long time no chat.",
-		"Top of the morning to you! Ready for some conversation?",
 		"Well met! What's the latest scoop?",
 		"Hey you! How's everything on your end?",
 		"Hola amigo! It's time for another catch-up.",
@@ -82,7 +81,7 @@ const UserPage = ({ params }) => {
 					</h1>
 				</div>
 			</div>
-			<div className="p-6 mx-[70px]">
+			<div className="p-6 mx-[60px]">
 				<div className="flex flex-wrap justify-evenly">
 					{info.map(
 						(
@@ -113,7 +112,7 @@ const UserPage = ({ params }) => {
 						)
 					)}
 
-					<div className="box-content h-22 w-[250px] p-4 border-2 bg rounded-xl my-[10px] text-white text-md bg-[#343434]">
+					<div className="box-content h-22 w-[260px] p-4 border-2 bg rounded-[7px] my-[10px] text-white text-md bg-[#343434]">
 						<div onClick={changetodiv2}>
 							{div1 && (
 								<div className="mt-[5px] ml-[115px]">
@@ -124,13 +123,13 @@ const UserPage = ({ params }) => {
 						<div>
 							{div2 && (
 								<div>
-								<input className="text-black"
+								<input className="text-black w-[150px] "
 								placeholder="title"
 								type="text"
 								value={input}
 								onChange={handleInputChange}
 							  />
-							  	<button onClick={changetodiv1}>Submit</button>
+							  	<button className="border 1px bg mx-6 px-1 " onClick={changetodiv1}>Submit</button>
 								</div>
 							)}
 						</div>
