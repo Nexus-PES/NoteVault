@@ -10,3 +10,8 @@ datasource db {
 model Widget {
   id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 }
+
+model Titles{
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title String
+}

@@ -1,7 +1,7 @@
-import Hero from "@/components/Hero";
-import Comment from "@/components/Comment";
-import Features from "@/components/Features";
-import FAQ from "@/components/FAQ";
+import Hero from "../components/Hero";
+import Comment from "../components/Comment";
+import Features from "../components/Features";
+import FAQ from "../components/FAQ";
 
 const Home = () => {
   return (

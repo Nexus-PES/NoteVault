@@ -43,3 +43,5 @@ export const faq=[
     },
     
 ]
+
+export default {}

@@ -1,4 +1,4 @@
-import { features } from "@/data";
+import { features } from "../data";
 import Image from "next/image";
 import React from "react";
 import iconic from "public/images/kybernetwork.svg";
