@@ -2,8 +2,8 @@ import React from "react";
 import Button from "./Button";
 import Image from "next/image";
 import iconic from "public/images/kybernetwork.svg";
-import features from "@/data";
-import Comment from "@/components/Comment";
+import features from "../data";
+import Comment from "../components/Comment";
 
 // import Home from "@/app/page";
 

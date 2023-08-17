@@ -30,7 +30,7 @@ const SideMenu = () => {
 
 		</div>
 			{!collapsed &&
-			<div className=" fixed ml-10 px-2 bg-dark-100 h-full w-52 px-5 py-7 space-y-2">
+			<div className=" fixed ml-10 bg-dark-100 h-full w-52 px-5 py-7 space-y-2">
 				<div className="">
 					<p className="font-poppins text-white text-sm">
 						Your Vault

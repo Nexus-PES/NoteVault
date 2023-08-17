@@ -1,6 +1,7 @@
 "use client";
-import Button from "@/components/Button";
-import Textarea from "@/components/Textarea";
+import Button from "../../../../components/Button"
+import Textarea from "../../../../components/Textarea";
+
 import React, { useState } from "react";
 import Footer from "./Footer.jsx";
 
