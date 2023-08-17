@@ -12,7 +12,7 @@ const FAQ = () => {
 
   return (
     <>
-      <div className="px-8 ml-[6rem] mb-[4rem] mt-20">
+      <div className="px-8 ml-[2rem] mb-[4rem] mt-20">
         <h1 className="font-['Poppins'] font-[600]  text-[2.16rem] text-white">
           No Rush to Believe in Us
         </h1>

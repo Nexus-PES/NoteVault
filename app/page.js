@@ -19,9 +19,9 @@ const Home = () => {
 
 
       {/* FAQ */}
-	  <FAQ />
-	  <hr className="mt-40"/>
-    <Footer/>
+	    <FAQ />
+	    <hr className="mt-40"/>
+      <Footer/>
     </div>
   );
 };

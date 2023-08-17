@@ -5,11 +5,11 @@ import iconic from "public/images/kybernetwork.svg";
 const Features = () => {
   return (
     <>
-      <div className="flex ml-[3.8rem]">
+      <div className="grid grid-cols-1 sm:grid-cols-3">
         {features.map((comment) => (
           <>
             <div
-              className="flex  mb-[2rem] flex-[1]  "
+              className="flex  mb-[2rem] flex-[1]"
               key={comment.id}
             >
               <div className="ml-[4rem] rounded-md hover:bg-[#292929]">
