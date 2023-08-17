@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { faq } from "@/data";
+import { faq } from "../data";
 import add from "public/images/add.svg";
 import Image from "next/image";
 

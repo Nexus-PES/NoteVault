@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Notes {
+  id    String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title String
+  note  String
+}

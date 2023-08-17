@@ -1,4 +1,4 @@
-import SideMenu from '@/components/Sidebar'
+import SideMenu from "../../components/Sidebar"
 
 const layout = ({children}) => {
   return (
