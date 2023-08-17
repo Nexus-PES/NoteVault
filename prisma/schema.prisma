@@ -7,11 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Widget {
-  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-}
-
-model Titles{
-  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+model Notes {
+  id    String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   title String
+  note  String
 }
