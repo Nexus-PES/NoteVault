@@ -6,8 +6,8 @@ import star from "public/images/star.svg"
 const Comment = () => {
   return (
     <>
-    <h1 className="font-['Poppins'] font-[600] px-8 text-[2.16rem] ml-[6rem] mt-20 text-white">What Others Have To Say</h1>
-      <div className="flex px-8 ml-[6rem]">
+    <h1 className="font-['Poppins'] font-[600] px-8 text-[2.16rem] ml-[2rem] mt-20 text-white">What Others Have To Say</h1>
+      <div className="grid grid-cols-2 px-8 ml-[2rem]">
       {comments.map((comment) => (
         <CommentCard
           key={comment.id}

@@ -16,12 +16,12 @@ const Home = () => {
 			<Comment />
 
 
-			{/* FAQ */}
-			<FAQ />
-			<hr className=" mt-40" />
-			<div className="bg-[#292929] h-96">{" "}</div>
-		</div>
-	);
+      {/* FAQ */}
+	    <FAQ />
+	    <hr className="mt-40"/>
+      <Footer/>
+    </div>
+  );
 };
 
 export default Home;
