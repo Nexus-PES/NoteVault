@@ -1,4 +1,4 @@
-import { comments } from "@/data";
+import { comments } from "../data";
 import React from "react";
 import Image from "next/image";
 // import profile from "public/images/profile.png"
