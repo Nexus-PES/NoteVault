@@ -5,14 +5,14 @@ import iconic from "public/images/kybernetwork.svg";
 const Features = () => {
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-3">
+      <div className="grid gap-5 mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {features.map((comment) => (
           <>
             <div
-              className="flex  mb-[2rem] flex-[1]"
+              className="flex gap-5 flex-[1]"
               key={comment.id}
             >
-              <div className="ml-[4rem] rounded-md hover:bg-[#292929]">
+              <div className="rounded-md p-4  hover:bg-[#292929]">
                 <div className="flex gap-[0.5rem] ">
                   <span className="bg-[#E40000] text-[#E40000] w-1 h-6">.</span>
                   <Image src={iconic} alt="pichur" className="self-start" />
@@ -20,7 +20,7 @@ const Features = () => {
                 </div>
                 <p className="text-[12px] ml-4 mt-[0.5rem] font-poppins">{comment.description}</p>
               </div>
-            </div>
+            </div>  
           </>
         ))}
       </div>
