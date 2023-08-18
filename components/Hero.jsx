@@ -8,7 +8,7 @@ import Comment from "@/components/Comment";
 // import Home from "@/app/page";
 
 const Hero = () => {
-  console.log(features)
+
   
   return (
     <main className="container px-8 gap-3 py-24 text-white flex flex-col">
@@ -39,8 +39,8 @@ const Hero = () => {
         </h1>
       </div>
       <br></br>
-      <div className="grid grid-col-1 ml-[2rem] mt-[4rem]">
-        <div className="font-['Poppins'] font-[600]  text-[2.16rem] ">
+      <div className="grid grid-col-1 mt-[4rem]">
+        <div className="font-poppins font-semibold  text-[2.16rem] ">
           Why <span className="text-[#E40000]">NoteVault</span>?
         </div>
       </div>

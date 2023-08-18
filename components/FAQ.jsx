@@ -12,7 +12,7 @@ const FAQ = () => {
 
   return (
     <>
-      <div className="px-8 ml-[2rem] mb-[4rem] mt-20">
+      <div className="px-8 mb-[4rem] mt-20">
         <h1 className="font-['Poppins'] font-[600]  text-[2.16rem] text-white">
           No Rush to Believe in Us
         </h1>
@@ -21,7 +21,7 @@ const FAQ = () => {
           Frequently Asked Questions
         </p>
       </div>
-      <div className="flex  ml-[6rem] px-7">
+      <div className="flex  px-7">
         <div className="flex  w-[1040px] p-[20px] rounded-lg bg-[#292929]">
           {faq.map((question) => (
             <>
