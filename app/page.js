@@ -1,31 +1,28 @@
-import Hero from "@/components/Hero";
-import React from "react";
-
-
-import { features } from "@/data";
-import Comment from "@/components/Comment";
-
-console.log(features);
+import Hero from "../components/Hero";
+import Comment from "../components/Comment";
+import Features from "../components/Features";
+import FAQ from "../components/FAQ";
+import Footer from "../components/Footer";
 
 const Home = () => {
-	return (
-		<div className="min-h-screen text-text-100 bg-background">
-			<Hero />
+  return (
+    <div className="min-h-screen text-text-100 bg-background mx-5">
+      <Hero />
 
 			{/* Features */}
-			{features.map((comment) => (
-				<Comment
-					title={comment.title}
-					key={comment.title}
-					desc={comment.description}
-				/>
-			))}
+			<Features />
+
 
 			{/* Comments */}
+			<Comment />
 
-			{/* FAQ */}
-		</div>
-	);
+
+      {/* FAQ */}
+	    <FAQ />
+	    <hr className="mt-40"/>
+      <Footer/>
+    </div>
+  );
 };
 
 export default Home;

@@ -1,12 +1,22 @@
 "use client";
-import { useEffect, useRef } from "react";
+import {
+	useEffect,
+	useRef,
+} from "react";
 
-const Textarea = () => {
+const Textarea = ({ displayer }) => {
 	useEffect(() => {
-		textareaRef.current.addEventListener("input", (e) => {
-			e.target.style.height = "auto";
-			e.target.style.height = e.target.scrollHeight + "px";
-		});
+		textareaRef.current.addEventListener(
+			"input",
+			(e) => {
+				e.target.style.height =
+					"auto";
+				e.target.style.height =
+					e.target
+						.scrollHeight +
+					"px";
+			}
+		);
 	}, []);
 	const textareaRef = useRef();
 	return (
@@ -14,8 +24,12 @@ const Textarea = () => {
 			ref={textareaRef}
 			spellCheck={false}
 			autoCorrect={false}
-			className="text-base font-normal block w-full rounded-md border-0 px-3.5 py-2 text-text-100 sm:text-sm sm:leading-6 bg-transparent focus:ring-0"
-		></textarea>
+			autoFocus={true}
+			placeholder="Your Notes"
+			className="text-base font-normal block w-full rounded-md px-3.5 py-2 text-text-100 sm:leading-6 bg-transparent border border-white focus:border-2 focus:border-white"
+		>
+			{displayer}
+		</textarea>
 	);
 };
 
