@@ -10,6 +10,7 @@ const FAQ = () => {
   const translate = rotateEle ? "h-[10rem] w-[1024px]" : "w-[1024px] p-[20px]";
   const rotate = rotateEle ? "rotate(-45deg)" : "rotate(0)";
 
+
   return (
     <>
       <div className="px-8 mb-[4rem] mt-20">
@@ -22,11 +23,11 @@ const FAQ = () => {
         </p>
       </div>
       <div className="flex  px-7">
-        <div className="flex  w-[1040px] p-[20px] rounded-lg bg-[#292929]">
+        <div className="flex  w-full p-[20px] rounded-lg bg-[#292929]">
           {faq.map((question) => (
-            <>
+            <div key={question.id}>
               <div className="flex flex-col">
-                <h1 key={question.id} className="text-[16px] font-poppins">
+                <h1  className="text-[16px] font-poppins">
                   {question.title}
                 </h1>
                 <div className="">
@@ -37,11 +38,12 @@ const FAQ = () => {
                   )}
                 </div>
               </div>
-            </>
+            </div>
           ))}
           <div className="flex justify-end  ml-24">
             <Image
               src={add}
+              alt="plus"
               style={{
                 transform: translate,
                 transform: rotate,
