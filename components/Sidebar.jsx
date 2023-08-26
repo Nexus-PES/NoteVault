@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 
@@ -13,20 +14,27 @@ const SideMenu = () => {
 	let ab = [1, 2, 3, 4, 5];
 	return (
 		<div className="w-auto flex h-auto">
-			<div className="fixed border-e flex flex-col r-0 w-10 py-6  h-full bg-dark-100 items-center">
-				<div className="rounded-full w-7 h-7 bg-secondary my-1">
+			<div className="fixed border-e border-text-200 flex flex-col gap-y-4 w-16 py-6 h-full bg-dark-100 items-center">
 					<button
 						onClick={handleCollapse}
-						className="w-7 h-7"
-					></button>
-				</div>
+					>
+					<Image
+						src= "/images/logo.svg"
+						alt="profile picture"
+						width={100}
+						height={100}
+						className="h-9 w-9 sm:w-10 sm:h-10 rounded-full flex-wrap"
+					/>
+					</button>
 
-				<div className="rounded-full bg-white w-7 h-7 my-1 ">
-					{/* <img
-						src=""
-						alt=""
-					/> */}
-				</div>
+					<Image
+						src= "/images/profile.png"
+						alt="profile picture"
+						width={100}
+						height={100}
+						className="h-9 w-9 sm:w-10 sm:h-10 rounded-full flex-wrap"
+					/>
+
 			</div>
 			{!collapsed && (
 				<div className=" fixed ml-10 bg-dark-100 h-full w-52 px-5 py-7 space-y-2">
@@ -36,8 +44,8 @@ const SideMenu = () => {
 						</p>
 					</div>
 					<div className="flex flex-col w-41 gap-2">
-						{/* {ab.map(() => (
-							<div className="flex flex-row gap-1 ">
+						{ab.map((item, i) => (
+							<div className="flex flex-row gap-1" key={item.i}>
 								<div className="w-2.5 h-2.5 shrink-0 self-center bg-secondary rounded-full"></div>
 								<div className=" truncate">
 									<p className="font-poppins truncate  text-white text-xs">
@@ -45,7 +53,7 @@ const SideMenu = () => {
 									</p>
 								</div>
 							</div>
-						))} */}
+						))}
 					</div>
 				</div>
 			)}
