@@ -11,6 +11,7 @@ module.exports = {
 				"clamp-heading": "clamp(54px, 10vw, 150px)",
 				"clamp-subheading": "clamp(1.5rem, 5vw, 2.16rem)",
 				"clamp-hero": "clamp(18px, 1rem + 4vw, 48px)",
+				"clamp-notes-greeting": "clamp(24px, 1rem + 4vw, 48px)",
 			},
 			colors: {
 				dark: {

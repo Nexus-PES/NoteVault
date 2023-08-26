@@ -1,29 +1,21 @@
 "use client";
 
-import React, {
-	useState,
-	useEffect,
-} from "react";
-import Card from "./Card";
+import React, { useState, useEffect } from "react";
+
+import Card from "../../../components/Card";
 import Link from "next/link";
+import { notesData } from "../../../data";
+
 const UserPage = ({ params }) => {
+	const username = "Sarang";
 
 	var [greetings, setGreetings] = useState("");
 	const [div1, setDiv1] = useState(true);
 	const [div2, setDiv2] = useState(false);
-	const [input, setInput] = useState('');
-	const [info, setInfo] = useState([
-		{ title: "Title 1" },
-		{ title: "Title 2" },
-		{ title: "Title 3" },
-		{ title: "Title 4" },
-		{ title: "Title 5" },
-		{ title: "Title 6" },
-		{ title: "Title 7" },
-		{ title: "Title 8" },
-	  ]);
+	const [input, setInput] = useState("");
+	const [info, setInfo] = useState(notesData);
 
-	var data = [
+	var randomGreeting = [
 		"Greetings, my friend! How's life treating you?",
 		"Salutations! What's new in your world?",
 		"Ahoy there! Long time no chat.",
@@ -32,90 +24,81 @@ const UserPage = ({ params }) => {
 		"Hola amigo! It's time for another catch-up.",
 		"Hey sunshine! What's been keeping you busy?",
 		"Yoohoo! Let's have a splendid chat, shall we?",
-		"Hey, hey! Ready to dive into some discussions?",
+		"Hey, hey! Ready to dive into some discussions",
+		`Hey there, ${username}!`,
+		`Hi, ${username}!`,
+		`Greetings, ${username}!`,
+		`Hello, ${username}!`,
+		`Welcome, ${username}!`,
+		`Hey, ${username}, Let's Begin!`,
+		`Hiya, ${username}!`,
+		`Howdy, ${username}!`,
+		`Aloha, ${username}!`,
+		`Yo, ${username}!`,
+		`Hi there, ${username}!`,
+		`Hola, ${username}!`,
+		`Hey, ${username}, Let's Start!`,
+		`Hey, ${username}, Ready to Roll?`,
+		`Hello, ${username}, Your Journey Starts!`,
 	];
 
 	useEffect(() => {
-		if (data.length > 0) {
-			const randomIndex =
-				Math.floor(
-					Math.random() *
-					data.length
-				);
-			const randomGreeting =
-				"Hi " +
-				params.name +
-				"! " +
-				data[randomIndex];
-
-			setGreetings(
-				randomGreeting
-			);
+		if (randomGreeting.length > 0) {
+			const randomIndex = Math.floor(Math.random() * randomGreeting.length);
+			setGreetings(randomGreeting[randomIndex]);
+		} else {
+			setGreetings('Hi! Guest User');
 		}
 	}, []);
 
 	const changetodiv1 = (event) => {
-		setDiv1(true)
-		setDiv2(false)
-		setInput('')
+		setDiv1(true);
+		setDiv2(false);
+		setInput("");
 		const newTitle = { title: input };
 		setInfo([...info, newTitle]);
-
-	}
+	};
 
 	const changetodiv2 = () => {
-		setDiv2(true)
-		setDiv1(false)
-	}
+		setDiv2(true);
+		setDiv1(false);
+	};
 
 	const handleInputChange = (event) => {
 		setInput(event.target.value);
-	  };
+	};
 
 	return (
-		<div>
-			<div className="flex justify-center items-center">
-				<div className="my-[50px]">
-					<h1 className="text-white text-[34px] font-semibold font-poppins leading-[20px] ">
+		<div className="mx-8 my-4 sm:mx-20 sm:my-14 md:mx-48 md:my-24 font-poppins">
+			<div className="flex justify-start items-center my-14">
+				<div className="">
+					<h1 className="text-white underline text-clamp-notes-greeting font-bold font-poppins ">
 						{greetings}
 					</h1>
+					<p className="text-text-100">
+						Let&apos;s continue with the notes
+					</p>
 				</div>
 			</div>
-			<div className="p-6 mx-[60px]">
-				<div className="flex flex-wrap justify-evenly">
-					{info.map(
-						(
-							item,
-							index
-						) => (
-							<div
-								key={
-									index
-								}
-								className=""
+			<div className="my-6">
+				<div className="grid gris-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-5 gap-2.5">
+					{info.map((item) => (
+						<div
+							key={item.id}
+							className=""
+						>
+							<Link
+								href={`${params.name}` + "/" + `${item.title}`}
 							>
-								<Link
-									href={
-										`${params.name}` +
-										"/" +
-										`${item.title}`
-									}
-								>
-									<Card
-										title={
-											item.title
-										}
-										date=""
-									/>
-								</Link>
-							</div>
-						)
-					)}
+								<Card {...item} />
+							</Link>
+						</div>
+					))}
 
-					<div className="box-content h-22 w-[260px] p-4 border-2 bg rounded-[7px] my-[10px] text-white text-md bg-[#343434]">
+					<div className="box-border p-5 transition hover:border-stone-500  rounded text-white bg-dark-100 flex flex-col gap-2">
 						<div onClick={changetodiv2}>
 							{div1 && (
-								<div className="mt-[5px] ml-[115px]">
+								<div className="flex justify-center items-center">
 									<span>+ New</span>
 								</div>
 							)}
@@ -123,18 +106,23 @@ const UserPage = ({ params }) => {
 						<div>
 							{div2 && (
 								<div>
-								<input className="text-black w-[150px] "
-								placeholder="title"
-								type="text"
-								value={input}
-								onChange={handleInputChange}
-							  />
-							  	<button className="border 1px bg mx-6 px-1 " onClick={changetodiv1}>Submit</button>
+									<input
+										className="text-black w-[150px] "
+										placeholder="title"
+										type="text"
+										value={input}
+										onChange={handleInputChange}
+									/>
+									<button
+										className="border 1px bg mx-6 px-1 "
+										onClick={changetodiv1}
+									>
+										Submit
+									</button>
 								</div>
 							)}
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
