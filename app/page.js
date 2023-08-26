@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <div className="min-h-screen text-text-100 bg-background mx-5">
+    <div className="min-h-screen text-text-100 bg-background mx-2 sm:mx-5 mx-10">
       <Hero />
 
 			{/* Features */}
@@ -19,7 +19,7 @@ const Home = () => {
 
       {/* FAQ */}
 	    <FAQ />
-	    <hr className="mt-40"/>
+
       <Footer/>
     </div>
   );
