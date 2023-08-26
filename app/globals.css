@@ -5,10 +5,6 @@
 @tailwind utilities;
 
 
-.text-heading{
-    font-size: clamp(1rem, 1rem + 5vw, 3.5rem)
-}
-
 .text-wrap-balance{
     text-wrap: balance;
 }

@@ -7,6 +7,11 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			fontSize:{
+				"clamp-heading": "clamp(54px, 10vw, 150px)",
+				"clamp-subheading": "clamp(1rem, 3vw, 36px)",
+				"clamp-hero": "clamp(18px, 1rem + 3vw, 48px)",
+			},
 			colors: {
 				dark: {
 					100: "#292929",
