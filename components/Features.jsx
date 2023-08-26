@@ -13,7 +13,7 @@ const Features = () => {
 			<div className="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
 				{features.map((comment) => (
 					<div
-						className="flex gap-5 flex-[1]"
+						className="flex gap-5 flex-[1] border-stone-800 border"
 						key={comment.id}
 					>
 						<div className="rounded-md p-4 hover:bg-dark-100">

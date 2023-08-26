@@ -23,8 +23,8 @@ const Hero = () => {
 				Capture, Create, Connect: Your Personal Note-Making Journey
 			</p>
 				<div className="flex gap-4 mt-4 mb-8 sm:mt-6 sm:mb-12 md:mt-9 md:mb-16 justify-center">
-					<Button>Make Notes</Button>
-					<Button type="glory">Join Us</Button>
+					<Button href='/notes'>Make Notes</Button>
+					<Button href="/notes" type="glory">Join Us</Button>
 				</div>
 			<br></br>
 			<div className="flex justify-center h-[10vh] sm:h-[15vh] md:h-[20vh] max-h-[250px]">

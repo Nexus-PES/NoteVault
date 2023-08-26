@@ -4,54 +4,54 @@ import Image from "next/image";
 
 import star from "public/images/star.svg";
 const Comment = () => {
-  return (
-    <div className=" mb-8 sm:mb-12 md:mb-14">
-      <h1 className="font-poppins font-semibold text-clamp-subheading text-white">
-        What <span className="text-primary">Others</span> Have To Say
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 ">
-        {comments.map((comment) => (
-          <CommentCard
-            key={comment.id}
-            ratings={comment.ratings}
-            imageUrl={comment.imageUrl}
-            name={comment.name}
-            comment={comment.comment}
-          />
-        ))}
-      </div>
-    </div>
-  );
+	return (
+		<div>
+			<div className="font-poppins grid grid-col-1 mb-8 sm:mb-12 md:mb-14">
+				<div className="font-poppins font-semibold text-clamp-subheading">
+					What <span className="text-primary">others</span> have to say?
+				</div>
+			</div>
+			<div className="flex gap-4 flex-col sm:flex-row">
+				{comments.map((comment) => (
+					<CommentCard
+						key={comment.id}
+						ratings={comment.ratings}
+						imageUrl={comment.imageUrl}
+						name={comment.name}
+						comment={comment.comment}
+					/>
+				))}
+			</div>
+		</div>
+	);
 };
 
 const CommentCard = ({ ratings, imageUrl, name, comment }) => {
-  return (
-    <div className=" rounded-md hover:bg-[#292929] p-4  border border-slate-200">
-      <div className="flex justify-between items-center  ">
-        <div className="flex gap-x-1">
-          <Image
-            src={imageUrl}
-            alt="profile-pic"
-            width={500}
-            height={500}
-            className="h-[4rem] w-16 border-2 border-[#E40000] rounded-full "
-          />
-          <h2 className="">{name}</h2>
-        </div>
-        <div className="flex gap-x-1">
-          <Image
-            src={star}
-            className=""
-            alt="star"
-            height={22}
-            width={22}
-          />
-          <p className="">{ratings}</p>
-        </div>
-      </div>
-      <p className="py-3">{comment}</p>
-    </div>
-  );
+	return (
+		<div className="rounded-md p-4 hover:bg-dark-100 flex-1 font-poppins border-stone-800 border min-w-[300px]">
+			<div className="flex justify-between items-center gap-x-2 gap-y-4">
+					<Image
+						src={imageUrl}
+						alt="profile picture"
+						width={44}
+						height={44}
+						className="h-12 w-12 border-white border-[1px] rounded-full flex-wrap"
+					/>
+					<h2 className="text-sm grow-1 flex-grow capitalize">{name}</h2>
+				<div className="flex gap-x-1">
+					<Image
+						src={star}
+						className=""
+						alt="star"
+						height={16}
+						width={16}
+					/>
+					<p className="text-xs">{ratings}</p>
+				</div>
+			</div>
+			<p className="py-3 text-xs">{comment}</p>
+		</div>
+	);
 };
 
 export default Comment;

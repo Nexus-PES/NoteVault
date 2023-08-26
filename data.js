@@ -26,7 +26,7 @@ export const comments = [
 		id: 1,
 		ratings: 4.5,
 		imageUrl: "/images/profile.png",
-		name: "Name 1",
+		name: "Harsh Verma",
 		comment:
 			"Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
 	},
@@ -34,23 +34,25 @@ export const comments = [
 		id: 2,
 		ratings: 4,
 		imageUrl: "/images/profile.png",
-		name: "Name 2",
-		comment: "Comment 2",
+		name: "Harsh Verma",
+		comment:
+			"Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
 	},
 	{
 		id: 3,
 		ratings: 4,
 		imageUrl: "/images/profile.png",
-		name: "Name 2",
-		comment: "Comment 2",
+		name: "Sarang kumar",
+		comment:
+			"Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
 	},
-	{
-		id: 4,
-		ratings: 4,
-		imageUrl: "/images/profile.png",
-		name: "Name 2",
-		comment: "Comment 2",
-	},
+	// {
+	// 	id: 4,
+	// 	ratings: 4,
+	// 	imageUrl: "/images/profile.png",
+	// 	name: "Name 2",
+	// 	comment: "Comment 2",
+	// },
 ];
 
 export const faq = [
