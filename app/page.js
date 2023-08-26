@@ -5,24 +5,24 @@ import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 
 const Home = () => {
-  return (
-    <div className="min-h-screen text-text-100 bg-background mx-2 sm:mx-5 mx-10">
-      <Hero />
+	return (
+		<div className="min-h-screen text-text-100 bg-background">
+			<main className="mx-8 sm:mx-20 md:mx-48  flex gap-y-14 flex-col">
+				<Hero />
 
-			{/* Features */}
-			<Features />
+				{/* Features */}
+				<Features />
 
+				{/* Comments */}
+				<Comment />
 
-			{/* Comments */}
-			<Comment />
+				{/* FAQ */}
+				<FAQ />
+			</main>
 
-
-      {/* FAQ */}
-	    <FAQ />
-
-      <Footer/>
-    </div>
-  );
+			<Footer />
+		</div>
+	);
 };
 
 export default Home;
