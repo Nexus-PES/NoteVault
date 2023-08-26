@@ -25,7 +25,7 @@ export default function Footer() {
 					))}
 				</nav>
 				<p className="mt-8 text-center">
-					<span className="mx-auto mt-2 text-sm text-gray-500">
+					<span className="mx-auto mt-2 text-xs text-gray-500">
 						Copyright
 						<Link
 							href="#"

@@ -14,18 +14,28 @@ const Hero = () => {
 				</h1>
 				<h1 className="text-center text-wrap-balance text-clamp-hero font-poppins font-semibold">
 					create{" "}
-					<span className="text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text">
+					<span className="mx-auto text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text">
 						Notes
 					</span>
 				</h1>
 			</div>
 			<p className="w-3/4 sm:h-4/5 ms:2/3 mx-auto text-base text-center tracking-wide text-text-100 font-medium my-2">
-				Capture, Create, Connect: Your Personal Note-Making Journey
+				<span className="block leading-4 whitespace-nowrap">
+					Capture, Create, Connect
+				</span>
+				<span className="whitespace-nowrap text-sm sm:text-base">
+					Your Personal Note-Making Journey
+				</span>
 			</p>
-				<div className="flex gap-4 mt-4 mb-8 sm:mt-6 sm:mb-12 md:mt-9 md:mb-16 justify-center">
-					<Button href='/notes'>Make Notes</Button>
-					<Button href="/notes" type="glory">Join Us</Button>
-				</div>
+			<div className="flex gap-4 mt-6 mb-8 sm:mt-6 sm:mb-12 md:mt-9 md:mb-16 justify-center">
+				<Button href="/notes">Make Notes</Button>
+				<Button
+					href="/notes"
+					type="glory"
+				>
+					Join Us
+				</Button>
+			</div>
 			<br></br>
 			<div className="flex justify-center h-[10vh] sm:h-[15vh] md:h-[20vh] max-h-[250px]">
 				<h1 className="font-poppins flex items-center text-clamp-heading font-black">

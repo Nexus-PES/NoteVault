@@ -7,16 +7,16 @@ const Features = () => {
 		<div>
 			<div className="grid grid-col-1 mb-8 sm:mb-12 md:mb-14">
 				<div className="font-poppins font-semibold text-clamp-subheading">
-					Why <span className="text-primary">NoteVault</span>?
+					Why <span className="text-primary">NoteVault</span> ?
 				</div>
 			</div>
-			<div className="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+			<div className="grid gap-4 sm:gap-5 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4">
 				{features.map((comment) => (
 					<div
-						className="flex gap-5 flex-[1] border-stone-800 border"
+						className="rounded flex gap-5 flex-[1] border-stone-800 border hover:bg-dark-100 "
 						key={comment.id}
 					>
-						<div className="rounded-md p-4 hover:bg-dark-100">
+						<div className="p-4">
 							<div className="flex gap-2">
 								<span className="bg-primary text-primary w-1 h-6">
 									.

@@ -24,54 +24,124 @@ export const features = [
 export const comments = [
 	{
 		id: 1,
-		ratings: 4.5,
 		imageUrl: "/images/profile.png",
-		name: "Harsh Verma",
+		name: "EmilyD",
 		comment:
-			"Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
+			"NoteVault has revolutionized my note-taking experience. The bidirectional linking is a game-changer for connecting my thoughts.",
+		rating: 5,
 	},
 	{
 		id: 2,
-		ratings: 4,
+		name: "AlexNoteTaker",
 		imageUrl: "/images/profile.png",
-		name: "Harsh Verma",
 		comment:
-			"Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
+			"Markdown support in NoteVault makes formatting a breeze. It's my go-to platform for organized notekeeping.",
+		rating: 4,
 	},
 	{
 		id: 3,
-		ratings: 4,
+		name: "IdeasExplorer",
 		imageUrl: "/images/profile.png",
-		name: "Sarang kumar",
 		comment:
-			"Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
+			"I'm eagerly waiting for the collaboration feature to be added. NoteVault is already fantastic for managing my ideas.",
+		rating: 4,
 	},
-	// {
-	// 	id: 4,
-	// 	ratings: 4,
-	// 	imageUrl: "/images/profile.png",
-	// 	name: "Name 2",
-	// 	comment: "Comment 2",
-	// },
+	{
+		id: 4,
+		name: "PrivacyFirst",
+		imageUrl: "/images/profile.png",
+		comment:
+			"The emphasis on data security in NoteVault is a major plus. I feel confident in storing sensitive information here.",
+		rating: 5,
+	},
+	{
+		id: 5,
+		name: "CreativeWriter123",
+		imageUrl: "/images/profile.png",
+		comment:
+			"NoteVault's bidirectional linking helps me see the bigger picture of my writing projects. It's a writer's dream tool.",
+		rating: 5,
+	},
 ];
 
 export const faq = [
 	{
-		id: 1,
-		title: "Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
-		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic inventore facere magnam! Repellendus animi sit ex! Nisi tempore at placeat eligendi blanditiis beatae similique vitae doloremque velit optio, molestias quia eum repellat natus dignissimos maiores dolor modi quae itaque veniam omnis quibusdam maxime! Modi in dolore placeat quae ipsum maxime.",
+	  id: 1,
+	  title: "What is NoteVault?",
+	  desc: "NoteVault is an innovative note-taking platform designed to enhance your organization and idea connections."
 	},
 	{
-		id: 2,
-		title: "Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
-		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic inventore facere magnam! Repellendus animi sit ex! Nisi tempore at placeat eligendi blanditiis beatae similique vitae doloremque velit optio, molestias quia eum repellat natus dignissimos maiores dolor modi quae itaque veniam omnis quibusdam maxime! Modi in dolore placeat quae ipsum maxime.",
+	  id: 2,
+	  title: "How do I use bidirectional linking?",
+	  desc: "Bidirectional linking helps you create connections between notes. Links work both ways, aiding idea exploration."
 	},
 	{
-		id: 3,
-		title: "Seamlessly create and edit notes with our user-friendly interface. Focus on your ideas while we take care of the formatting.",
-		desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic inventore facere magnam! Repellendus animi sit ex! Nisi tempore at placeat eligendi blanditiis beatae similique vitae doloremque velit optio, molestias quia eum repellat natus dignissimos maiores dolor modi quae itaque veniam omnis quibusdam maxime! Modi in dolore placeat quae ipsum maxime.",
+	  id: 3,
+	  title: "Can I access my notes offline?",
+	  desc: "Yes, NoteVault supports offline access. Any changes you make offline will sync when you're back online."
 	},
-];
+	{
+	  id: 4,
+	  title: "Is my data secure on NoteVault?",
+	  desc: "Absolutely. We prioritize data security and use encryption to protect your notes and privacy."
+	},
+	{
+	  id: 5,
+	  title: "What formatting options does NoteVault offer?",
+	  desc: "NoteVault supports Markdown formatting, allowing you to style your notes with simple syntax."
+	},
+	{
+	  id: 6,
+	  title: "Can I categorize my notes?",
+	  desc: "Yes, you can categorize notes using tags and customizable organization features."
+	},
+	{
+	  id: 7,
+	  title: "Is collaboration supported?",
+	  desc: "Collaboration is on the way! Soon, you'll collaborate with others on specific notes or projects."
+	},
+	{
+	  id: 8,
+	  title: "How can I import/export my notes?",
+	  desc: "NoteVault offers import and export options, making migration and backup simple."
+	},
+	{
+	  id: 9,
+	  title: "What is the Graph View?",
+	  desc: "The Graph View visually represents note connections, helping you visualize relationships between ideas."
+	},
+	{
+	  id: 10,
+	  title: "Are there keyboard shortcuts?",
+	  desc: "Yes, NoteVault provides keyboard shortcuts for efficient navigation and actions."
+	},
+	{
+	  id: 11,
+	  title: "Can I customize the theme?",
+	  desc: "Absolutely! NoteVault offers customizable themes to personalize your note-taking environment."
+	},
+	{
+	  id: 12,
+	  title: "How does NoteVault ensure privacy?",
+	  desc: "We follow industry-standard security practices to ensure your data remains private and secure."
+	},
+	{
+	  id: 13,
+	  title: "Is offline access available?",
+	  desc: "Yes, NoteVault lets you access your notes even when you're offline."
+	},
+	{
+	  id: 14,
+	  title: "What is Markdown?",
+	  desc: "Markdown is a simple markup language supported by NoteVault for text formatting."
+	},
+	{
+	  id: 15,
+	  title: "When can I expect new features?",
+	  desc: "We're continually working to improve NoteVault. Expect exciting updates and new features regularly."
+	}
+  ]
+  
 
 export const footer = [
 	{
