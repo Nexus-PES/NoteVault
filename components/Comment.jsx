@@ -5,9 +5,9 @@ import Image from "next/image";
 import star from "public/images/star.svg";
 const Comment = () => {
   return (
-    <>
-      <h1 className="font-poppins font-semibold px-8 text-[2.16rem]  mt-20 text-white mb-6">
-        What Others Have To Say
+    <div className=" mb-8 sm:mb-12 md:mb-14">
+      <h1 className="font-poppins font-semibold text-clamp-subheading text-white">
+        What <span className="text-primary">Others</span> Have To Say
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 ">
         {comments.map((comment) => (
@@ -20,7 +20,7 @@ const Comment = () => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
@@ -46,7 +46,7 @@ const CommentCard = ({ ratings, imageUrl, name, comment }) => {
             height={22}
             width={22}
           />
-          <p className=" ">{ratings}</p>
+          <p className="">{ratings}</p>
         </div>
       </div>
       <p className="py-3">{comment}</p>

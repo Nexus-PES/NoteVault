@@ -53,9 +53,9 @@ const FaqBox = ({ id, title, desc, open, setOpen }) => {
 	return (
 		<div className="p-5 flex flex-col gap-y-2.5 bg-dark-100 rounded font-poppins text-xs">
 			<div className="flex justify-between items-center gap-x-2">
-				<div className="text-white text-justify sm:text-left">
+				<h2 className="text-white text-sm leading-tight text-justify sm:text-left">
 					{title}
-				</div>
+				</h2>
 				<Image
 					src="/images/add.svg"
 					alt="plus"
