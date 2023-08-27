@@ -3,6 +3,8 @@
 
 [Design File](https://www.figma.com/file/ym8CNt559tAIpseV4m6Ret/NoteVault?type=design&node-id=3%3A38&mode=design&t=xuc0UP490ZSuRSHq-1)
 
+[![wakatime](https://wakatime.com/badge/user/b486c624-54cb-4d61-9d41-06e9e496bcfe/project/bbfba2d4-b7d4-4057-9587-32cee31a3aa2.svg)](https://wakatime.com/badge/user/b486c624-54cb-4d61-9d41-06e9e496bcfe/project/bbfba2d4-b7d4-4057-9587-32cee31a3aa2)
+
 Pages
 - Homepage
 - User Homepage

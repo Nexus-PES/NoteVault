@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 // import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 
-const SideMenu = () => {
+const SideMenu = ({className}) => {
 	const [collapsed, setCollapsed] = useState(true);
 
 	const handleCollapse = () => {
@@ -13,8 +13,8 @@ const SideMenu = () => {
 
 	let ab = [1, 2, 3, 4, 5];
 	return (
-		<div className="w-auto flex h-auto">
-			<div className="fixed border-e border-text-200 flex flex-col gap-y-4 w-16 py-6 h-full bg-dark-100 items-center">
+		<aside className={`w-auto flex h-auto ${className}`}>
+			<div className="fixed my-0 border-e border-text-200 flex flex-col gap-y-4 w-16 py-6 h-full bg-dark-100 items-center">
 					<button
 						onClick={handleCollapse}
 					>
@@ -57,7 +57,7 @@ const SideMenu = () => {
 					</div>
 				</div>
 			)}
-		</div>
+		</aside>
 	);
 };
 

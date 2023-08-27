@@ -1,22 +1,12 @@
 "use client";
-import {
-	useEffect,
-	useRef,
-} from "react";
+import { useEffect, useRef } from "react";
 
-const Textarea = ({ content,userNotes, ...props }) => {
+const Textarea = ({ userNotes, ...props }) => {
 	useEffect(() => {
-		textareaRef.current.addEventListener(
-			"input",
-			(e) => {
-				e.target.style.height =
-					"auto";
-				e.target.style.height =
-					e.target
-						.scrollHeight +
-					"px";
-			}
-		);
+		textareaRef.current.addEventListener("input", (e) => {
+			e.target.style.height = "auto";
+			e.target.style.height = e.target.scrollHeight + "px";
+		});
 	}, []);
 	const textareaRef = useRef();
 	return (

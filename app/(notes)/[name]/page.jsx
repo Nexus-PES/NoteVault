@@ -5,6 +5,7 @@ import Image from "next/image";
 import Card from "../../../components/Card";
 import Link from "next/link";
 import { notesData } from "../../../data";
+import SideMenu from "../../../components/Sidebar";
 
 const UserPage = ({ params }) => {
 	const username = "Sarang";
@@ -72,6 +73,10 @@ const UserPage = ({ params }) => {
 	};
 
 	return (
+		<>
+			     <SideMenu />
+				 <main className="ml-16">
+
 		<div className="mx-4 my-4 sm:mx-20 sm:my-14 md:mx-48 md:my-24 font-poppins">
 			<div className="flex justify-start items-center my-14">
 				<div className="">
@@ -113,7 +118,7 @@ const UserPage = ({ params }) => {
 							<div className="flex items-center gap-x-2 justify-between w-full">
 								<input
 									// className="flex-grow grow-1 flex-[1]"
-									className="text-sm font-medium placeholder:text-text-200 p-0 text-text-100 bg-transparent border-b-1 focus:ring-0 putline-none border-0 focus:outline-none focus:border-0"
+									className="text-sm font-medium placeholder:text-text-200 placeholder:text-xs p-0 text-text-100 bg-transparent border-b-1 focus:ring-0 putline-none border-0 focus:outline-none focus:border-0"
 									placeholder="Note title"
 									type="text"
 									value={input}
@@ -141,6 +146,8 @@ const UserPage = ({ params }) => {
 				</div>
 			</div>
 		</div>
+				 </main>
+		</>
 	);
 };
 

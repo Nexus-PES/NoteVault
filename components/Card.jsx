@@ -7,9 +7,9 @@ const Card = ({ title, createdDate, lastModifiedDate }) => {
 		alert("clicked");
 	};
 	return (
-		<div class="box-border p-5 transition hover:border-stone-500  rounded text-white bg-dark-100 flex flex-col gap-2">
+		<div className="box-border p-5 transition hover:border-stone-500  rounded text-white bg-dark-100 flex flex-col gap-2">
 			<div className="flex justify-between items-center">
-				<p className="text-ellipsis overflow-hidden text-white text-sm font-poppins font-medium capitalize">
+				<p className="truncate  text-white text-sm font-poppins font-medium capitalize">
 					{title}
 				</p>
 				<button onClick={() => handleClick(e)}>
