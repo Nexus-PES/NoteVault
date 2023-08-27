@@ -1,13 +1,15 @@
 import Image from "next/image";
 import React from "react";
 
-const Card = ({ title, createdDate, lastModifiedDate }) => {
+const Card = ({ title, createdDate, lastModifiedDate, ...props }) => {
 	const handleClick = (e) => {
 		e.stopPropagation();
 		alert("clicked");
 	};
 	return (
-		<div className="box-border p-5 transition hover:border-stone-500  rounded text-white bg-dark-100 flex flex-col gap-2">
+		<div 
+		{...props}
+		className="box-border p-5 transition hover:border-stone-500 cursor-pointer rounded text-white bg-dark-100 flex flex-col gap-2">
 			<div className="flex justify-between items-center">
 				<p className="truncate  text-white text-sm font-poppins font-medium capitalize">
 					{title}

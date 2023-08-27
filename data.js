@@ -231,7 +231,7 @@ export const notesData = [
     title: "Fitness Log",
     createdDate: "09/08/2023",
     lastModifiedDate: "25/08/2023",
-    content: "Logged today's workout: cardio and strength training."
+    content: "A fitness log is a valuable tool for tracking and documenting your physical activities, workouts, and health progress. By recording essential information such as the type of exercise, duration, intensity, and any notable observations, a fitness log provides a comprehensive snapshot of your fitness journey. This log not only helps you monitor your consistency and performance but also enables you to identify trends, set goals, and make informed adjustments to your workout routine. Whether you're aiming to improve endurance, build strength, or simply maintain an active lifestyle, a well-maintained fitness log acts as a motivating and informative companion on your path to better health and wellness."
   },
   {
     id: 10,

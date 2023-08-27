@@ -1,23 +1,24 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Card from "../../../components/Card";
 import Link from "next/link";
 import { notesData } from "../../../data";
 import SideMenu from "../../../components/Sidebar";
 
-const UserPage = ({ params }) => {
-	const username = "Sarang";
+import Image from "next/image";
 
-	var [greetings, setGreetings] = useState("");
+const UserPage = ({ params }) => {
+	const username = params.name;
+
+	const [greetings, setGreetings] = useState("");
 	const [info, setInfo] = useState(notesData);
 	const [input, setInput] = useState("");
 
 	const [div1, setDiv1] = useState(true);
 	const [div2, setDiv2] = useState(false);
 
-	var randomGreeting = [
+	const randomGreeting = [
 		"Salutations! What's new in your world?",
 		"Ahoy there! Long time no chat.",
 		`Hey there, ${username}!`,
@@ -72,6 +73,23 @@ const UserPage = ({ params }) => {
 		setInput(event.target.value);
 	};
 
+	const handleCardClick = (item) => {
+		console.log(item);
+		const { title, id } = item;
+
+		// router.push("/notes/" + id);
+		// try {
+		// 	const response = await fetch("/api/notevault", {
+		// 		method: "POST",
+		// 		headers: { "Content-Type": "application/json" },
+		// 		body: JSON.stringify(item),
+		// 	});
+		// 	const data = await response.json();
+		// 	console.log(data);
+		// } catch {
+		// 	console.log("fetch failed");
+		// }
+	};
 	return (
 		<>
 			<SideMenu />
@@ -90,20 +108,16 @@ const UserPage = ({ params }) => {
 					<div className="my-6">
 						<div className="grid gris-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5">
 							{info.map((item) => (
-								<div
+								<Link
+									href={"/notes/" + item.id}
 									key={item.id}
 									className=""
 								>
-									<Link
-										href={
-											`${params.name}` +
-											"/" +
-											`${item.title}`
-										}
-									>
-										<Card {...item} />
-									</Link>
-								</div>
+									<Card
+										{...item}
+										onClick={() => handleCardClick(item)}
+									/>
+								</Link>
 							))}
 
 							<div className="h-[84px] lg:h-auto p-5 transition-all hover:border-stone-500  rounded text-white bg-dark-100 flex flex-col items-center justify-center">

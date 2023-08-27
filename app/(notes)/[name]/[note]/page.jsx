@@ -1,21 +1,21 @@
 "use client";
 import Button from "../../../../components/Button";
 import Textarea from "../../../../components/Textarea";
+import SideMenu from "../../../../components/Sidebar";
+import FooterRibbon from "../../../../components/FooterRibbon.jsx";
 
 import React, { useEffect, useState, useRef } from "react";
-import FooterRibbon from "./FooterRibbon.jsx";
 import Image from "next/image";
-import SideMenu from "../../../../components/Sidebar";
 import Link from "next/link";
+import { notesData } from "../../../../data";
 
 const Notes = ({ params }) => {
-	const [notes, setNotes] = useState({
-		id: 10,
-		title: "Art Project",
-		createdDate: "06/08/2023",
-		lastModifiedDate: "19/08/2023",
-		content: "Added progress photos of the oil painting in process.",
-	});
+	const id  = params.note;
+
+	const [notes, setNotes] = useState(notesData.find((note) => note.id == id));
+
+	const [recognizedText, setRecognizedText] = useState('placeholder');
+	let recognition;
 
 	const [userNotes, setUserNotes] = useState(notes.content);
 	// const titleRef = useRef(null);
@@ -46,8 +46,26 @@ const Notes = ({ params }) => {
 		getNotes();
 	}, []);
 
+
+
+	const startRecognition = () => {
+		recognition = new window.webkitSpeechRecognition();
+		recognition.onresult = (event) => {
+		  const transcript = event.results[0][0].transcript;
+		  setRecognizedText(transcript);
+		};
+		recognition.start();
+	  };
+	
+	  const stopRecognition = () => {
+		if (recognition) {
+		  recognition.stop();
+		}
+	  };
+
 	const handleRecording = () => {
 		setIsRecording((prev) => !prev);
+
 	};
 
 	const handleSave = () => {
@@ -74,6 +92,16 @@ const Notes = ({ params }) => {
 		setUserNotes(e.target.value);
 		setStatus("pending");
 	};
+
+
+	// return (
+	// 	<div className="text-white">
+	// 	  <button onClick={startRecognition}>Start Speech Recognition</button>
+	// 	  <button onClick={stopRecognition}>Stop Speech Recognition</button>
+	// 	  <p>Recognized Text: {recognizedText}</p>
+	// 	</div>
+	//   );
+
 
 	return (
 		<>
@@ -116,40 +144,39 @@ const Notes = ({ params }) => {
 							<Button onClick={handleSave}>Save</Button>
 						</div>
 					</div>
-<div className="flex flex-col gap-y-2 sm:gap-y-4">
-
-					<input
-						type="text"
-						placeholder="Your Notes"
-						defaultValue={notes.title}
-						onChange={(e) =>
-							setNotes({ ...notes, title: e.target.value })
-						}
-						onKeyDown={(e) => handleKeyDown(e)}
-						// text-lg sm:text-3xl md:text-5xl
-						className="
+					<div className="flex flex-col gap-y-2 sm:gap-y-4">
+						<input
+							type="text"
+							placeholder="Your Notes"
+							defaultValue={notes.title}
+							onChange={(e) =>
+								setNotes({ ...notes, title: e.target.value })
+							}
+							onKeyDown={(e) => handleKeyDown(e)}
+							// text-lg sm:text-3xl md:text-5xl
+							className="
 						text-clamp-notes-greeting
 						font-bold block w-full rounded py-2 text-white underline sm:leading-6 bg-transparent focus:ring-0 border-0"
-						maxLength={100}
-						minLength={3}
-						required
-					/>
+							maxLength={40}
+							minLength={3}
+							required
+						/>
 
-					<Textarea
-						{...notes}
-						userNotes={userNotes}
-						reference={textareaRef}
-						onChange={handleTextareaChange}
-					/>
+						<Textarea
+							// {...notes}
+							userNotes={userNotes}
+							reference={textareaRef}
+							onChange={handleTextareaChange}
+						/>
 
-					<FooterRibbon
-						{...notes}
-						status={status}
-						isRecording={isRecording}
-						userNotes={userNotes}
-					/>
+						<FooterRibbon
+							{...notes}
+							status={status}
+							isRecording={isRecording}
+							userNotes={userNotes}
+						/>
+					</div>
 				</div>
-</div>
 			</main>
 		</>
 	);
