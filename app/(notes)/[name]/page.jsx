@@ -5,6 +5,8 @@ import Card from "../../../components/Card";
 import Link from "next/link";
 import { notesData } from "../../../data";
 import SideMenu from "../../../components/Sidebar";
+import { RocketLaunchIcon } from '@heroicons/react/24/outline'
+
 
 import Image from "next/image";
 
@@ -76,7 +78,6 @@ const UserPage = ({ params }) => {
 	};
 
 	const handleCardClick = (item) => {
-		
 		const { title, id } = item;
 
 		// router.push("/notes/" + id);
@@ -108,7 +109,7 @@ const UserPage = ({ params }) => {
 						</div>
 					</div>
 					<div className="my-6">
-						<div className="grid gris-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5">
+						<div className="grid gris-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5">
 							{info.map((item) => (
 								<Link
 									href={"/notes/" + item.id}
@@ -122,7 +123,7 @@ const UserPage = ({ params }) => {
 								</Link>
 							))}
 
-							<div className="h-[84px] lg:h-auto p-5 transition-all hover:border-stone-500  rounded text-white bg-dark-100 flex flex-col items-center justify-center">
+							<div className="h-[84px] lg:h-auto p-5 transition-all hover:border-stone-500 rounded text-white bg-dark-100 flex flex-col items-center justify-center">
 								<div
 									onClick={changetodiv2}
 									className=""
@@ -134,29 +135,20 @@ const UserPage = ({ params }) => {
 									)}
 								</div>
 								{div2 && (
-									<div className="flex items-center gap-x-2 justify-between w-full">
+									<div className="flex items-center justify-center w-full">
 										<input
-											// className="flex-grow grow-1 flex-[1]"
-											className="text-sm font-medium placeholder:text-text-200 placeholder:text-xs p-0 text-text-100 bg-transparent border-b-1 focus:ring-0 putline-none border-0 focus:outline-none focus:border-0"
+											className="text-sm w-16 flex-grow flex-[1] font-medium placeholder:text-text-200 placeholder:text-xs p-0 text-text-100 bg-transparent focus:ring-0 putline-none border-0 focus:outline-none focus:border-0"
 											placeholder="Note title"
 											type="text"
 											value={input}
 											onChange={handleInputChange}
 										/>
-										<button onClick={changetodiv1}>
-											<Image
-												src={`${
-													input.length > 0
-														? "/images/thumbs-up.png"
-														: "/images/thumbs-up-disabled.png"
-												}`}
-												alt="profile picture"
-												width={100}
-												height={100}
+										<button onClick={input.length > 0 && changetodiv1}>
+											<RocketLaunchIcon
 												className={`${
 													input.length > 0 &&
-													"hover:animate-waving-hand"
-												} h-5 w-5 sm:w-5 sm:h-5 rounded-full flex-wrap`}
+													"animate-waving-hand text-white "
+												} h-6 w-6 sm:w-8 sm:h-8 flex-wrap hover:bg-text-200 focus:bg-text-200 rounded p-1.5`}
 											/>
 										</button>
 									</div>

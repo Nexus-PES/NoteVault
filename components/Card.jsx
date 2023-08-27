@@ -1,31 +1,47 @@
 import Image from "next/image";
 import React from "react";
 
+import MenuButton from "./MenuButton";
+import {
+	ArrowLongRightIcon,
+	EllipsisVerticalIcon,
+} from "@heroicons/react/24/solid";
+
 const Card = ({ title, createdDate, lastModifiedDate, ...props }) => {
 	const handleClick = (e) => {
 		e.stopPropagation();
 		alert("clicked");
 	};
+
+	const links = [
+		{ href: "/account-settings", label: "Account settings" },
+		{ href: "/support", label: "Support" },
+		{ href: "/license", label: "License" },
+		{ href: "/sign-out", label: "Sign out" },
+	];
+
 	return (
-		<div 
-		{...props}
-		className="box-border p-5 transition hover:border-stone-500 cursor-pointer rounded text-white bg-dark-100 flex flex-col gap-2">
+		<div
+			{...props}
+			className="box-border p-5 transition hover:border-stone-500 cursor-pointer rounded text-white bg-dark-100 flex flex-col gap-2"
+		>
 			<div className="flex justify-between items-center">
 				<p className="truncate  text-white text-sm font-poppins font-medium capitalize">
 					{title}
 				</p>
-				<button onClick={() => handleClick(e)}>
-					<Image
-						src="/images/threeDots.svg"
-						alt="options"
-						className=""
-						height={20}
-						width={5}
-					/>
-				</button>
+				<div onClick={(e) => e.stopPropagation()}>
+					<MenuButton
+						links={links}
+						onClick={(e) => e.stopPropagation()}
+					>
+						<EllipsisVerticalIcon className="h-6 w-6" />
+					</MenuButton>
+				</div>
 			</div>
-			<p className="text-xs text-text-100">
-				{createdDate} → {lastModifiedDate}
+			<p className="text-xs text-text-100 flex items-center gap-x-1">
+				<span>{createdDate}</span>
+				<ArrowLongRightIcon className="w-5 inline-block" />
+				<span>{lastModifiedDate}</span>
 			</p>
 		</div>
 	);

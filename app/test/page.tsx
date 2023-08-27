@@ -1,8 +1,9 @@
+"use client";
 // import React from "react";
 // import prisma from "../../prisma/prisma";
 
 // async function Testing() {
-  
+
 //   const reading = await prisma.titles.findMany({})
 // 	console.log(reading);
 
@@ -13,10 +14,10 @@
 
 import React from 'react'
 
-const TextPage = () => {
+const page = () => {
   return (
-	<div>TextPage</div>
+	<div>page</div>
   )
 }
 
-export default TextPage
+export default page

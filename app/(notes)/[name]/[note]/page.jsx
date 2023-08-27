@@ -8,6 +8,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notesData } from "../../../../data";
+import MenuButton from "../../../../components/MenuButton";
 
 const Notes = ({ params }) => {
 	const { note, name } = params;
@@ -74,6 +75,14 @@ const Notes = ({ params }) => {
 		setStatus("pending");
 	};
 
+	const links = [
+		{ href: "/account-settings", label: "Account settings" },
+		{ href: "/support", label: "Support" },
+		{ href: "/license", label: "License" },
+		{ href: "/sign-out", label: "Sign out" },
+	];
+
+
 	// return (
 	// 	<div className="text-white">
 	// 	  <button onClick={startRecognition}>Start Speech Recognition</button>
@@ -96,7 +105,9 @@ const Notes = ({ params }) => {
 						</Link>
 
 						<div className="flex gap-x-2">
+							<MenuButton links={links}>
 							<Button size="sm">
+
 								<Image
 									src="/images/edit.svg"
 									width={20}
@@ -104,6 +115,7 @@ const Notes = ({ params }) => {
 									alt="mic"
 								/>
 							</Button>
+							</MenuButton>
 							<Button
 								size="sm"
 								type="glory"
