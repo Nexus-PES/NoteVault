@@ -4,7 +4,7 @@ import {
 	useRef,
 } from "react";
 
-const Textarea = ({ displayer }) => {
+const Textarea = ({ content,userNotes, ...props }) => {
 	useEffect(() => {
 		textareaRef.current.addEventListener(
 			"input",
@@ -21,14 +21,15 @@ const Textarea = ({ displayer }) => {
 	const textareaRef = useRef();
 	return (
 		<textarea
+			{...props}
 			ref={textareaRef}
 			spellCheck={false}
 			autoCorrect={false}
 			autoFocus={true}
 			placeholder="Your Notes"
-			className="text-base font-normal block w-full rounded-md px-3.5 py-2 text-text-100 sm:leading-6 bg-transparent border border-white focus:border-2 focus:border-white"
+			className="text-base font-normal block w-full rounded-md py-2 text-text-100 sm:leading-6 bg-transparent border-0 focus:border-0 focus:ring-0 focus:bg-dark-100"
 		>
-			{displayer}
+			{userNotes}
 		</textarea>
 	);
 };

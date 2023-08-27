@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+// import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 
 const SideMenu = () => {
 	const [collapsed, setCollapsed] = useState(true);
@@ -44,7 +44,7 @@ const SideMenu = () => {
 						</p>
 					</div>
 					<div className="flex flex-col w-41 gap-2">
-						{ab.map((item, i) => (
+						{/* {ab.map((item, i) => (
 							<div className="flex flex-row gap-1" key={item.i}>
 								<div className="w-2.5 h-2.5 shrink-0 self-center bg-secondary rounded-full"></div>
 								<div className=" truncate">
@@ -53,7 +53,7 @@ const SideMenu = () => {
 									</p>
 								</div>
 							</div>
-						))}
+						))} */}
 					</div>
 				</div>
 			)}
