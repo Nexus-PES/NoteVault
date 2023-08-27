@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
 	title: "Note Vault",
@@ -8,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className="bg-background">{children}</body>
+			<body className="bg-background">{children}  <Analytics /></body>
 		</html>
 	);
 }
