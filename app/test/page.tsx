@@ -1,12 +1,12 @@
-import React from "react";
-import prisma from "../../prisma/prisma";
+// import React from "react";
+// import prisma from "../../prisma/prisma";
 
-async function Testing() {
+// async function Testing() {
   
-  const reading = await prisma.titles.findMany({})
-	console.log(reading);
+//   const reading = await prisma.titles.findMany({})
+// 	console.log(reading);
 
-	return <div>Testing</div>;
-}
+// 	return <div>Testing</div>;
+// }
 
-export default Testing;
+// export default Testing;
