@@ -28,9 +28,9 @@ const Hero = () => {
 				</span>
 			</p>
 			<div className="flex gap-4 mt-6 mb-8 sm:mt-6 sm:mb-12 md:mt-9 md:mb-16 justify-center">
-				<Button href="/notes">Make Notes</Button>
+				<Button href="/Sarang">Make Notes</Button>
 				<Button
-					href="/notes"
+					href="/Sarang Kumar"
 					type="glory"
 				>
 					Join Us

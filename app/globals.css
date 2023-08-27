@@ -14,3 +14,7 @@
 .custom-delay-600 {
 	animation-delay: 600ms;
 }
+
+.text-primary{
+	color: #E40000;
+}

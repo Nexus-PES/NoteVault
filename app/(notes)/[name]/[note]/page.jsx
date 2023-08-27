@@ -10,62 +10,36 @@ import Link from "next/link";
 import { notesData } from "../../../../data";
 
 const Notes = ({ params }) => {
-	const id  = params.note;
+	const { note, name } = params;
 
-	const [notes, setNotes] = useState(notesData.find((note) => note.id == id));
+	const [notes, setNotes] = useState(notesData.find((el) => el.id == note));
 
-	const [recognizedText, setRecognizedText] = useState('placeholder');
+	const [recognizedText, setRecognizedText] = useState("placeholder");
 	let recognition;
 
 	const [userNotes, setUserNotes] = useState(notes.content);
-	// const titleRef = useRef(null);
 	const textareaRef = useRef(null);
 
 	const [isRecording, setIsRecording] = useState(false);
 	const [status, setStatus] = useState("saved");
 
-	useEffect(() => {
-		const getNotes = async () => {
-			try {
-				const res = await fetch("/api/notevault", {
-					method: "GET",
-					body: { note: 5 },
-				});
-				const data = await res.json();
-
-				setNotes(data);
-				console.log(notes);
-			} catch {
-				console.log("notes not found");
-			}
-		};
-
-		// document.addEventListener('click', ()=>{
-
-		// })
-		getNotes();
-	}, []);
-
-
-
 	const startRecognition = () => {
 		recognition = new window.webkitSpeechRecognition();
 		recognition.onresult = (event) => {
-		  const transcript = event.results[0][0].transcript;
-		  setRecognizedText(transcript);
+			const transcript = event.results[0][0].transcript;
+			setRecognizedText(transcript);
 		};
 		recognition.start();
-	  };
-	
-	  const stopRecognition = () => {
+	};
+
+	const stopRecognition = () => {
 		if (recognition) {
-		  recognition.stop();
+			recognition.stop();
 		}
-	  };
+	};
 
 	const handleRecording = () => {
 		setIsRecording((prev) => !prev);
-
 	};
 
 	const handleSave = () => {
@@ -78,7 +52,7 @@ const Notes = ({ params }) => {
 
 		setTimeout(() => {
 			setStatus("saved");
-		}, 2000);
+		}, 1000);
 	};
 
 	const handleKeyDown = (e) => {
@@ -89,10 +63,16 @@ const Notes = ({ params }) => {
 	};
 
 	const handleTextareaChange = (e) => {
-		setUserNotes(e.target.value);
+		// const inputString = e.target.innerHTML;
+		const inputString = e.target.value;
+		const modifiedString = inputString.replace(
+			/#[a-zA-Z0-9_]+/g,
+			'<span class="text-primary">$&</span>'
+		);
+
+		setUserNotes(modifiedString);
 		setStatus("pending");
 	};
-
 
 	// return (
 	// 	<div className="text-white">
@@ -102,16 +82,15 @@ const Notes = ({ params }) => {
 	// 	</div>
 	//   );
 
-
 	return (
 		<>
-			<SideMenu className="hidden sm:inline-block" />
+			{/* <SideMenu className="hidden sm:inline-block" /> */}
 			<main>
 				<div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 my-14 sm:mx-20 md:mx-28 ">
-					<div className="flex gap-4 justify-between sm:justify-end items-center">
+					<div className="flex gap-4 justify-between items-center">
 						<Link
-							className="inline-block sm:hidden text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
-							href="/notes"
+							className="text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
+							href={`/${name}`}
 						>
 							Back
 						</Link>
@@ -147,25 +126,22 @@ const Notes = ({ params }) => {
 					<div className="flex flex-col gap-y-2 sm:gap-y-4">
 						<input
 							type="text"
-							placeholder="Your Notes"
+							placeholder="Note Title"
 							defaultValue={notes.title}
 							onChange={(e) =>
 								setNotes({ ...notes, title: e.target.value })
 							}
 							onKeyDown={(e) => handleKeyDown(e)}
-							// text-lg sm:text-3xl md:text-5xl
-							className="
-						text-clamp-notes-greeting
-						font-bold block w-full rounded py-2 text-white underline sm:leading-6 bg-transparent focus:ring-0 border-0"
+							className="text-clamp-notes-greeting font-bold block w-full rounded py-2 placeholder:text-gray-600 text-text-100 sm:leading-6 bg-transparent focus:ring-0 border-0"
 							maxLength={40}
 							minLength={3}
 							required
 						/>
 
 						<Textarea
-							// {...notes}
 							userNotes={userNotes}
 							reference={textareaRef}
+							onInput={handleTextareaChange}
 							onChange={handleTextareaChange}
 						/>
 

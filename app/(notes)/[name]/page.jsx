@@ -11,6 +11,8 @@ import Image from "next/image";
 const UserPage = ({ params }) => {
 	const username = params.name;
 
+	// console.log(username.split('%2B'))
+
 	const [greetings, setGreetings] = useState("");
 	const [info, setInfo] = useState(notesData);
 	const [input, setInput] = useState("");
@@ -19,8 +21,8 @@ const UserPage = ({ params }) => {
 	const [div2, setDiv2] = useState(false);
 
 	const randomGreeting = [
-		"Salutations! What's new in your world?",
-		"Ahoy there! Long time no chat.",
+		`Salutations! ${username}`,
+		`Ahoy ${username}! Long time no chat.`,
 		`Hey there, ${username}!`,
 		`Hi, ${username}!`,
 		`Greetings, ${username}!`,
@@ -74,7 +76,7 @@ const UserPage = ({ params }) => {
 	};
 
 	const handleCardClick = (item) => {
-		console.log(item);
+		
 		const { title, id } = item;
 
 		// router.push("/notes/" + id);
