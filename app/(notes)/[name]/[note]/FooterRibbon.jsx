@@ -5,22 +5,48 @@ function FooterRibbon({
 	title,
 	createdDate,
 	lastModifiedDate,
-	content,
+	status,
 	isRecording,
 	userNotes,
 }) {
 	return (
-		<div className="fixed border-t border-text-200 gap-4 flex justify-between items-center left-0 bottom-0 bg-dark-100 w-full px-3 sm:px-2 py-2">
+		<div className="fixed border-t border-text-200 gap-4 flex justify-between items-center left-0 bottom-0 bg-dark-100 w-full px-3 sm:px-2 py-2 sm:py-1">
 			<div className="flex gap-4 text-[8px] sm:text-[8px] gap-x-2 font-poppins">
-				<span className="mx-1">{userNotes.length} words</span>
-				<span className="mx-1 hidden sm:inline-block">Created on: {createdDate}</span>
+				<span className="mx-1">
+					{userNotes === "" ? 0 : userNotes.split(" ").length} words
+				</span>
+				<span className="mx-1 hidden sm:inline-block">
+					Created on: {createdDate}
+				</span>
 				<span className="mx-1">
 					Last Modified on: {lastModifiedDate}
 				</span>
 			</div>
 			<div className="flex gap-4 text-[8px] sm:text-[8px] gap-x-2 font-poppins">
-				{isRecording && <span className="">Recording <span className="animate-bounce inline-block delay-0">.</span><span className="animate-bounce inline-block delay-100">.</span><span className="animate-bounce inline-block delay-200">.</span></span>}
-				<span className="text-secondary">Pending</span>
+				{status === "saved" ? (
+					<span></span>
+				) : status === "pending" ? (
+					<span className="text-white">Pending</span>
+				) : (
+						<span className="text-white">Updaing...</span>
+				)}
+				{isRecording && (
+					<p className="text-secondary flex gap-x-1">
+						Recording{" "}
+						<span className="flex gap-x-[0.5px]">
+						<span className="animate-bounce inline-block font-bold">
+							.
+						</span>
+						<span className="animate-bounce inline-block font-bold custom-delay-300">
+							.
+						</span>
+						<span className="animate-bounce inline-block font-bold custom-delay-600">
+							.
+						</span>
+						</span>
+					</p>
+				)}
+				{/* {isRecording && <span className="text-secondary">Recording</span>} */}
 			</div>
 		</div>
 	);

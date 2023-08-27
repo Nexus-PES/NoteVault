@@ -22,6 +22,7 @@ const Notes = ({ params }) => {
 	const textareaRef = useRef(null);
 
 	const [isRecording, setIsRecording] = useState(false);
+	const [status, setStatus] = useState("saved");
 
 	useEffect(() => {
 		const getNotes = async () => {
@@ -38,6 +39,10 @@ const Notes = ({ params }) => {
 				console.log("notes not found");
 			}
 		};
+
+		// document.addEventListener('click', ()=>{
+
+		// })
 		getNotes();
 	}, []);
 
@@ -51,6 +56,11 @@ const Notes = ({ params }) => {
 			content: userNotes,
 			lastModifiedDate: new Date().toLocaleDateString("en-GB"),
 		});
+		setStatus("updating");
+
+		setTimeout(() => {
+			setStatus("saved");
+		}, 2000);
 	};
 
 	const handleKeyDown = (e) => {
@@ -60,13 +70,21 @@ const Notes = ({ params }) => {
 		}
 	};
 
+	const handleTextareaChange = (e) => {
+		setUserNotes(e.target.value);
+		setStatus("pending");
+	};
+
 	return (
 		<>
 			<SideMenu className="hidden sm:inline-block" />
-			<main className="">
-				<div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 my-14 sm:mx-20 md:mx-48 md:my-24 ">
+			<main>
+				<div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 my-14 sm:mx-20 md:mx-28 ">
 					<div className="flex gap-4 justify-between sm:justify-end items-center">
-						<Link className="inline-block sm:hidden text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition font-poppins" href="/notes">
+						<Link
+							className="inline-block sm:hidden text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
+							href="/notes"
+						>
 							Back
 						</Link>
 
@@ -98,6 +116,7 @@ const Notes = ({ params }) => {
 							<Button onClick={handleSave}>Save</Button>
 						</div>
 					</div>
+<div className="flex flex-col gap-y-2 sm:gap-y-4">
 
 					<input
 						type="text"
@@ -107,7 +126,10 @@ const Notes = ({ params }) => {
 							setNotes({ ...notes, title: e.target.value })
 						}
 						onKeyDown={(e) => handleKeyDown(e)}
-						className="text-clamp-subheading font-bold block w-full rounded py-2 text-white underline sm:text-sm sm:leading-6 bg-transparent focus:ring-0 border-0 focus:bg-dark-100"
+						// text-lg sm:text-3xl md:text-5xl
+						className="
+						text-clamp-notes-greeting
+						font-bold block w-full rounded py-2 text-white underline sm:leading-6 bg-transparent focus:ring-0 border-0"
 						maxLength={100}
 						minLength={3}
 						required
@@ -116,16 +138,18 @@ const Notes = ({ params }) => {
 					<Textarea
 						{...notes}
 						userNotes={userNotes}
-						// ref={textareaRef}
-						onChange={(e) => setUserNotes(e.target.value)}
+						reference={textareaRef}
+						onChange={handleTextareaChange}
 					/>
 
 					<FooterRibbon
 						{...notes}
+						status={status}
 						isRecording={isRecording}
 						userNotes={userNotes}
 					/>
 				</div>
+</div>
 			</main>
 		</>
 	);
