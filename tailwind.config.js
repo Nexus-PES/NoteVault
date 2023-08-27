@@ -38,8 +38,8 @@ module.exports = {
 					200: "#676161",
 				},
 				background: "#1D1D1D",
-				primary: "#E40000",
-				secondary: "#FF5416",
+				primary: "#E91E63",
+				secondary: "#C2185B",
 			},
 			fontFamily: {
 				// 	poppins: ['poppins', 'sans-serif'],
