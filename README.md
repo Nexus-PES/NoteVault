@@ -7,7 +7,7 @@
 
 Pages
 - Homepage
-- User Homepage
+- User Notes Page
 - Notes
 
 Prefered file structure
