@@ -148,7 +148,7 @@ const UserPage = ({ params }) => {
 												className={`${
 													input.length > 0 &&
 													"animate-waving-hand text-white "
-												} h-6 w-6 sm:w-8 sm:h-8 flex-wrap hover:bg-text-200 focus:bg-text-200 rounded p-1.5`}
+												} w-8 h-8 flex-wrap hover:bg-text-200 focus:bg-text-200 rounded p-1.5`}
 											/>
 										</button>
 									</div>

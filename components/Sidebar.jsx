@@ -30,7 +30,7 @@ const SideMenu = ({ className }) => {
 					<button>
 						<Bars3Icon
 							onClick={handleCollapse}
-							className="h-6 w-6 sm:w-8 sm:h-8 text-white hover:bg-text-200 focus:bg-text-200 rounded p-1.5"
+							className="w-8 h-8 text-white hover:bg-text-200 focus:bg-text-200 rounded p-1.5"
 						/>
 					</button>
 				</div>
