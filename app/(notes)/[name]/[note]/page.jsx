@@ -12,8 +12,19 @@ import MenuButton from "../../../../components/MenuButton";
 
 const Notes = ({ params }) => {
 	const { note, name } = params;
+	let currentNote = notesData.find((el) => el.id == note);
 
-	const [notes, setNotes] = useState(notesData.find((el) => el.id == note));
+	if (typeof currentNote === "undefined") {
+		currentNote = {
+			id: 0,
+			title: "It's not a bug it's a feature 🐞",
+			createdDate: '27/08/2023',
+			lastModifiedDate: new Date().toLocaleDateString("en-GB"),
+			content: "TODO",
+		};
+	}
+	console.log(currentNote)
+	const [notes, setNotes] = useState(currentNote);
 
 	const [recognizedText, setRecognizedText] = useState("placeholder");
 	let recognition;
@@ -82,7 +93,6 @@ const Notes = ({ params }) => {
 		{ href: "/sign-out", label: "Sign out" },
 	];
 
-
 	// return (
 	// 	<div className="text-white">
 	// 	  <button onClick={startRecognition}>Start Speech Recognition</button>
@@ -105,16 +115,19 @@ const Notes = ({ params }) => {
 						</Link>
 
 						<div className="flex gap-x-2">
-							<MenuButton links={links}>
-							<Button size="sm">
+							<MenuButton links={links} >
+								<Button size="sm">
+								{/* <span className="text-center bg-white rounded-lg h-5 w-5 flex items-center justify-center">
+								</span> */}
 
-								<Image
-									src="/images/edit.svg"
-									width={20}
-									height={20}
-									alt="mic"
-								/>
-							</Button>
+									<Image
+										src="/images/edit.svg"
+										width={20}
+										height={20}
+										alt="mic"
+										className=""
+									/>
+								</Button>
 							</MenuButton>
 							<Button
 								size="sm"
