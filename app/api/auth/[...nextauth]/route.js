@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
-const production = true;
+const production = true
 
 const handler = NextAuth({
 	providers: [
