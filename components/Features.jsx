@@ -11,10 +11,10 @@ const Features = () => {
 				</div>
 			</div>
 			<div className="grid gap-4 sm:gap-5 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4">
-				{features.map((comment) => (
+				{features.map((feature,i) => (
 					<div
 						className="rounded flex gap-5 flex-[1] border-stone-800 border hover:bg-dark-100 "
-						key={comment.id}
+						key={i}
 					>
 						<div className="p-4">
 							<div className="flex gap-2">
@@ -27,11 +27,11 @@ const Features = () => {
 									className="self-start"
 								/>
 								<h2 className="self-start font-poppins w-[14rem]">
-									{comment.title}
+									{feature.title}
 								</h2>
 							</div>
 							<p className="text-xs ml-4 mt-[0.5rem] font-poppins">
-								{comment.description}
+								{feature.description}
 							</p>
 						</div>
 					</div>
