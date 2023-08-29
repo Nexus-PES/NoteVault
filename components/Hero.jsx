@@ -82,7 +82,7 @@ const Hero = () => {
 						type="glory"
 							href={`/${session.user.name.split(" ").join("")}`}
 						>
-							Make Notes
+							Start with Notes
 						</Button>
 					</>
 				) : (

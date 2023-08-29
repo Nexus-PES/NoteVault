@@ -5,13 +5,13 @@ import Card from "../../../components/Card";
 import Link from "next/link";
 import { notesData } from "../../../data";
 import SideMenu from "../../../components/Sidebar";
-import { RocketLaunchIcon } from "@heroicons/react/24/outline";
+import { BsRocketTakeoff } from "react-icons/bs";
 
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import Button from "../../../components/Button";
 
-const UserPage = ({ params }) => {
+const UserPage = () => {
 	const { data: session } = useSession();
 
 	let username;
@@ -161,7 +161,7 @@ const UserPage = ({ params }) => {
 													changetodiv1
 												}
 											>
-												<RocketLaunchIcon
+												<BsRocketTakeoff
 													className={`${
 														input.length > 0 &&
 														"animate-waving-hand text-white "

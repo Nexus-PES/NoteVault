@@ -2,10 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 import MenuButton from "./MenuButton";
-import {
-	ArrowLongRightIcon,
-	EllipsisVerticalIcon,
-} from "@heroicons/react/24/solid";
+import { BsArrowRight, BsThreeDotsVertical } from "react-icons/bs";
 
 const Card = ({ title, createdDate, lastModifiedDate, ...props }) => {
 	const handleClick = (e) => {
@@ -34,13 +31,13 @@ const Card = ({ title, createdDate, lastModifiedDate, ...props }) => {
 						links={links}
 						onClick={(e) => e.stopPropagation()}
 					>
-						<EllipsisVerticalIcon className="h-6 w-6" />
+						<BsThreeDotsVertical className="h-5 w-5" />
 					</MenuButton>
 				</div>
 			</div>
 			<p className="text-xs text-text-100 flex items-center gap-x-1">
 				<span>{createdDate}</span>
-				<ArrowLongRightIcon className="w-5 inline-block" />
+				<BsArrowRight className="w-5 inline-block" />
 				<span>{lastModifiedDate}</span>
 			</p>
 		</div>

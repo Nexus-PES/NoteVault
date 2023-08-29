@@ -1,5 +1,5 @@
 "use client";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import { BsLayoutSidebar } from "react-icons/bs";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,7 +34,7 @@ const SideMenu = ({ className }) => {
 						/>
 					</Link>
 					<button>
-						<Bars3Icon
+						<BsLayoutSidebar
 							onClick={handleCollapse}
 							className="w-8 h-8 text-white hover:bg-text-200 focus:bg-text-200 rounded p-1.5"
 						/>
