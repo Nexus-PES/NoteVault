@@ -1,11 +1,12 @@
 "use client";
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-// import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 
 const SideMenu = ({ className }) => {
+	const { data: session } = useSession();
 	const [collapsed, setCollapsed] = useState(true);
 
 	const handleCollapse = () => {
@@ -14,6 +15,11 @@ const SideMenu = ({ className }) => {
 	};
 
 	let ab = [1, 2, 3, 4, 5];
+	let avatar = "/images/profile.png";
+
+	if (session) {
+		avatar = session.user.image;
+	}
 	return (
 		<aside className={`w-auto flex h-auto ${className}`}>
 			<div className="fixed my-0 border-e border-text-200 flex flex-col justify-between gap-y-4 w-16 py-6 h-full bg-dark-100 items-center">
@@ -37,7 +43,7 @@ const SideMenu = ({ className }) => {
 
 				<div>
 					<Image
-						src="/images/profile.png"
+						src={avatar}
 						alt="profile picture"
 						width={100}
 						height={100}
@@ -46,7 +52,7 @@ const SideMenu = ({ className }) => {
 				</div>
 			</div>
 			{!collapsed && (
-				<div className=" fixed ml-10 bg-dark-100 h-full w-52 px-5 py-7 space-y-2">
+				<div className="fixed ml-10 bg-dark-100 h-full w-52 px-5 py-7 space-y-2">
 					<div className="">
 						<p className="font-poppins text-white text-sm">
 							Your Vault

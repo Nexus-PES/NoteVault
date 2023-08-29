@@ -1,11 +1,18 @@
+"use client";
+
 import React from "react";
 import Button from "./Button";
 import Image from "next/image";
 import iconic from "public/images/kybernetwork.svg";
 import features from "../data";
 import Comment from "../components/Comment";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Hero = () => {
+	const { data: session } = useSession();
+	if (session) {
+		console.log(session);
+	}
 	return (
 		<main className="container pt-24 text-white flex flex-col justify-center">
 			<div className="-space-y-2">
@@ -28,13 +35,29 @@ const Hero = () => {
 				</span>
 			</p>
 			<div className="flex gap-4 mt-6 mb-8 sm:mt-6 sm:mb-12 md:mt-9 md:mb-16 justify-center">
-				<Button href="/Sarang">Make Notes</Button>
+				{session ? (
+					<>
+						<Button
+							href={`/${session.user.name.split(" ").join("")}`}
+						>
+							Make Notes
+						</Button>
+						<Button
+							type="glory"
+							onClick={() => signOut("github")}
+						>
+							Sign Out
+						</Button>
+					</>
+				) : (
+
 				<Button
-					href="/Sarang Kumar"
 					type="glory"
+					onClick={() => signIn("github")}
 				>
 					Join Us
 				</Button>
+				)}
 			</div>
 			<br></br>
 			<div className="flex justify-center h-[10vh] sm:h-[15vh] md:h-[20vh] max-h-[250px]">

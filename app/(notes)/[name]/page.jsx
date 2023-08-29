@@ -9,9 +9,11 @@ import { RocketLaunchIcon } from '@heroicons/react/24/outline'
 
 
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 const UserPage = ({ params }) => {
-	const username = params.name;
+	const {data: session} = useSession();
+	const username = session.user.name;
 
 	// console.log(username.split('%2B'))
 
