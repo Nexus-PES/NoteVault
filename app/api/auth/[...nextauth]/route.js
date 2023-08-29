@@ -1,13 +1,12 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
-const production = true
 
 const handler = NextAuth({
 	providers: [
 		GithubProvider({
-			clientId: production ? process.env.GITHUB_ID : process.env.GITHUB_ID_DEV,
-			clientSecret: production ? process.env.GITHUB_SECRET : process.env.GITHUB_SECRET_DEV,
+			clientId: process.env.GITHUB_ID,
+			clientSecret: process.env.GITHUB_SECRET,
 		}),
 	],
 	secret: process.env.JWT_SECRET,
