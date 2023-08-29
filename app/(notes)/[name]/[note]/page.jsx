@@ -9,9 +9,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { notesData } from "../../../../data";
 import MenuButton from "../../../../components/MenuButton";
+import { useSession } from "next-auth/react";
 
 const Notes = ({ params }) => {
-	const { note, name } = params;
+	const {data: session} = useSession();
+	const { note } = params;
+
+	let username;
+	try {
+		username = session.user.name;
+	} catch {
+		username = "Guest User";
+	}
+
 	let currentNote = notesData.find((el) => el.id == note);
 
 	if (typeof currentNote === "undefined") {
@@ -109,7 +119,7 @@ const Notes = ({ params }) => {
 					<div className="flex gap-4 justify-between items-center">
 						<Link
 							className="text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
-							href={`/${name}`}
+							href={session ? `/${username.split(' ').join('')}`: '/'}
 						>
 							Back
 						</Link>

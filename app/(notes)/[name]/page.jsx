@@ -101,8 +101,26 @@ const UserPage = () => {
 		// 	console.log("fetch failed");
 		// }
 	};
-
-	if (session) {
+	
+	if (!session) {
+		return (
+			<div className="flex items-center justify-center h-screen">
+				<div className="bg-dark-100 text-white p-8 rounded-lg shadow-md">
+					<h2 className="text-2xl font-bold mb-4">Access Denied</h2>
+					<p className="text-lg">
+						You are not authenticated to view this content. Please log in to access it.
+					</p>
+				</div>
+					<Button
+						href="/"
+						className="self-end"
+						type="glory"
+					>
+						Homepage
+					</Button>
+			</div>
+		);
+	} else {
 		return (
 			<>
 				<SideMenu />
@@ -122,7 +140,7 @@ const UserPage = () => {
 							<div className="grid gris-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5">
 								{info.map((item) => (
 									<Link
-										href={"/notes/" + item.id}
+										href={`/${username.split(' ').join('')}/${item.id}`}
 										key={item.id}
 										className=""
 									>
@@ -176,25 +194,6 @@ const UserPage = () => {
 					</div>
 				</main>
 			</>
-		);
-	} else {
-		return (
-			<div className="flex items-center justify-center h-screen">
-				<div className="bg-dark-100 text-white p-8 rounded-lg shadow-md">
-					<h2 className="text-2xl font-bold mb-4">Access Denied</h2>
-					<p className="text-lg">
-						You are not authenticated to view this content. Please
-						log in to access it.
-					</p>
-				</div>
-					<Button
-						href="/"
-						className="self-end"
-						type="glory"
-					>
-						Homepage
-					</Button>
-			</div>
 		);
 	}
 };
