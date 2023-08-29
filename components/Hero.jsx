@@ -10,11 +10,21 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 const Hero = () => {
 	const { data: session } = useSession();
+	let avatar;
 	if (session) {
 		console.log(session);
+		avatar = session.user.image;
 	}
 	return (
 		<main className="container pt-24 text-white flex flex-col justify-center">
+		{session && 
+			<Image
+						src={avatar}
+						alt="profile picture"
+						width={100}
+						height={100}
+						className="h-9 w-9 sm:w-10 sm:h-10 rounded-full flex-wrap fixed top-5 left-10"
+					/>}
 			<div className="-space-y-2">
 				<h1 className="text-center text-wrap-balance text-clamp-hero font-poppins font-semibold">
 					A Simple way to
