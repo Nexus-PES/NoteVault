@@ -36,12 +36,11 @@ const FAQ = () => {
 				})}
 			</section>
 
-			{(count < faq.length) && (
+			{count < faq.length && (
 				<div className="flex items-center justify-center my-6">
-					{/* <br className="w-[50px] h-1 flex-grow block bg-red-500" /> */}
 					<button
-						className="inline-block text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition"
 						onClick={() => setCount((prev) => prev + 2)}
+						className="inline-block text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition"
 					>
 						Load More
 					</button>
@@ -70,7 +69,10 @@ const FaqBox = ({ id, title, desc, open, setOpen }) => {
 		}
 	};
 	return (
-		<div className="p-5 flex flex-col bg-dark-100 rounded font-poppins text-xs">
+		<div
+			className="p-5 flex flex-col bg-dark-100 rounded font-poppins text-xs cursor-pointer"
+			onClick={handleClick}
+		>
 			<div className="flex justify-between items-center gap-x-2">
 				<h2 className="text-white text-sm leading-tight">{title}</h2>
 				<Image
@@ -81,7 +83,6 @@ const FaqBox = ({ id, title, desc, open, setOpen }) => {
 					className={`${
 						isOpen ? "rotate-45" : "rotate-0"
 					} transition-all self-start sm:self-center`}
-					onClick={handleClick}
 				/>
 			</div>
 			<p

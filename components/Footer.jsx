@@ -17,7 +17,7 @@ export default function Footer() {
 						>
 							<Link
 								href={footer_link.link}
-								className="text-sm text-gray-500 hover:text-secondary"
+								className="text-sm text-gray-200 hover:text-secondary"
 							>
 								{footer_link.title}
 							</Link>
@@ -25,11 +25,11 @@ export default function Footer() {
 					))}
 				</nav>
 				<p className="mt-8 text-center">
-					<span className="mx-auto mt-2 text-xs text-gray-500">
+					<span className="mx-auto mt-2 text-xs text-gray-300">
 						Copyright
 						<Link
 							href="#"
-							className="mx-2 text-secondary hover:text-gray-500 "
+							className="mx-2 text-secondary hover:text-primary transition-colors"
 							rel="noopener noreferrer"
 						>
 							@NoteVault
