@@ -1,3 +1,5 @@
+/* The code snippet is a React component called "Hero". It is a functional component that renders a
+hero section for a website. */
 "use client";
 
 import React from "react";
