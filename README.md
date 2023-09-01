@@ -52,3 +52,7 @@ app
 - The data should only be saved when the user clicks the save button. Then the status should change from `pending` to `saved`. *you may add other features*
 - There should also be a feature to tag. If the user types something that starts with **#** and has some character without space then it should style that particular text with different stylings. Link `#notemaking`
 - In the buttons tab there is also a mic. Clicking on the mic should convert your speech to text and also show `recording` text in the footer button. *figma might help here*
+
+# Repo Contributors
+
+ <img src = "https://contrib.rocks/image?repo=Nexus-PES/NoteVault"/>
