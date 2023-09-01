@@ -23,6 +23,7 @@ const Hero = () => {
 				<div className="flex gap-x-4 items-center">
 					<a href="https://github.com/Nexus-PES/NoteVault">
 						<BsGithub className="h-6 w-6 inline-block" />
+						<span className="sr-only">Github Repo Link</span>
 						<span className="px-2 text-xs text-text-100 hidden sm:inline-block font-semibold">
 							Visit, fork, star on GitHub
 						</span>

@@ -40,7 +40,7 @@ const FAQ = () => {
 				<div className="flex items-center justify-center my-6">
 					{/* <br className="w-[50px] h-1 flex-grow block bg-red-500" /> */}
 					<button
-						className="inline-block text-xs text-centertext-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition"
+						className="inline-block text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition"
 						onClick={() => setCount((prev) => prev + 2)}
 					>
 						Load More
