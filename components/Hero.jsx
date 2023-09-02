@@ -19,7 +19,7 @@ const Hero = () => {
 	}
 	return (
 		<main className="container pt-24 text-white flex flex-col justify-center">
-			<div className="flex items-center justify-between mb-5 -mt-8">
+			<div className="flex items-center justify-between sm:mb-20 mb-14 -mt-4">
 				<div className="flex gap-x-4 items-center">
 					<a href="https://github.com/Nexus-PES/NoteVault">
 						<BsGithub className="h-6 w-6 inline-block" />
@@ -82,7 +82,7 @@ const Hero = () => {
 				{session ? (
 					<>
 						<Button
-						type="glory"
+							type="glory"
 							className="px-5 py-2 w-auto text-base sm:text-base sm:px-7 sm:py-2.5 sm:w-auto"
 							href={`/${session.user.name.split(" ").join("")}`}
 						>
@@ -93,13 +93,14 @@ const Hero = () => {
 					<Button
 						type="glory"
 						onClick={() => signIn("github")}
+						className="px-5 py-2 w-auto text-base sm:text-base sm:px-7 sm:py-2.5 sm:w-auto"
 					>
 						Join Us
 					</Button>
 				)}
 			</div>
-			<br></br>
-			<div className="flex justify-center h-[10vh] sm:h-[15vh] md:h-[20vh] max-h-[250px]">
+
+			<div className="flex justify-center h-[10vh] sm:h-[15vh] md:h-[20vh] max-h-[250px] pt-10 sm:pt-14">
 				<h1 className="font-poppins flex items-center text-clamp-heading font-black">
 					NoteVault
 				</h1>
