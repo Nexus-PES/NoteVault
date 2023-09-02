@@ -43,7 +43,7 @@ const Hero = () => {
 								alt="profile picture"
 								width={100}
 								height={100}
-								className="h-9 w-9 sm:w-10 sm:h-10 rounded-full  hover:bg-stone-100 transition-colors"
+								className="h-9 w-9 sm:w-10 sm:h-10 rounded-full border hover:bg-stone-100 transition-colors"
 							/>
 						</div>
 					) : (
@@ -83,6 +83,7 @@ const Hero = () => {
 					<>
 						<Button
 						type="glory"
+							className="px-5 py-2 w-auto text-base sm:text-base sm:px-7 sm:py-2.5 sm:w-auto"
 							href={`/${session.user.name.split(" ").join("")}`}
 						>
 							Start with Notes

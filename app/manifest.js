@@ -7,6 +7,7 @@ export default function manifest() {
 		display: "standalone",
 		background_color: "#fff",
 		theme_color: "#fff",
+		purpose: "any maskable",
 		icons: [
 			{
 				src: "/icons/icon-48.png",
