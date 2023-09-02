@@ -59,7 +59,7 @@ const UserPage = () => {
 		} else {
 			setGreetings("Hi! Guest User");
 		}
-	}, []);
+	}, []);  // eslint-disable-line no-console
 
 	const changetodiv1 = (event) => {
 		setDiv1(true);

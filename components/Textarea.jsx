@@ -7,7 +7,7 @@ const Textarea = ({ userNotes, reference, ...props }) => {
 			e.target.style.height = "auto";
 			e.target.style.height = e.target.scrollHeight + "px";
 		});
-	}, []);
+	}, []); // eslint-disable-line no-console
 
 	return (
 		<>
