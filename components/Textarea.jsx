@@ -11,22 +11,18 @@ const Textarea = ({ userNotes, reference, ...props }) => {
 
 	return (
 		<>
-		<textarea
-			{...props}
-			ref={reference}
-			spellCheck={false}
-			autoCorrect='false'
-			autoFocus={true}
-			defaultValue={userNotes}
-			placeholder=""
-			className="min-h-[90vh] tracking-wide text-base font-normal block w-f/* In the given code, `u` is
-			not defined or used
-			anywhere. It seems to be a
-			typo or an unused variable. */
-			ull rounded-md py-2 text-text-100 sm:leading-6 bg-transparent border-0 focus:border-0 focus:ring-0"
-		/>
-		 </>
-		)
+			<textarea
+				{...props}
+				ref={reference}
+				spellCheck={false}
+				autoCorrect="false"
+				autoFocus={true}
+				defaultValue={userNotes}
+				placeholder=""
+				className="hide-scrollbar min-h-[60vh] tracking-wide text-base font-normal block w-full rounded-md py-2 text-text-100 sm:leading-6 bg-transparent border-0 focus:border-0 focus:ring-0"
+			/>
+		</>
+	);
 	};
 
 export default Textarea;

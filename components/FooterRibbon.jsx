@@ -1,5 +1,7 @@
 import React from "react";
 
+import { AiOutlineEye } from "react-icons/ai";
+
 function FooterRibbon({
 	id,
 	title,
@@ -8,10 +10,11 @@ function FooterRibbon({
 	status,
 	isRecording,
 	userNotes,
+	markdownPreview,
 }) {
 	return (
 		<div className="fixed border-t border-dark-100 gap-4 flex justify-between items-center left-0 bottom-0 bg-dark-100 w-full px-3 sm:px-2 py-2 sm:py-1">
-			<div className="flex gap-4 text-[8px] sm:text-[8px] gap-x-2 font-poppins">
+			<div className="flex gap-4 text-[8px] gap-x-2 font-poppins">
 				<span className="mx-1">
 					<strong>
 						{userNotes === "" ? 0 : userNotes.split(" ").length}
@@ -49,7 +52,7 @@ function FooterRibbon({
 						</span>
 					</p>
 				)}
-				{/* {isRecording && <span className="text-secondary-600">Recording</span>} */}
+			{markdownPreview && <AiOutlineEye className="text-white" size={12}/>}
 			</div>
 		</div>
 	);
