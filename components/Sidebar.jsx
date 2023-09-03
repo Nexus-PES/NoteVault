@@ -15,9 +15,10 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { SkeletonProfile } from "./Skeleton";
 
 const SideMenu = ({ className }) => {
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
 	const [collapsed, setCollapsed] = useState(true);
 
 	const handleCollapse = () => {
@@ -125,8 +126,8 @@ const SideMenu = ({ className }) => {
 					</div>
 				</div>
 
-				<div className="flex items-center gap-1 flex-col mb-5">
-					{avatar ? (
+				{/* <div className="flex items-center flex-col mb-5"> */}
+					{status === "authenticated" ? (
 						<Image
 							src={avatar}
 							alt="profile picture"
@@ -135,13 +136,9 @@ const SideMenu = ({ className }) => {
 							className="transition-colors duration-200 flex items-center justify-center h-10 w-10 rounded bg-scale-200 hover:bg-scale-500 text-scale-900 hover:text-scale-1200  bg-scale-500 shadow-sm text-slate-500"
 						/>
 					) : (
-						<BsPerson
-							size={20}
-							onClick={handleCollapse}
-							className="p-2 hover:bg-dark-100 group-hover:text-white stroke-[0.5px] text-slate-500"
-						/>
+						<SkeletonProfile />
 					)}
-				</div>
+				{/* </div> */}
 			</aside>
 			{!collapsed && (
 				<div className="hide-scrollbar flex w-64 flex-col border-r border-dark-100">

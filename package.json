@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-fontawesome": "^1.7.1",
     "react-icons": "^4.10.1",
+    "react-loading-skeleton": "^3.3.1",
     "react-markdown": "^8.0.7",
     "react-pro-sidebar": "^1.1.0-alpha.1",
     "react-syntax-highlighter": "^15.5.0",
