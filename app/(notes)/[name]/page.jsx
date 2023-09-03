@@ -12,15 +12,10 @@ import { useSession } from "next-auth/react";
 import Button from "../../../components/Button";
 
 const UserPage = () => {
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
 
-	let username;
-	try {
-		username = session.user.name;
-	} catch {
-		username = "Guest User";
-	}
-
+	const username = status == "authenticated" ? session.user.name : "Guest User";
+	
 	// console.log(username.split('%2B'))
 
 	const [greetings, setGreetings] = useState("");
@@ -101,6 +96,10 @@ const UserPage = () => {
 		// 	console.log("fetch failed");
 		// }
 	};
+
+	if (status == "loading") {	
+		return <></>
+	}
 
 	if (!session) {
 		return (
