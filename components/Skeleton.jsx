@@ -35,9 +35,10 @@ export const SkeletonHeading = () => {
 			baseColor="#292929"
 			highlightColor="#444"
 		>
-			<div className="w-full h-10">
-				<Skeleton className="" />
+			<div className="w-full h-12 ">
+				<Skeleton className="h-full" />
 			</div>
+				<Skeleton count={2} />
 		</SkeletonTheme>
 	);
 };

@@ -85,7 +85,6 @@ const UserPage = () => {
 		const { title, id } = item;
 	};
 
-
 	// if (!session) {
 	// 	return (
 	// 		<div className="w-full h-full flex items-center justify-center text-white font-poppins">
@@ -125,18 +124,18 @@ const UserPage = () => {
 				>
 					{/* <div className="mx-6 flex flex-col items-center space-x-6"> */}
 					<div className="mx-6 flex justify-start items-center my-14">
-						<div className="">
-							<h1 className="text-white underline text-clamp-notes-greeting font-bold font-poppins ">
-								{status === "loading" ? (
-									<SkeletonHeading />
-								) : (
-									greetings
-								)}
-							</h1>
-							<p className="text-text-100">
-								Let&apos;s continue with the notes
-							</p>
-						</div>
+						{status === "loading" ? (
+								<SkeletonHeading />
+						) : (
+							<div className="">
+								<h1 className="text-white underline text-clamp-notes-greeting font-bold font-poppins ">
+									{greetings}
+								</h1>
+								<p className="text-text-100">
+									Let&apos;s continue with the notes
+								</p>
+							</div>
+						)}
 					</div>
 					<div className="my-6">
 						<div className="mx-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">

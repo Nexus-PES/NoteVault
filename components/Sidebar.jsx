@@ -32,7 +32,7 @@ const SideMenu = ({ className }) => {
 	return (
 		<>
 			<aside
-				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-dark-100 h-screen ${className}`}
+				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-dark-100 h-[100dvh] ${className}`}
 			>
 				<div className="flex items-center justify-center flex-col my-2 mx-1 divide-y divide-dark-100">
 					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
@@ -126,7 +126,7 @@ const SideMenu = ({ className }) => {
 					</div>
 				</div>
 
-				{/* <div className="flex items-center flex-col mb-5"> */}
+				<div className="flex items-center flex-col justify-center mb-5">
 					{status === "authenticated" ? (
 						<Image
 							src={avatar}
@@ -138,7 +138,7 @@ const SideMenu = ({ className }) => {
 					) : (
 						<SkeletonProfile />
 					)}
-				{/* </div> */}
+				</div>
 			</aside>
 			{!collapsed && (
 				<div className="hide-scrollbar flex w-64 flex-col border-r border-dark-100">
