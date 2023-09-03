@@ -34,35 +34,33 @@
 //   );
 // }
 
-// import React, { useState } from "react";
-// import ReactMarkdown from "react-markdown";
-// export default function MarkdownToHtml() {
-// 	const [input, setInput] = useState("");
+import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
+export default function MarkdownToHtml() {
+	const [input, setInput] = useState("");
 
-// 	return (
-// 		<div className="bg-white flex ">
-// 			<textarea
-// 				autoFocus
-// 				onChange={(e) => setInput(e.target.value)}
-// 				className="h-screen w-[50vh] unreset"
-// 				value={input}
-// 			/>
-// 			{/* <ReactMarkdown className="h-screen w-[50vh]">
-// 				# Hello, *world*!
-// 			</ReactMarkdown> */}
-// 			<ReactMarkdown 
-//             >{input}</ReactMarkdown>
-// 		</div>
-// 	);
-// }
-
-
-import React from 'react'
-
-const DemoPage = () => {
-  return (
-	<div>DemoPage</div>
-  )
+	return (
+		<div className="bg-dark-100 flex ">
+			<textarea
+				autoFocus
+				onChange={(e) => setInput(e.target.value)}
+				className="h-screen w-[50vh]"
+				value={input}
+			/>
+			<div className="prose prose-custom selection:bg-secondary-600/80">
+				<ReactMarkdown>{input}</ReactMarkdown>
+			</div>
+		</div>
+	);
 }
 
-export default DemoPage
+
+// import React from 'react'
+
+// const DemoPage = () => {
+//   return (
+// 	<div>DemoPage</div>
+//   )
+// }
+
+// export default DemoPage

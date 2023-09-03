@@ -29,7 +29,7 @@ const Comment = () => {
 
 const CommentCard = ({ ratings, imageUrl, name, comment }) => {
 	return (
-		<div className="rounded-md p-4 hover:bg-dark-100 flex-1 font-poppins border-stone-800 border min-w-[300px]">
+		<div className="rounded-md p-4 hover:bg-dark-100 hover:drop-shadow-md flex-1 font-poppins border-stone-800 border min-w-[300px]">
 			<div className="flex justify-between items-center gap-x-2 gap-y-4">
 					<Image
 						src={imageUrl}
