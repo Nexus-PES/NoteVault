@@ -136,7 +136,7 @@ const SideMenu = ({ className }) => {
 						/>
 					) : (
 						<BsPerson
-							size={16}
+							size={20}
 							onClick={handleCollapse}
 							className="p-2 hover:bg-dark-100 group-hover:text-white stroke-[0.5px] text-slate-500"
 						/>

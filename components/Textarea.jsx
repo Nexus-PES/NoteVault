@@ -13,6 +13,7 @@ const Textarea = ({ userNotes, reference, ...props }) => {
 		<>
 			<textarea
 				{...props}
+				label="content"
 				ref={reference}
 				spellCheck={false}
 				autoCorrect="false"

@@ -5,6 +5,8 @@ import SideMenu from "../../../../components/Sidebar";
 import FooterRibbon from "../../../../components/FooterRibbon.jsx";
 
 import React, { useEffect, useState, useRef } from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import Image from "next/image";
 import Link from "next/link";
 import { notesData } from "../../../../data";
@@ -135,10 +137,11 @@ const Notes = ({ params }) => {
 										: "/"
 								}
 							>
-								<span className="hidden sm:visible">Back</span>
-								<span className="visible sm:hidden">
+								<span className="hidden sm:block">Back</span>
+								<span className="block sm:hidden">
 									<MdArrowBack size={18} />
 								</span>
+								<span className="sr-only">Go Back</span>
 							</Link>
 
 							<div className="flex gap-x-2">
@@ -151,9 +154,10 @@ const Notes = ({ params }) => {
 											src="/images/edit.svg"
 											width={20}
 											height={20}
-											alt="mic"
+											alt="edit"
 											className=""
 										/>
+										<span className="sr-only">Edit</span>
 									</Button>
 								</MenuButton>
 								<Button
@@ -165,6 +169,7 @@ const Notes = ({ params }) => {
 									}`}
 									onClick={handleRecording}
 								>
+									<span className="sr-only">Recording</span>
 									<Image
 										src="/images/microphone.svg"
 										width={20}
@@ -194,6 +199,7 @@ const Notes = ({ params }) => {
 						<div className="flex flex-col gap-y-2 sm:gap-y-4">
 							<input
 								type="text"
+								label="title"
 								placeholder="Note Title"
 								defaultValue={notes.title}
 								onChange={(e) =>
@@ -203,7 +209,9 @@ const Notes = ({ params }) => {
 									})
 								}
 								onKeyDown={(e) => handleKeyDown(e)}
-								className={`${markdownPreview && 'font-poppins text-white' } text-clamp-notes-greeting font-bold block rounded py-2 placeholder:text-gray-600 text-text-100 sm:leading-6 bg-transparent focus:ring-0 border-0`}
+								className={`${
+									markdownPreview && "font-poppins text-white"
+								} text-clamp-notes-greeting font-bold block rounded py-2 placeholder:text-gray-600 text-text-100 sm:leading-6 bg-transparent focus:ring-0 border-0`}
 								maxLength={40}
 								minLength={3}
 								required
@@ -211,7 +219,11 @@ const Notes = ({ params }) => {
 
 							{markdownPreview ? (
 								<div className="prose prose-sm prose-custom selection:bg-secondary-500 m-2 mr-4 max-w-none hide-scrollbar font-poppins">
-									<ReactMarkdown>{userNotes}</ReactMarkdown>
+									<ReactMarkdown
+										// renderers={{ code: SyntaxHighlight }}
+									>
+										{userNotes}
+									</ReactMarkdown>
 								</div>
 							) : (
 								<Textarea
@@ -238,3 +250,14 @@ const Notes = ({ params }) => {
 };
 
 export default Notes;
+
+const SyntaxHighlight = ({ value, language }) => {
+	return (
+		<SyntaxHighlighter
+			language={language ?? null}
+			style={docco}
+		>
+			{value ?? null}
+		</SyntaxHighlighter>
+	);
+};
