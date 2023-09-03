@@ -23,9 +23,9 @@ const SideMenu = ({ className }) => {
 	return (
 		<>
 			<aside
-				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-slate-800 h-screen ${className}`}
+				className={`flex w-14 flex-col justify-between overflow-y-hidden p-2 border-r border-slate-800 h-screen ${className}`}
 			>
-				<div className="flex items-center gap-1.5 flex-col my-2">
+				<div className="flex items-center flex-col my-2">
 					<Link href="/">
 						<Image
 							src="/images/logo.svg"
@@ -37,21 +37,21 @@ const SideMenu = ({ className }) => {
 					</Link>
 					<button className="transition-colors duration-200 flex group items-center justify-center h-12 w-12 rounded hover:bg-dark-100 hover:text-gray-1200 shadow-sm text-gray-1200">
 						<BsLayoutSidebar
-							size={24}
+							size={18}
 							onClick={handleCollapse}
 							className="group-hover:text-white stroke-1 text-slate-500"
 						/>
 					</button>
 					<button className="transition-colors duration-200 flex group items-center justify-center h-12 w-12 rounded hover:bg-dark-100 hover:text-gray-1200 shadow-sm text-gray-1200">
 						<BsLayoutSidebar
-							size={24}
+							size={18}
 							onClick={handleCollapse}
 							className="group-hover:text-white stroke-[1px] text-slate-500"
 						/>
 					</button>
 					<button className="transition-colors duration-200 flex group items-center justify-center h-12 w-12 rounded hover:bg-dark-100 hover:text-gray-1200 shadow-sm text-gray-1200">
 						<BsLayoutSidebar
-							size={24}
+							size={18}
 							onClick={handleCollapse}
 							className="group-hover:text-white stroke-1 text-slate-500"
 						/>

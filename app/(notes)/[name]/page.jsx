@@ -104,30 +104,37 @@ const UserPage = () => {
 
 	if (!session) {
 		return (
-			<div className="flex items-center justify-center h-screen">
-				<div className="bg-dark-100 text-white p-8 rounded-lg shadow-md">
-					<h2 className="text-2xl font-bold mb-4">Access Denied</h2>
-					<p className="text-lg">
-						You are not authenticated to view this content. Please
-						log in to access it.
-					</p>
+			<div className="w-full h-full flex items-center justify-center text-white font-poppins">
+				<div className="flex h-full w-full items-center justify-center">
+					<div className="flex space-x-4 rounded border border-slate-800 bg-dark-100 p-6 shadow-md">
+						<div className="flex flex-col">
+							<div className="w-80 space-y-4">
+								<h5>Table editor</h5>
+								<div className="flex flex-col space-y-2">
+									<p className="text-sm text-text-200">
+										Something went wrong
+									</p>
+								</div>
+								<div className="flex items-center space-x-2">
+									<button className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-semibold ease-out duration-200 rounded-md transition-all outline-none outline-0 focus-visible:border-4 bg-secondary-600 border-slate-800 hover:bg-secondary-600/80 text-white  focus-visible:outline-white shadow-sm text-xs px-3 py-1">
+										<span className="truncate">
+											Homepage
+										</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<Button
-					href="/"
-					className="self-end"
-					type="glory"
-				>
-					Homepage
-				</Button>
 			</div>
 		);
 	} else {
 		return (
 			<>
 				{/* <div className="flex h-full"> */}
-				<SideMenu />
+
 				<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
-					<nav className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b border-slate-800 text-white">
+					<nav className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b border-slate-800 text-white text-xs">
 						Navbar
 					</nav>
 					<div
@@ -147,7 +154,7 @@ const UserPage = () => {
 						</div>
 						<div className="my-6">
 							{/* <div className="grid gris-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5"> */}
-							<div className="mx-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+							<div className="mx-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
 								{info.map((item) => (
 									<Link
 										href={`/${username
