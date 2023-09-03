@@ -116,7 +116,7 @@ const UserPage = () => {
 									</p>
 								</div>
 								<div className="flex items-center space-x-2">
-									<button className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-semibold ease-out duration-200 rounded-md transition-all outline-none outline-0 focus-visible:border-4 bg-secondary-600 border-slate-800 hover:bg-secondary-600/80 text-white  focus-visible:outline-white shadow-sm text-xs px-3 py-1">
+									<button className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-semibold ease-out duration-200 rounded-md transition-all outline-none outline-0 focus-visible:border-4 bg-secondary-600 border-slate-800 hover:bg-secondary-600/80 text-white  focus-visible:outline-white shadow-sm text-xs px-5 py-2">
 										<span className="truncate">
 											Homepage
 										</span>
@@ -154,7 +154,7 @@ const UserPage = () => {
 						</div>
 						<div className="my-6">
 							{/* <div className="grid gris-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5"> */}
-							<div className="mx-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+							<div className="mx-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
 								{info.map((item) => (
 									<Link
 										href={`/${username

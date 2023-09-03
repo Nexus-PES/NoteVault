@@ -23,7 +23,7 @@ const Card = ({ title, createdDate, lastModifiedDate, ...props }) => {
 			className="group relative  bg-dark-100 text-white gap-2 cursor-pointer hover:bg-dark/40 hover:shadow-md  border-panel-border-light hover:border-panel-border-hover-light  flex flex-col justify-between h-28 rounded p-5 hover:border-stone-500 transition duration-150 ease-in-out"
 		>
 			<div className="flex justify-between items-center">
-				<p className="truncate text-white text-sm font-poppins font-medium capitalize ">
+				<p className="truncate text-white text-sm font-poppins font-medium capitalize">
 					{title}
 				</p>
 				<div onClick={(e) => e.stopPropagation()}>
