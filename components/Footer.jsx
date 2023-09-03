@@ -17,7 +17,7 @@ export default function Footer() {
 						>
 							<Link
 								href={footer_link.link}
-								className="text-sm text-gray-200 hover:text-secondary"
+								className="text-sm text-gray-200 hover:text-secondary-600"
 							>
 								{footer_link.title}
 							</Link>
@@ -29,7 +29,7 @@ export default function Footer() {
 						Copyright
 						<Link
 							href="#"
-							className="mx-2 text-secondary hover:text-primary transition-colors"
+							className="mx-2 text-secondary-600 hover:text-primary transition-colors"
 							rel="noopener noreferrer"
 						>
 							@NoteVault

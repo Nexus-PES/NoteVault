@@ -22,7 +22,7 @@ const Button = ({
 									: size == "sm"
 									? "p-2 sm:p-3"
 									: ""
-						  } bg-gradient-to-br from-primary to-secondary rounded-lg font-medium sm:font-semibold text-xs sm:text-sm text-white font-poppins`
+						  } bg-gradient-to-br from-primary to-secondary-600 rounded-lg font-medium sm:font-semibold text-xs sm:text-sm text-white font-poppins`
 						: type === "default"
 						? `text-center ${
 								size === "default"
@@ -50,7 +50,7 @@ const Button = ({
 								: size == "sm"
 								? "p-2 sm:p-3"
 								: ""
-					  } bg-gradient-to-br from-primary to-secondary rounded-lg font-medium sm:font-semibold text-xs sm:text-sm text-white font-poppins`
+					  } bg-gradient-to-br from-primary to-secondary-600 rounded-lg font-medium sm:font-semibold text-xs sm:text-sm text-white font-poppins`
 					: type === "default"
 					? `text-center ${
 							size === "default"

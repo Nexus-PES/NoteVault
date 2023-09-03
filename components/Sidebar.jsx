@@ -21,48 +21,68 @@ const SideMenu = ({ className }) => {
 		avatar = session.user.image;
 	}
 	return (
-		<aside className={`w-auto flex h-auto ${className}`}>
-			<div className="fixed my-0 border-e border-text-200 flex flex-col justify-between gap-y-4 w-16 py-6 h-full bg-dark-100 items-center">
-				<div className="flex items-center gap-2 flex-col">
+		<>
+			<aside
+				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-slate-800 h-screen ${className}`}
+			>
+				<div className="flex items-center gap-1.5 flex-col my-2">
 					<Link href="/">
 						<Image
 							src="/images/logo.svg"
 							alt="profile picture"
 							width={100}
 							height={100}
-							className="h-9 w-9 sm:w-10 sm:h-10 rounded-full flex-wrap mb-3"
+							className="h-8 w-8 rounded-full flex-wrap mb-3"
 						/>
 					</Link>
-					<button>
+					<button className="transition-colors duration-200 flex group items-center justify-center h-12 w-12 rounded hover:bg-dark-100 hover:text-gray-1200 shadow-sm text-gray-1200">
 						<BsLayoutSidebar
+							size={24}
 							onClick={handleCollapse}
-							className="w-8 h-8 text-white hover:bg-text-200 focus:bg-text-200 rounded p-1.5"
+							className="group-hover:text-white stroke-1 text-slate-500"
+						/>
+					</button>
+					<button className="transition-colors duration-200 flex group items-center justify-center h-12 w-12 rounded hover:bg-dark-100 hover:text-gray-1200 shadow-sm text-gray-1200">
+						<BsLayoutSidebar
+							size={24}
+							onClick={handleCollapse}
+							className="group-hover:text-white stroke-[1px] text-slate-500"
+						/>
+					</button>
+					<button className="transition-colors duration-200 flex group items-center justify-center h-12 w-12 rounded hover:bg-dark-100 hover:text-gray-1200 shadow-sm text-gray-1200">
+						<BsLayoutSidebar
+							size={24}
+							onClick={handleCollapse}
+							className="group-hover:text-white stroke-1 text-slate-500"
 						/>
 					</button>
 				</div>
 
-				<div>
+				<div className="flex items-center gap-2 flex-col my-2">
 					<Image
 						src={avatar}
 						alt="profile picture"
 						width={100}
 						height={100}
-						className="h-9 w-9 sm:w-10 sm:h-10 rounded-full flex-wrap"
+						className="transition-colors duration-200 flex items-center justify-center h-10 w-10 rounded bg-scale-200 hover:bg-scale-500 text-scale-900 hover:text-scale-1200  bg-scale-500 shadow-sm text-scale-1200"
 					/>
 				</div>
-			</div>
-			{!collapsed && (
+
+				{/* {!collapsed && (
 				<div className="fixed ml-10 bg-dark-100 h-full w-52 px-5 py-7 space-y-2">
 					<div className="">
 						<p className="font-poppins text-white text-sm">
 							Your Vault
 						</p>
 					</div>
-					<div className="flex flex-col w-41 gap-2">
-					</div>
+					<div className="flex flex-col w-41 gap-2"></div>
 				</div>
+			)} */}
+			</aside>
+			{!collapsed && (
+				<div className="hide-scrollbar flex w-64 flex-col border-r border-slate-800"></div>
 			)}
-		</aside>
+		</>
 	);
 };
 

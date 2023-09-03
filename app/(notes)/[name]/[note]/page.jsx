@@ -10,9 +10,10 @@ import Link from "next/link";
 import { notesData } from "../../../../data";
 import MenuButton from "../../../../components/MenuButton";
 import { useSession } from "next-auth/react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Notes = ({ params }) => {
-	const {data: session} = useSession();
+	const { data: session } = useSession();
 	const { note } = params;
 
 	let username;
@@ -28,13 +29,14 @@ const Notes = ({ params }) => {
 		currentNote = {
 			id: 0,
 			title: "It's not a bug it's a feature 🐞",
-			createdDate: '27/08/2023',
+			createdDate: "27/08/2023",
 			lastModifiedDate: new Date().toLocaleDateString("en-GB"),
 			content: "TODO",
 		};
 	}
-	console.log(currentNote)
+	console.log(currentNote);
 	const [notes, setNotes] = useState(currentNote);
+	const [markdownPreview, setMarkdownPreview] = useState(false);
 
 	const [recognizedText, setRecognizedText] = useState("placeholder");
 	let recognition;
@@ -114,20 +116,24 @@ const Notes = ({ params }) => {
 	return (
 		<>
 			{/* <SideMenu className="hidden sm:inline-block" /> */}
-			<main>
+			<main className="w-full">
 				<div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 my-14 sm:mx-20 md:mx-28 ">
 					<div className="flex gap-4 justify-between items-center">
 						<Link
 							className="text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
-							href={session ? `/${username.split(' ').join('')}`: '/'}
+							href={
+								session
+									? `/${username.split(" ").join("")}`
+									: "/"
+							}
 						>
 							Back
 						</Link>
 
 						<div className="flex gap-x-2">
-							<MenuButton links={links} >
+							<MenuButton links={links}>
 								<Button size="sm">
-								{/* <span className="text-center bg-white rounded-lg h-5 w-5 flex items-center justify-center">
+									{/* <span className="text-center bg-white rounded-lg h-5 w-5 flex items-center justify-center">
 								</span> */}
 
 									<Image
@@ -179,6 +185,8 @@ const Notes = ({ params }) => {
 							onInput={handleTextareaChange}
 							onChange={handleTextareaChange}
 						/>
+
+						{/* {} */}
 
 						<FooterRibbon
 							{...notes}

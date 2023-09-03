@@ -31,7 +31,7 @@ const MenuButton = ({ children, links, ...props }) => {
 									<button
 										className={`${
 											active
-												? "bg-dark-100 text-secondary"
+												? "bg-dark-100 text-secondary-600"
 												: "text-white"
 										} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
 									>

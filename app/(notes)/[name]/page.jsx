@@ -59,7 +59,7 @@ const UserPage = () => {
 		} else {
 			setGreetings("Hi! Guest User");
 		}
-	}, []);  // eslint-disable-line no-console
+	}, []); // eslint-disable-line no-console
 
 	const changetodiv1 = (event) => {
 		setDiv1(true);
@@ -101,32 +101,41 @@ const UserPage = () => {
 		// 	console.log("fetch failed");
 		// }
 	};
-	
+
 	if (!session) {
 		return (
 			<div className="flex items-center justify-center h-screen">
 				<div className="bg-dark-100 text-white p-8 rounded-lg shadow-md">
 					<h2 className="text-2xl font-bold mb-4">Access Denied</h2>
 					<p className="text-lg">
-						You are not authenticated to view this content. Please log in to access it.
+						You are not authenticated to view this content. Please
+						log in to access it.
 					</p>
 				</div>
-					<Button
-						href="/"
-						className="self-end"
-						type="glory"
-					>
-						Homepage
-					</Button>
+				<Button
+					href="/"
+					className="self-end"
+					type="glory"
+				>
+					Homepage
+				</Button>
 			</div>
 		);
 	} else {
 		return (
 			<>
+				{/* <div className="flex h-full"> */}
 				<SideMenu />
-				<main className="ml-16">
-					<div className="mx-4 my-4 sm:mx-20 sm:my-14 md:mx-48 md:my-24 font-poppins">
-						<div className="flex justify-start items-center my-14">
+				<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
+					<nav className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b border-slate-800 text-white">
+						Navbar
+					</nav>
+					<div
+						style={{ "max-height": "100vh" }}
+						className="flex-1 overflow-y-auto"
+					>
+						{/* <div className="mx-6 flex flex-col items-center space-x-6"> */}
+						<div className="mx-6 flex justify-start items-center my-14">
 							<div className="">
 								<h1 className="text-white underline text-clamp-notes-greeting font-bold font-poppins ">
 									{greetings}
@@ -137,12 +146,14 @@ const UserPage = () => {
 							</div>
 						</div>
 						<div className="my-6">
-							<div className="grid gris-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5">
+							{/* <div className="grid gris-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5"> */}
+							<div className="mx-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 								{info.map((item) => (
 									<Link
-										href={`/${username.split(' ').join('')}/${item.id}`}
+										href={`/${username
+											.split(" ")
+											.join("")}/${item.id}`}
 										key={item.id}
-										className=""
 									>
 										<Card
 											{...item}
@@ -153,46 +164,48 @@ const UserPage = () => {
 									</Link>
 								))}
 
-								<div className="h-[84px] lg:h-auto p-5 transition-all hover:border-stone-500 rounded text-white bg-dark-100 flex flex-col items-center justify-center">
-									<div
-										onClick={changetodiv2}
-										className=""
-									>
-										{div1 && (
-											<div className="flex justify-center items-center text-xs text-text-100">
-												<span>+ New</span>
+								{/* <div className="h-[84px] lg:h-auto p-5 transition-all hover:border-stone-500 rounded text-white bg-dark-100 flex flex-col items-center justify-center">
+										<div
+											onClick={changetodiv2}
+											className=""
+										>
+											{div1 && (
+												<div className="flex justify-center items-center text-xs text-text-100">
+													<span>+ New</span>
+												</div>
+											)}
+										</div>
+										{div2 && (
+											<div className="flex items-center justify-center w-full">
+												<input
+													className="text-sm w-16 flex-grow flex-[1] font-medium placeholder:text-text-200 placeholder:text-xs p-0 text-text-100 bg-transparent focus:ring-0 putline-none border-0 focus:outline-none focus:border-0"
+													placeholder="Note title"
+													type="text"
+													value={input}
+													onChange={handleInputChange}
+												/>
+												<button
+													onClick={
+														input.length > 0 &&
+														changetodiv1
+													}
+												>
+													<BsRocketTakeoff
+														className={`${
+															input.length > 0 &&
+															"animate-waving-hand text-white "
+														} w-8 h-8 flex-wrap hover:bg-text-200 focus:bg-text-200 rounded p-1.5`}
+													/>
+												</button>
 											</div>
 										)}
-									</div>
-									{div2 && (
-										<div className="flex items-center justify-center w-full">
-											<input
-												className="text-sm w-16 flex-grow flex-[1] font-medium placeholder:text-text-200 placeholder:text-xs p-0 text-text-100 bg-transparent focus:ring-0 putline-none border-0 focus:outline-none focus:border-0"
-												placeholder="Note title"
-												type="text"
-												value={input}
-												onChange={handleInputChange}
-											/>
-											<button
-												onClick={
-													input.length > 0 &&
-													changetodiv1
-												}
-											>
-												<BsRocketTakeoff
-													className={`${
-														input.length > 0 &&
-														"animate-waving-hand text-white "
-													} w-8 h-8 flex-wrap hover:bg-text-200 focus:bg-text-200 rounded p-1.5`}
-												/>
-											</button>
-										</div>
-									)}
-								</div>
+									</div> */}
 							</div>
 						</div>
+						{/* </div> */}
 					</div>
 				</main>
+				{/* </div> */}
 			</>
 		);
 	}

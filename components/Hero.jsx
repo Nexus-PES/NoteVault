@@ -50,7 +50,7 @@ const Hero = () => {
 						<>
 							<button
 								onClick={() => signIn("github")}
-								className="inline-block text-xs text-center text-white bg-gradient-to-br from-primary to-secondary font-semibold hover:underline hover:bg-stone-100 rounded px-4 py-2 transition"
+								className="inline-block text-xs text-center text-white bg-gradient-to-br from-primary to-secondary-600 font-semibold hover:underline hover:bg-stone-100 rounded px-4 py-2 transition"
 							>
 								Sign In
 							</button>
@@ -65,7 +65,7 @@ const Hero = () => {
 				</h1>
 				<h1 className="text-center text-wrap-balance text-clamp-hero font-poppins font-semibold">
 					create{" "}
-					<span className="mx-auto text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text">
+					<span className="mx-auto text-transparent bg-gradient-to-r from-primary to-secondary-600 bg-clip-text">
 						Notes
 					</span>
 				</h1>
