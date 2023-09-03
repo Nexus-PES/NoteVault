@@ -31,10 +31,10 @@ const SideMenu = ({ className }) => {
 	return (
 		<>
 			<aside
-				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-slate-800 h-screen ${className}`}
+				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-dark-100 h-screen ${className}`}
 			>
-				<div className="flex items-center justify-center flex-col my-2 mx-1 divide-y divide-slate-800">
-					<div className="flex flex-col gap-y-1 my-1 justify-center items-center">
+				<div className="flex items-center justify-center flex-col my-2 mx-1 divide-y divide-dark-100">
+					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
 						<Link href="/">
 							<Image
 								src="/images/logo.svg"
@@ -50,15 +50,17 @@ const SideMenu = ({ className }) => {
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 					</div>
-					<div className="flex flex-col gap-y-1 my-1 justify-center items-center">
+					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
 						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
 							<BsCalendar3Event
 								size={16}
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
 							<BsColumnsGap
@@ -66,15 +68,17 @@ const SideMenu = ({ className }) => {
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 					</div>
-					<div className="flex flex-col gap-y-1 my-1 justify-center items-center">
+					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
 						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
 							<BsCollection
 								size={16}
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
 							<BsRocketTakeoff
@@ -82,6 +86,7 @@ const SideMenu = ({ className }) => {
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
 							<BsShare
@@ -89,15 +94,17 @@ const SideMenu = ({ className }) => {
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 					</div>
-					<div className="flex flex-col gap-y-1 my-1 justify-center items-center">
+					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
 						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
 							<BsHypnotize
 								size={16}
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
 							<BsGear
@@ -105,6 +112,7 @@ const SideMenu = ({ className }) => {
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
 							<BsCreditCard2Back
@@ -112,11 +120,12 @@ const SideMenu = ({ className }) => {
 								onClick={handleCollapse}
 								className="group-hover:text-white stroke-[0.5px] text-slate-500"
 							/>
+							<span className="sr-only">Open sidebar</span>
 						</button>
 					</div>
 				</div>
 
-				<div className="flex items-center gap-1 flex-col my-2">
+				<div className="flex items-center gap-1 flex-col mb-5">
 					{avatar ? (
 						<Image
 							src={avatar}
@@ -129,13 +138,13 @@ const SideMenu = ({ className }) => {
 						<BsPerson
 							size={16}
 							onClick={handleCollapse}
-							className="group-hover:text-white stroke-[0.5px] text-slate-500"
+							className="p-2 hover:bg-dark-100 group-hover:text-white stroke-[0.5px] text-slate-500"
 						/>
 					)}
 				</div>
 			</aside>
 			{!collapsed && (
-				<div className="hide-scrollbar flex w-64 flex-col border-r border-slate-800">
+				<div className="hide-scrollbar flex w-64 flex-col border-r border-dark-100">
 					<div
 						className="border-dark-100 flex max-h-12 items-center border-b px-6"
 						style={{ "min-height": "3rem" }}

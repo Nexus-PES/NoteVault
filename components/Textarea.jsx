@@ -19,34 +19,14 @@ const Textarea = ({ userNotes, reference, ...props }) => {
 			autoFocus={true}
 			defaultValue={userNotes}
 			placeholder=""
-			className="min-h-[50vh] tracking-wide text-base font-normal block w-f/* In the given code, `u` is
+			className="min-h-[90vh] tracking-wide text-base font-normal block w-f/* In the given code, `u` is
 			not defined or used
 			anywhere. It seems to be a
 			typo or an unused variable. */
 			ull rounded-md py-2 text-text-100 sm:leading-6 bg-transparent border-0 focus:border-0 focus:ring-0"
 		/>
-		 {/* <div dangerouslySetInnerHTML={{ __html: userNotes }} /> */}
 		 </>
 		)
 	};
 
 export default Textarea;
-
-
-
-	// <>
-	// <span
-	// 	{...props}
-	// 	ref={reference}
-	// 	spellCheck={false}
-	// 	autoCorrect="false"
-	// 	autoFocus={true}
-	// 	// defaultValue={userNotes}
-	// 	placeholder="Your Notes"
-	// 	className="tracking-wide text-base font-normal block w-full rounded py-2 text-text-100 sm:leading-6 bg-transparent border-0 focus:outline-none focus:border-0 focus:ring-0"
-	// 	role="textbox"
-	// 	contenteditable="true"
-	// 	dangerouslySetInnerHTML={{ __html: userNotes }}
-	// >
-	// </span>
-	// </>

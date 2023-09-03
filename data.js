@@ -175,7 +175,7 @@ export const notesData = [
     title: "Meeting Notes",
     createdDate: "10/08/2023",
     lastModifiedDate: "22/08/2023",
-    content: "Discussed new project plans and assigned tasks to team members."
+    content: "Discussed new project plans and assigned tasks to team members. "
   },
   {
     id: 2,

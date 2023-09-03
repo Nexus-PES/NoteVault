@@ -106,12 +106,12 @@ const UserPage = () => {
 		return (
 			<div className="w-full h-full flex items-center justify-center text-white font-poppins">
 				<div className="flex h-full w-full items-center justify-center">
-					<div className="flex space-x-4 rounded border border-slate-800 bg-dark-100 p-6 shadow-md">
+					<div className="flex space-x-4 rounded border border-dark-100 bg-dark-100 p-6 shadow-md">
 						<div className="flex flex-col">
 							<div className="w-80 space-y-4">
-								<h5>Table editor</h5>
+								<h5 className="text-base">Table editor</h5>
 								<div className="flex flex-col space-y-2">
-									<p className="text-sm text-text-200">
+									<p className="text-sm text-text-100">
 										Something went wrong
 									</p>
 								</div>
@@ -134,7 +134,7 @@ const UserPage = () => {
 				{/* <div className="flex h-full"> */}
 
 				<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
-					<nav className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b border-slate-800 text-white text-xs">
+					<nav className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b border-dark-100 text-white text-xs">
 						Navbar
 					</nav>
 					<div
@@ -153,7 +153,6 @@ const UserPage = () => {
 							</div>
 						</div>
 						<div className="my-6">
-							{/* <div className="grid gris-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-5 gap-2.5"> */}
 							<div className="mx-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
 								{info.map((item) => (
 									<Link
@@ -209,10 +208,8 @@ const UserPage = () => {
 									</div> */}
 							</div>
 						</div>
-						{/* </div> */}
 					</div>
 				</main>
-				{/* </div> */}
 			</>
 		);
 	}
