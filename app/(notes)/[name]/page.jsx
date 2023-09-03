@@ -14,7 +14,14 @@ import Button from "../../../components/Button";
 const UserPage = () => {
 	const { data: session, status } = useSession();
 
-	const username = status == "authenticated" ? session.user.name : "Guest User";
+	const [username,setUsername] = useState("Guest User");
+
+	useEffect(() =>{
+		if (status == "authenticated"){
+			setUsername(session.user.name)
+		}
+
+	},[status])
 	
 	// console.log(username.split('%2B'))
 
