@@ -28,7 +28,6 @@ const UserPage = () => {
 
 	const randomGreeting = [
 		`Salutations! ${username}`,
-		`Ahoy ${username}! Long time no chat.`,
 		`Hey there, ${username}!`,
 		`Hi, ${username}!`,
 		`Greetings, ${username}!`,
@@ -43,7 +42,6 @@ const UserPage = () => {
 		`Hola, ${username}!`,
 		`Hey, ${username}, Let's Start!`,
 		`Hey, ${username}, Ready to Roll?`,
-		`Hello, ${username}, Your Journey Starts!`,
 	];
 
 	useEffect(() => {
@@ -125,7 +123,7 @@ const UserPage = () => {
 					{/* <div className="mx-6 flex flex-col items-center space-x-6"> */}
 					<div className="mx-6 flex justify-start items-center my-14">
 						{status === "loading" ? (
-								<SkeletonHeading />
+							<SkeletonHeading />
 						) : (
 							<div className="">
 								<h1 className="text-white underline text-clamp-notes-greeting font-bold font-poppins ">

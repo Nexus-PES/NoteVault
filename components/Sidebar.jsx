@@ -32,7 +32,7 @@ const SideMenu = ({ className }) => {
 	return (
 		<>
 			<aside
-				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-dark-100 h-[100dvh] ${className}`}
+				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-dark-100 h-[100svh] ${className}`}
 			>
 				<div className="flex items-center justify-center flex-col my-2 mx-1 divide-y divide-dark-100">
 					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
