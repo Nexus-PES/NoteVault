@@ -35,7 +35,7 @@ const SideMenu = ({ className }) => {
 				className={`flex w-16 flex-col justify-between overflow-y-hidden p-2 border-r border-dark-100 h-[100svh] ${className}`}
 			>
 				<div className="flex items-center justify-center flex-col my-2 mx-1 divide-y divide-dark-100">
-					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
+					<div className="flex flex-col gap-y-2 py-1 justify-center items-center">
 						<Link href="/">
 							<Image
 								src="/images/logo.svg"
@@ -45,84 +45,121 @@ const SideMenu = ({ className }) => {
 								className="h-8 w-8 rounded-full flex-wrap mb-3"
 							/>
 						</Link>
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsLayoutSidebarInset
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsLayoutSidebarInset
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
 					</div>
-					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsCalendar3Event
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsColumnsGap
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
+					<div className="flex flex-col gap-y-2 py-1 justify-center items-center">
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsCalendar3Event
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
+
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsColumnsGap
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
 					</div>
-					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsCollection
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsRocketTakeoff
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsShare
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
+					<div className="flex flex-col gap-y-2 py-1 justify-center items-center">
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsCollection
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsRocketTakeoff
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsShare
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
 					</div>
-					<div className="flex flex-col gap-y-1 py-1 justify-center items-center">
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsHypnotize
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsGear
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
-						<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-							<BsCreditCard2Back
-								size={16}
-								onClick={handleCollapse}
-								className="group-hover:text-white stroke-[0.5px] text-slate-500"
-							/>
-							<span className="sr-only">Open sidebar</span>
-						</button>
+					<div className="flex flex-col gap-y-2 py-1 justify-center items-center">
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsHypnotize
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsGear
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
+						{status === "loading" ? (
+							<SkeletonProfile />
+						) : (
+							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
+								<BsCreditCard2Back
+									size={16}
+									onClick={handleCollapse}
+									className="group-hover:text-white stroke-[0.5px] text-slate-500"
+								/>
+								<span className="sr-only">Open sidebar</span>
+							</button>
+						)}
 					</div>
 				</div>
 
@@ -152,7 +189,7 @@ const SideMenu = ({ className }) => {
 					</div>
 					<div
 						className="flex-grow overflow-y-auto"
-						style={{ "max-height": "calc(100vh - 96px)" }}
+						style={{ "maxHeight": "calc(100vh - 96px)" }}
 					>
 						<div className="px-3 mx-4">Something</div>
 					</div>

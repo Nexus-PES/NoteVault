@@ -117,7 +117,7 @@ const UserPage = () => {
 					Navbar
 				</nav>
 				<div
-					style={{ "max-height": "100vh" }}
+					style={{ "maxHeight": "100vh" }}
 					className="flex-1 overflow-y-auto"
 				>
 					{/* <div className="mx-6 flex flex-col items-center space-x-6"> */}

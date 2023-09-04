@@ -123,7 +123,7 @@ const Notes = ({ params }) => {
 					Navbar
 				</nav>
 				<div
-					style={{ "max-height": "100vh" }}
+					style={{ "maxHeight": "100vh" }}
 					className="flex-1 overflow-y-auto hide-scrollbar"
 				>
 					{/* <div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 my-14 sm:mx-20 md:mx-28 "> */}
