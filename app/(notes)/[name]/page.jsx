@@ -5,7 +5,7 @@ import Card from "../../../components/Card";
 import Link from "next/link";
 import { notesData } from "../../../data";
 import { BsRocketTakeoff } from "react-icons/bs";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import { CardSkeleton, SkeletonHeading } from "../../../components/Skeleton";
 
 const UserPage = () => {
@@ -83,33 +83,33 @@ const UserPage = () => {
 		const { title, id } = item;
 	};
 
-	// if (!session) {
-	// 	return (
-	// 		<div className="w-full h-full flex items-center justify-center text-white font-poppins">
-	// 			<div className="flex h-full w-full items-center justify-center">
-	// 				<div className="flex space-x-4 rounded border border-dark-100 bg-dark-100 p-6 shadow-md">
-	// 					<div className="flex flex-col">
-	// 						<div className="w-80 space-y-4">
-	// 							<h5 className="text-base">Table editor</h5>
-	// 							<div className="flex flex-col space-y-2">
-	// 								<p className="text-sm text-text-100">
-	// 									Something went wrong
-	// 								</p>
-	// 							</div>
-	// 							<div className="flex items-center space-x-2">
-	// 								<button className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-semibold ease-out duration-200 rounded-md transition-all outline-none outline-0 focus-visible:border-4 bg-secondary-600 border-slate-800 hover:bg-secondary-600/80 text-white  focus-visible:outline-white shadow-sm text-xs px-5 py-2">
-	// 									<span className="truncate">
-	// 										Homepage
-	// 									</span>
-	// 								</button>
-	// 							</div>
-	// 						</div>
-	// 					</div>
-	// 				</div>
-	// 			</div>
-	// 		</div>
-	// 	);
-	// } else {
+	if (status === "unauthenticated") {
+		return (
+			<div className="w-full h-full flex items-center justify-center text-white font-poppins">
+				<div className="flex h-full w-full items-center justify-center">
+					<div className="flex space-x-4 rounded border border-dark-100 bg-dark-100 p-6 shadow-md">
+						<div className="flex flex-col">
+							<div className="w-auto sm:w-64 md:w-80 space-y-2 sm:space-y-4">
+								<h5 className="text-sm sm:text-base">User Unauthenticated</h5>
+								<div className="flex flex-col space-y-2">
+									<p className="text-xs sm:text-sm text-text-100">
+										Sign In again to access your notes
+									</p>
+								</div>
+								<div className="flex items-center space-x-2">
+									<button className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-semibold ease-out duration-200 rounded-md transition-all outline-none outline-0 focus-visible:border-4 bg-secondary-600 border-slate-800 hover:bg-secondary-600/80 text-white  focus-visible:outline-white shadow-sm text-xs px-5 py-2">
+										<button onClick={()=>signIn('github')} className="truncate">
+											Sign In
+										</button>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	} 
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
@@ -117,7 +117,7 @@ const UserPage = () => {
 					Navbar
 				</nav>
 				<div
-					style={{ "maxHeight": "100vh" }}
+					style={{ maxHeight: "100vh" }}
 					className="flex-1 overflow-y-auto"
 				>
 					{/* <div className="mx-6 flex flex-col items-center space-x-6"> */}
