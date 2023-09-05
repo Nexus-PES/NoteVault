@@ -140,7 +140,7 @@ const UserPage = () => {
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
-				<nav className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b border-dark-100 text-white text-xs">
+				<nav className="flex h-12 max-h-12 items-center justify-between py-2 pl-14 border-b border-dark-100 text-white text-xs">
 					Navbar
 				</nav>
 				<div
