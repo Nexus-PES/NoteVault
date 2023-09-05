@@ -54,7 +54,13 @@ const UserPage = () => {
 		} else {
 			setGreetings("Hi! Guest User");
 		}
+
+		if(localStorage.getItem("allNotes")===null){
+			localStorage.setItem("allNotes", JSON.stringify(notesData));
+		}
 	}, [username]); // eslint-disable-line no-console
+
+	
 
 	const changetodiv1 = (event) => {
 		setDiv1(true);
@@ -143,6 +149,8 @@ const UserPage = () => {
 						<div className="mx-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
 							{(status === "loading" || (status == "authenticated" && greetings.includes("Guest User") ) ) ? (
 								<>
+									<CardSkeleton />
+									<CardSkeleton />
 									<CardSkeleton />
 									<CardSkeleton />
 									<CardSkeleton />

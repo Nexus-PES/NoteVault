@@ -9,7 +9,6 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import Image from "next/image";
 import Link from "next/link";
-import { notesData } from "../../../../data";
 import MenuButton from "../../../../components/MenuButton";
 import { useSession } from "next-auth/react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -18,7 +17,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const Notes = ({ params }) => {
 	const { data: session } = useSession();
-	const { note } = params;
+	const { noteId } = params;
 
 	let username;
 	try {
@@ -27,7 +26,9 @@ const Notes = ({ params }) => {
 		username = "Guest User";
 	}
 
-	let currentNote = notesData.find((el) => el.id == note);
+	const allNotes = JSON.parse(localStorage.getItem("allNotes"));
+
+	let currentNote = allNotes.find((el) => el.id == noteId);
 
 	if (typeof currentNote === "undefined") {
 		currentNote = {
@@ -38,11 +39,12 @@ const Notes = ({ params }) => {
 			content: "TODO",
 		};
 	}
+
 	const [notes, setNotes] = useState(currentNote);
 	const [markdownPreview, setMarkdownPreview] = useState(false);
 
-	const [recognizedText, setRecognizedText] = useState("placeholder");
-	let recognition;
+	// const [recognizedText, setRecognizedText] = useState("placeholder");
+	// let recognition;
 
 	const [userNotes, setUserNotes] = useState(notes.content);
 	const textareaRef = useRef(null);
@@ -50,20 +52,20 @@ const Notes = ({ params }) => {
 	const [isRecording, setIsRecording] = useState(false);
 	const [status, setStatus] = useState("saved");
 
-	const startRecognition = () => {
-		recognition = new window.webkitSpeechRecognition();
-		recognition.onresult = (event) => {
-			const transcript = event.results[0][0].transcript;
-			setRecognizedText(transcript);
-		};
-		recognition.start();
-	};
+	// const startRecognition = () => {
+	// 	recognition = new window.webkitSpeechRecognition();
+	// 	recognition.onresult = (event) => {
+	// 		const transcript = event.results[0][0].transcript;
+	// 		setRecognizedText(transcript);
+	// 	};
+	// 	recognition.start();
+	// };
 
-	const stopRecognition = () => {
-		if (recognition) {
-			recognition.stop();
-		}
-	};
+	// const stopRecognition = () => {
+	// 	if (recognition) {
+	// 		recognition.stop();
+	// 	}
+	// };
 
 	const handleRecording = () => {
 		setIsRecording((prev) => !prev);
@@ -100,6 +102,16 @@ const Notes = ({ params }) => {
 		setUserNotes(modifiedString);
 		setStatus("pending");
 	};
+	useEffect(()=>{
+		const newNoteObj = {...notes, content: userNotes}
+		const newAllNotesFiltered = allNotes.filter(note => note.id != noteId)
+		const newAllNotes = [...newAllNotesFiltered, newNoteObj];
+		// console.log(newNoteObj)
+		// console.log(newAllNotesFiltered)
+		console.log(newAllNotes);
+		
+		localStorage.setItem("allNotes", JSON.stringify(newAllNotes));
+	}, [userNotes])
 
 	const links = [
 		{ href: "/account-settings", label: "Account settings" },
