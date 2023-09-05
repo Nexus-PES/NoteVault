@@ -137,7 +137,7 @@ const Notes = ({ params }) => {
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins hide-scrollbar">
-				<nav className="flex h-12 max-h-12 items-center justify-between py-2 px-5 border-b border-dark-100 text-white text-xs">
+				<nav className="flex h-12 max-h-12 items-center justify-between py-2 pl-12 border-b border-dark-100 text-white text-xs">
 					Navbar
 				</nav>
 				<div
@@ -148,7 +148,7 @@ const Notes = ({ params }) => {
 					<div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 my-2">
 						<div className="flex gap-4 justify-between items-center">
 							<Link
-								className="text-xs text-center text-text-100 font-semibold hover:underline hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
+								className="text-xs text-center text-text-100 font-semibold hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
 								href={
 									session
 										? `/${username.split(" ").join("")}`

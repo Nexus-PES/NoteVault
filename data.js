@@ -172,25 +172,41 @@ export const footer = [
 export const notesData = [
 	{
 		id: 1,
-		title: "Meeting Notes",
-		createdDate: "10/08/2023",
-		lastModifiedDate: "22/08/2023",
-		content:
-			"Discussed new project plans and assigned tasks to team members. ",
-	},
-	{
-		id: 2,
-		title: "Project Ideas",
-		createdDate: "05/08/2023",
-		lastModifiedDate: "18/08/2023",
-		content: "Brainstormed ideas for upcoming product launch.",
-	},
-	{
-		id: 3,
-		title: "Fitness Log",
-		createdDate: "09/08/2023",
-		lastModifiedDate: "25/08/2023",
-		content:
-			"A #fitness log is a valuable tool for tracking and documenting your physical activities, workouts, and health progress. By recording essential information such as the type of exercise, duration, intensity, and any notable observations, a fitness log provides a comprehensive snapshot of your fitness journey. This log not only helps you monitor your consistency and performance but also enables you to identify trends, set goals, and make informed adjustments to your workout routine. Whether you're aiming to improve endurance, build strength, or simply maintain an active lifestyle, a well-maintained fitness log acts as a motivating and informative companion on your path to better health and wellness.",
+		title: "Welcome to NoteVault 👋",
+		createdDate: new Date().toLocaleDateString("en-GB"),
+		lastModifiedDate: new Date().toLocaleDateString("en-GB"),
+		content: `# Welcome to [NoteVault](https://notevault.vercel.app) Markdown Notepad
+
+
+	
+![Note Vault Logo](https://github.com/Nexus-PES/NoteVault/assets/86056181/49cbfd6c-61ad-42ba-bbd3-308604fc73de "Note Vault Logo")
+
+
+> NoteVault is your go-to platform for creating and managing markdown notes with ease. Whether you're a seasoned markdown pro or just getting started, NoteVault simplifies the process of taking and organizing your notes, all while providing a seamless markdown preview feature. With NoteVault, your notes come to life as you write, making it effortless to create beautifully formatted documents. 
+
+## Key Features of NoteVault
+
+### 1. **Real-time Markdown Preview**
+   - Instantly visualize how your markdown text will appear, allowing you to catch formatting errors on the fly.
+   
+### 2. **Effortless Organization**
+   - Create, edit, and categorize your notes with a simple, intuitive interface.
+   
+### 3. **Collaboration Made Easy**
+   - Collaborate with others in real-time on your markdown documents, ensuring seamless teamwork and document version control.
+
+### 4. **Export and Share**
+   - Export your markdown notes in various formats, including PDF, HTML, and plain text, and share them effortlessly with your colleagues or friends.
+
+### 5. **Custom Themes**
+   - Personalize your writing experience with customizable themes, making your notepad as unique as your content.
+
+### 6. **Cross-Platform Compatibility**
+   - Access your notes from anywhere, whether it's on your desktop, tablet, or smartphone, thanks to NoteVault's cloud-based platform.
+
+### 7. **Security and Privacy**
+   - Rest assured knowing your notes are secure with encryption and user-friendly privacy settings.
+
+Get ready to supercharge your markdown writing experience with NoteVault! Start creating, formatting, and organizing your notes effortlessly today. Whether you're a student, writer, developer, or anyone who loves markdown, NoteVault has you covered. Happy writing!`,
 	},
 ];

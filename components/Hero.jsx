@@ -34,7 +34,7 @@ const Hero = () => {
 						<div className="flex gap-x-4 items-center">
 							<button
 								onClick={() => signOut("github")}
-								className="inline-block text-xs text-center text-dark-100 bg-white font-semibold hover:underline hover:bg-stone-100 rounded px-4 py-2 transition"
+								className="inline-block text-xs text-center text-dark-100 bg-white font-semibold hover:bg-stone-100 rounded px-4 py-2 transition"
 							>
 								Sign Out
 							</button>
@@ -50,7 +50,7 @@ const Hero = () => {
 						<>
 							<button
 								onClick={() => signIn("github")}
-								className="inline-block text-xs text-center text-white bg-gradient-to-br from-primary to-secondary-600 font-semibold hover:underline hover:bg-stone-100 rounded px-4 py-2 transition"
+								className="inline-block text-xs text-center text-white bg-gradient-to-br from-primary to-secondary-600 font-semibold hover:bg-stone-100 rounded px-4 py-2 transition"
 							>
 								Sign In
 							</button>
