@@ -15,17 +15,16 @@ const UserPage = () => {
 
 	useEffect(() => {
 		if (status == "authenticated") {
-			console.log("Effected",session.user.name)
 			setUsername(session.user.name);
 		}
 	}, [status]);
 
 	const [greetings, setGreetings] = useState("");
-	const [info, setInfo] = useState(notesData);
 	const [input, setInput] = useState("");
 
 	const [div1, setDiv1] = useState(true);
 	const [div2, setDiv2] = useState(false);
+	const [info, setInfo] = useState([]);
 
 	const randomGreeting = [
 		`Salutations! ${username}`,
@@ -55,12 +54,16 @@ const UserPage = () => {
 			setGreetings("Hi! Guest User");
 		}
 
-		if(localStorage.getItem("allNotes")===null){
+		if (localStorage.getItem("allNotes") === null) {
 			localStorage.setItem("allNotes", JSON.stringify(notesData));
 		}
+		const sortedNotes = JSON.parse(localStorage.getItem("allNotes")).sort(
+			(obj1, obj2) =>
+				Number(obj2.lastModifiedDate) - Number(obj1.lastModifiedDate)
+		);
+		setInfo(sortedNotes);
+		console.log(sortedNotes)
 	}, [username]); // eslint-disable-line no-console
-
-	
 
 	const changetodiv1 = (event) => {
 		setDiv1(true);
@@ -97,7 +100,9 @@ const UserPage = () => {
 					<div className="flex space-x-4 rounded border border-dark-100 bg-dark-100 p-6 shadow-md">
 						<div className="flex flex-col">
 							<div className="w-auto sm:w-64 md:w-80 space-y-2 sm:space-y-4">
-								<h5 className="text-sm sm:text-base">User Unauthenticated</h5>
+								<h5 className="text-sm sm:text-base">
+									User Unauthenticated
+								</h5>
 								<div className="flex flex-col space-y-2">
 									<p className="text-xs sm:text-sm text-text-100">
 										Sign In again to access your notes
@@ -105,7 +110,10 @@ const UserPage = () => {
 								</div>
 								<div className="flex items-center space-x-2">
 									<button className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-semibold ease-out duration-200 rounded-md transition-all outline-none outline-0 focus-visible:border-4 bg-secondary-600 border-slate-800 hover:bg-secondary-600/80 text-white  focus-visible:outline-white shadow-sm text-xs px-5 py-2">
-										<button onClick={()=>signIn('github')} className="truncate">
+										<button
+											onClick={() => signIn("github")}
+											className="truncate"
+										>
 											Sign In
 										</button>
 									</button>
@@ -116,9 +124,7 @@ const UserPage = () => {
 				</div>
 			</div>
 		);
-	} 
-
-	
+	}
 
 	return (
 		<>
@@ -132,7 +138,9 @@ const UserPage = () => {
 				>
 					{/* <div className="mx-6 flex flex-col items-center space-x-6"> */}
 					<div className="mx-6 flex justify-start items-center my-14">
-						{(status === "loading" || (status == "authenticated" && greetings.includes("Guest User") )) ? (
+						{status === "loading" ||
+						(status == "authenticated" &&
+							greetings.includes("Guest User")) ? (
 							<SkeletonHeading />
 						) : (
 							<div className="">
@@ -147,7 +155,9 @@ const UserPage = () => {
 					</div>
 					<div className="my-6">
 						<div className="mx-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
-							{(status === "loading" || (status == "authenticated" && greetings.includes("Guest User") ) ) ? (
+							{status === "loading" ||
+							(status == "authenticated" &&
+								greetings.includes("Guest User")) ? (
 								<>
 									<CardSkeleton />
 									<CardSkeleton />

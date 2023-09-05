@@ -46,7 +46,7 @@ const Notes = ({ params }) => {
 	// const [recognizedText, setRecognizedText] = useState("placeholder");
 	// let recognition;
 
-	const [userNotes, setUserNotes] = useState(notes.content);
+	// const [userNotes, setUserNotes] = useState(notes.content);
 	const textareaRef = useRef(null);
 
 	const [isRecording, setIsRecording] = useState(false);
@@ -74,7 +74,7 @@ const Notes = ({ params }) => {
 	const handleSave = () => {
 		setNotes({
 			...notes,
-			content: userNotes,
+			// content: userNotes,
 			lastModifiedDate: new Date().toLocaleDateString("en-GB"),
 		});
 		setStatus("updating");
@@ -94,24 +94,28 @@ const Notes = ({ params }) => {
 	const handleTextareaChange = (e) => {
 		// const inputString = e.target.innerHTML;
 		const inputString = e.target.value;
-		const modifiedString = inputString.replace(
-			/#[a-zA-Z0-9_]+/g,
-			'<span class="text-primary">$&</span>'
-		);
+		// const modifiedString = inputString.replace(
+		// 	/#[a-zA-Z0-9_]+/g,
+		// 	'<span class="text-primary">$&</span>'
+		// );
 
-		setUserNotes(modifiedString);
+
+		// setUserNotes(modifiedString);
+		setNotes({...notes, content: inputString})
 		setStatus("pending");
 	};
-	useEffect(()=>{
-		const newNoteObj = {...notes, content: userNotes}
-		const newAllNotesFiltered = allNotes.filter(note => note.id != noteId)
-		const newAllNotes = [...newAllNotesFiltered, newNoteObj];
+	useEffect(() => {
+		// const newNoteObj = {...notes, content: userNotes}
+		const newAllNotesFiltered = allNotes.filter(
+			(note) => note.id != noteId
+		);
+		const newAllNotes = [...newAllNotesFiltered, notes];
 		// console.log(newNoteObj)
 		// console.log(newAllNotesFiltered)
-		console.log(newAllNotes);
-		
+		// console.log(newAllNotes);
+
 		localStorage.setItem("allNotes", JSON.stringify(newAllNotes));
-	}, [userNotes])
+	}, [notes]);
 
 	const links = [
 		{ href: "/account-settings", label: "Account settings" },
@@ -236,12 +240,12 @@ const Notes = ({ params }) => {
 									<ReactMarkdown
 										// renderers={{ code: SyntaxHighlight }}
 									>
-										{userNotes}
+										{notes.content}
 									</ReactMarkdown>
 								</div>
 							) : (
 								<Textarea
-									userNotes={userNotes}
+									userNotes={notes.content}
 									reference={textareaRef}
 									onInput={handleTextareaChange}
 									onChange={handleTextareaChange}
@@ -253,7 +257,7 @@ const Notes = ({ params }) => {
 								markdownPreview={markdownPreview}
 								status={status}
 								isRecording={isRecording}
-								userNotes={userNotes}
+								userNotes={notes.content}
 							/>
 						</div>
 					</div>
