@@ -116,6 +116,8 @@ const Notes = ({ params }) => {
 	// 	</div>
 	//   );
 
+	
+
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins hide-scrollbar">

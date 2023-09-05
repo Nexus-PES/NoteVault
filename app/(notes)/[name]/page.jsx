@@ -15,6 +15,7 @@ const UserPage = () => {
 
 	useEffect(() => {
 		if (status == "authenticated") {
+			console.log("Effected",session.user.name)
 			setUsername(session.user.name);
 		}
 	}, [status]);
@@ -53,7 +54,7 @@ const UserPage = () => {
 		} else {
 			setGreetings("Hi! Guest User");
 		}
-	}, []); // eslint-disable-line no-console
+	}, [username]); // eslint-disable-line no-console
 
 	const changetodiv1 = (event) => {
 		setDiv1(true);
@@ -110,6 +111,9 @@ const UserPage = () => {
 			</div>
 		);
 	} 
+
+	
+
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
@@ -122,7 +126,7 @@ const UserPage = () => {
 				>
 					{/* <div className="mx-6 flex flex-col items-center space-x-6"> */}
 					<div className="mx-6 flex justify-start items-center my-14">
-						{status === "loading" ? (
+						{(status === "loading" || (status == "authenticated" && greetings.includes("Guest User") )) ? (
 							<SkeletonHeading />
 						) : (
 							<div className="">
@@ -137,7 +141,7 @@ const UserPage = () => {
 					</div>
 					<div className="my-6">
 						<div className="mx-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
-							{status === "loading" ? (
+							{(status === "loading" || (status == "authenticated" && greetings.includes("Guest User") ) ) ? (
 								<>
 									<CardSkeleton />
 									<CardSkeleton />
