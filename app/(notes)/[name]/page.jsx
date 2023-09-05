@@ -21,9 +21,8 @@ const UserPage = () => {
 
 	const [greetings, setGreetings] = useState("");
 	const [input, setInput] = useState("");
+	const [showAddCard, setShowAddCard] = useState(false);
 
-	const [div1, setDiv1] = useState(true);
-	const [div2, setDiv2] = useState(false);
 	const [info, setInfo] = useState([]);
 
 	const randomGreeting = [
@@ -62,27 +61,39 @@ const UserPage = () => {
 				Number(obj2.lastModifiedDate) - Number(obj1.lastModifiedDate)
 		);
 		setInfo(sortedNotes);
-		console.log(sortedNotes)
-	}, [username]); // eslint-disable-line no-console
+		// console.log(sortedNotes)
+	}, [username, showAddCard]); // eslint-disable-line no-console
 
-	const changetodiv1 = (event) => {
-		setDiv1(true);
-		setDiv2(false);
-		setInput("");
+	// const changetodiv1 = (event) => {
+	// 	setDiv1(true);
+	// 	setDiv2(false);
 
+	// 	const date = new Date().toLocaleDateString("en-GB");
+	// 	const newNoteData = {
+	// 		id: info.length + 1,
+	// 		title: input,
+	// 		createdDate: date,
+	// 		lastModifiedDate: date,
+	// 	};
+	// };
+
+	const addNewCard = () => {
 		const date = new Date().toLocaleDateString("en-GB");
 		const newNoteData = {
 			id: info.length + 1,
 			title: input,
 			createdDate: date,
+			content: "",
 			lastModifiedDate: date,
 		};
-		setInfo([...info, newNoteData]);
-	};
 
-	const changetodiv2 = () => {
-		setDiv2(true);
-		setDiv1(false);
+		setInput("");
+		// setInfo([...info, newNoteData]);
+		localStorage.setItem(
+			"allNotes",
+			JSON.stringify([...info, newNoteData])
+		);
+		setShowAddCard(false);
 	};
 
 	const handleInputChange = (event) => {
@@ -186,21 +197,11 @@ const UserPage = () => {
 										</Link>
 									))}
 
-									<div className=" h-28 lg:h-auto p-5 transition-all hover:border-stone-500 rounded text-white bg-dark-100 flex flex-col items-center justify-center">
-										<div
-											onClick={changetodiv2}
-											className=""
-										>
-											{div1 && (
-												<div className="flex justify-center items-center text-xs text-text-100">
-													<span>+ New</span>
-												</div>
-											)}
-										</div>
-										{div2 && (
+									<div className="h-28 p-5 transition-all hover:border-stone-500 rounded text-white bg-dark-100 flex flex-col items-center justify-center">
+										{showAddCard ? (
 											<div className="flex items-center justify-center w-full">
 												<input
-													className="text-sm w-16 flex-grow flex-[1] font-medium placeholder:text-text-200 placeholder:text-xs p-0 text-text-100 bg-transparent focus:ring-0 putline-none border-0 focus:outline-none focus:border-0"
+													className="text-sm w-full flex-grow flex-[1] font-medium placeholder:text-text-200 placeholder:text-xs p-0 text-text-100 bg-transparent focus:ring-0 putline-none border-0 focus:outline-none focus:border-0"
 													placeholder="Note title"
 													type="text"
 													value={input}
@@ -208,8 +209,9 @@ const UserPage = () => {
 												/>
 												<button
 													onClick={
-														input.length > 0 &&
-														changetodiv1
+														input.length > 0
+															? addNewCard
+															: undefined
 													}
 												>
 													<BsRocketTakeoff
@@ -218,6 +220,16 @@ const UserPage = () => {
 															"animate-waving-hand text-white "
 														} w-8 h-8 flex-wrap hover:bg-text-200 focus:bg-text-200 rounded p-1.5`}
 													/>
+												</button>
+											</div>
+										) : (
+											<div className="flex justify-center items-center text-xs text-text-100">
+												<button
+													onClick={() =>
+														setShowAddCard(true)
+													}
+												>
+													+ New
 												</button>
 											</div>
 										)}
@@ -230,7 +242,6 @@ const UserPage = () => {
 			</main>
 		</>
 	);
-	// }
 };
 
 export default UserPage;

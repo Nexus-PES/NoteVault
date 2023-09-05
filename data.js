@@ -170,75 +170,27 @@ export const footer = [
 ];
 
 export const notesData = [
-  {
-    id: 1,
-    title: "Meeting Notes",
-    createdDate: "10/08/2023",
-    lastModifiedDate: "22/08/2023",
-    content: "Discussed new project plans and assigned tasks to team members. "
-  },
-  {
-    id: 2,
-    title: "Project Ideas",
-    createdDate: "05/08/2023",
-    lastModifiedDate: "18/08/2023",
-    content: "Brainstormed ideas for upcoming product launch."
-  },
-  {
-    id: 3,
-    title: "Research Findings",
-    createdDate: "15/08/2023",
-    lastModifiedDate: "23/08/2023",
-    content: "Compiled research results on market trends and consumer preferences."
-  },
-  {
-    id: 4,
-    title: "Daily Journal",
-    createdDate: "01/08/2023",
-    lastModifiedDate: "24/08/2023",
-    content: "Reflecting on today's accomplishments and challenges."
-  },
-  {
-    id: 5,
-    title: "Recipe Collection",
-    createdDate: "08/08/2023",
-    lastModifiedDate: "20/08/2023",
-    content: "Added new recipes for pasta and homemade bread."
-  },
-  {
-    id: 6,
-    title: "Book Summaries",
-    createdDate: "12/08/2023",
-    lastModifiedDate: "21/08/2023",
-    content: "Summarized chapters 5-10 of 'The Art of Time Management'."
-  },
-  {
-    id: 7,
-    title: "Travel Plans",
-    createdDate: "03/08/2023",
-    lastModifiedDate: "19/08/2023",
-    content: "Outlined itinerary for upcoming vacation to Europe."
-  },
-  {
-    id: 8,
-    title: "Coding Notes",
-    createdDate: "07/08/2023",
-    lastModifiedDate: "17/08/2023",
-    content: "Troubleshooting bugs in backend API code."
-  },
-  {
-    id: 9,
-    title: "Fitness Log",
-    createdDate: "09/08/2023",
-    lastModifiedDate: "25/08/2023",
-    content: "A #fitness log is a valuable tool for tracking and documenting your physical activities, workouts, and health progress. By recording essential information such as the type of exercise, duration, intensity, and any notable observations, a fitness log provides a comprehensive snapshot of your fitness journey. This log not only helps you monitor your consistency and performance but also enables you to identify trends, set goals, and make informed adjustments to your workout routine. Whether you're aiming to improve endurance, build strength, or simply maintain an active lifestyle, a well-maintained fitness log acts as a motivating and informative companion on your path to better health and wellness."
-  },
-  {
-    id: 10,
-    title: "Art Project",
-    createdDate: "06/08/2023",
-    lastModifiedDate: "26/08/2023",
-    content: "Added progress photos of the oil painting in process."
-  }
+	{
+		id: 1,
+		title: "Meeting Notes",
+		createdDate: "10/08/2023",
+		lastModifiedDate: "22/08/2023",
+		content:
+			"Discussed new project plans and assigned tasks to team members. ",
+	},
+	{
+		id: 2,
+		title: "Project Ideas",
+		createdDate: "05/08/2023",
+		lastModifiedDate: "18/08/2023",
+		content: "Brainstormed ideas for upcoming product launch.",
+	},
+	{
+		id: 3,
+		title: "Fitness Log",
+		createdDate: "09/08/2023",
+		lastModifiedDate: "25/08/2023",
+		content:
+			"A #fitness log is a valuable tool for tracking and documenting your physical activities, workouts, and health progress. By recording essential information such as the type of exercise, duration, intensity, and any notable observations, a fitness log provides a comprehensive snapshot of your fitness journey. This log not only helps you monitor your consistency and performance but also enables you to identify trends, set goals, and make informed adjustments to your workout routine. Whether you're aiming to improve endurance, build strength, or simply maintain an active lifestyle, a well-maintained fitness log acts as a motivating and informative companion on your path to better health and wellness.",
+	},
 ];
-
