@@ -72,8 +72,6 @@ Thank you for choosing Notevault. We hope you enjoy this release, and we look fo
 
 Happy Note-taking! 📝✨
 
-![Notevault Logo](https://example.com/notevault-logo.png)
-
 **Notevault Team**
 *Your Notes, Your Way*
 
