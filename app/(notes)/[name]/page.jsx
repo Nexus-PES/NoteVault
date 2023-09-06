@@ -7,6 +7,7 @@ import { notesData } from "../../../data";
 import { BsRocketTakeoff } from "react-icons/bs";
 import { useSession, signIn } from "next-auth/react";
 import { CardSkeleton, SkeletonHeading } from "../../../components/Skeleton";
+import NotesNavbar from "../../../components/NotesNavbar";
 
 const UserPage = () => {
 	const { data: session, status } = useSession();
@@ -137,12 +138,27 @@ const UserPage = () => {
 		);
 	}
 
+	console.log(username);
+
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
-				<nav className="flex h-12 max-h-12 items-center justify-between py-2 pl-14 border-b border-dark-100 text-white text-xs">
-					Navbar
-				</nav>
+				{/* <nav className="flex h-12 max-h-12 items-center justify-between py-2 pl-12 border-b border-dark-100 text-white text-xs">
+					<ul className="flex items-center">
+						<li>
+							<Link
+								href="/"
+								className="text-slate-400 hover:text-white cursor-pointer px-2 py-1 text-xs focus:bg-transparent focus:outline-none"
+							>
+								NoteVault
+							</Link>
+						</li>
+					</ul>
+				</nav> */}
+				<NotesNavbar
+					username={username}
+					params={username}
+				/>
 				<div
 					style={{ maxHeight: "100vh" }}
 					className="flex-1 overflow-y-auto"
@@ -205,6 +221,7 @@ const UserPage = () => {
 													placeholder="Note title"
 													type="text"
 													value={input}
+													autoFocus
 													onChange={handleInputChange}
 												/>
 												<button
@@ -223,15 +240,14 @@ const UserPage = () => {
 												</button>
 											</div>
 										) : (
-											<div className="flex justify-center items-center text-xs text-text-100">
-												<button
-													onClick={() =>
-														setShowAddCard(true)
-													}
-												>
-													+ New
-												</button>
-											</div>
+											<button
+												className="h-full w-full flex justify-center items-center text-xs text-text-100"
+												onClick={() =>
+													setShowAddCard(true)
+												}
+											>
+												<span>+ New</span>
+											</button>
 										)}
 									</div>
 								</>

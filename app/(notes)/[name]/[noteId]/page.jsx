@@ -14,6 +14,7 @@ import { useSession } from "next-auth/react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { MdArrowBack } from "react-icons/md";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import NotesNavbar from "../../../../components/NotesNavbar";
 
 const Notes = ({ params }) => {
 	const { data: session } = useSession();
@@ -99,9 +100,8 @@ const Notes = ({ params }) => {
 		// 	'<span class="text-primary">$&</span>'
 		// );
 
-
 		// setUserNotes(modifiedString);
-		setNotes({...notes, content: inputString})
+		setNotes({ ...notes, content: inputString });
 		setStatus("pending");
 	};
 	useEffect(() => {
@@ -132,20 +132,16 @@ const Notes = ({ params }) => {
 	// 	</div>
 	//   );
 
-	
-
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins hide-scrollbar">
-				<nav className="flex h-12 max-h-12 items-center justify-between py-2 pl-12 border-b border-dark-100 text-white text-xs">
-					Navbar
-				</nav>
+				<NotesNavbar username={username} params="/" paths={[{title:notes.title, href:`/${username.split(' ').join('')}/${notes.id}`}]}/>
 				<div
-					style={{ "maxHeight": "100vh" }}
+					style={{ maxHeight: "100vh" }}
 					className="flex-1 overflow-y-auto hide-scrollbar"
 				>
 					{/* <div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 my-14 sm:mx-20 md:mx-28 "> */}
-					<div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 my-2">
+					<div className="font-handlee flex text-text-100 gap-y-10 flex-col mx-4 mt-2 mb-8">
 						<div className="flex gap-4 justify-between items-center">
 							<Link
 								className="text-xs text-center text-text-100 font-semibold hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
@@ -229,16 +225,16 @@ const Notes = ({ params }) => {
 								onKeyDown={(e) => handleKeyDown(e)}
 								className={`${
 									markdownPreview && "font-poppins text-white"
-								} text-clamp-notes-greeting font-bold block rounded py-2 placeholder:text-gray-600 text-text-100 sm:leading-6 bg-transparent focus:ring-0 border-0`}
+								} leading-10 text-clamp-notes-greeting font-bold block rounded py-2 placeholder:text-gray-600 text-text-100 sm:leading-6 bg-transparent focus:ring-0 border-0`}
 								maxLength={40}
 								minLength={3}
 								required
 							/>
 
 							{markdownPreview ? (
-								<div className="prose prose-sm prose-custom selection:bg-secondary-500 m-2 mr-4 max-w-none hide-scrollbar font-poppins">
+								<div className="prose prose-sm prose-custom selection:bg-secondary-500 pb-8 ml-2 mb-8 mt-2 mr-4 max-w-none hide-scrollbar font-poppins">
 									<ReactMarkdown
-										// renderers={{ code: SyntaxHighlight }}
+									// renderers={{ code: SyntaxHighlight }}
 									>
 										{notes.content}
 									</ReactMarkdown>
