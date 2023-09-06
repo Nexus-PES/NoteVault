@@ -30,20 +30,20 @@ const SideMenu = ({ className }) => {
 	if (session) {
 		avatar = session.user.image;
 	}
-	
-	useEffect(()=>{
-		setShowSidebar(JSON.parse(localStorage.getItem("sidebar")))
+
+	useEffect(() => {
+		setShowSidebar(JSON.parse(localStorage.getItem("sidebar")));
 		console.log(
 			JSON.parse(
 				localStorage.getItem("sidebar"),
 				typeof JSON.parse(localStorage.getItem("sidebar"))
 			)
 		);
-	}, [])
+	}, []);
 
-	useEffect(()=>{
+	useEffect(() => {
 		localStorage.setItem("sidebar", showSidebar);
-	}, [showSidebar])
+	}, [showSidebar]);
 
 	return (
 		<>
@@ -52,7 +52,7 @@ const SideMenu = ({ className }) => {
 					showSidebar && "hidden"
 				} absolute top-1 left-2 transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm`}
 			>
-								<BsLayoutSidebarInset
+				<BsLayoutSidebarInset
 					size={16}
 					onClick={() => setShowSidebar(true)}
 					className="group-hover:text-white stroke-[0.5px] text-slate-500"
@@ -79,7 +79,7 @@ const SideMenu = ({ className }) => {
 							<SkeletonProfile />
 						) : (
 							<button className="transition-colors duration-200 flex group items-center justify-center h-10 w-10 rounded hover:bg-dark-100 shadow-sm">
-				<BsLayoutSidebar
+								<BsLayoutSidebar
 									size={16}
 									onClick={() => setShowSidebar(false)}
 									className="group-hover:text-white stroke-[0.5px] text-slate-500"

@@ -1,13 +1,24 @@
-// import React from "react";
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const NotesNavbar = ({ username, paths = [], params = "/" }) => {
+	const [showSidebar, setShowSidebar] = useState(false);
+	
+	useEffect(() => {
+		const sidebarOpen = localStorage.getItem("sidebar");
+		setShowSidebar(JSON.parse(sidebarOpen));
+	}, []);
 	return (
-		<nav className="flex h-12 max-h-12 items-center justify-between py-2 pl-12 border-b border-dark-100 text-white text-xs">
+		<nav
+			className={`${
+				showSidebar ? "" : "px-2"
+			} pl-12 pr-2 flex h-12 max-h-12 items-center justify-between py-2 border-b border-dark-100 text-white text-xs`}
+		>
 			<ul className="flex items-center">
 				<li>
 					<Link
-						href={`/${username.split(' ').join('')}`}
+						href={`/${username.split(" ").join("")}`}
 						className={`${
 							params === username
 								? "text-white"
@@ -26,7 +37,7 @@ const NotesNavbar = ({ username, paths = [], params = "/" }) => {
 							<li>
 								<Link
 									href={path.href}
-									className="text-gray-1100 block px-2 py-1 text-xs leading-5 focus:bg-gray-100 focus:text-gray-900 focus:outline-none "
+									className="truncate text-gray-1100 block px-2 py-1 text-xs leading-5 focus:bg-gray-100 focus:text-gray-900 focus:outline-none "
 								>
 									{path.title}
 								</Link>

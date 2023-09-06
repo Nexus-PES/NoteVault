@@ -12,13 +12,17 @@ import Link from "next/link";
 import MenuButton from "../../../../components/MenuButton";
 import { useSession } from "next-auth/react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { BsTrash } from "react-icons/bs";
 import { MdArrowBack } from "react-icons/md";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import NotesNavbar from "../../../../components/NotesNavbar";
+import { useRouter } from "next/navigation";
+
 
 const Notes = ({ params }) => {
 	const { data: session } = useSession();
 	const { noteId } = params;
+	 const router = useRouter();
 
 	let username;
 	try {
@@ -92,6 +96,13 @@ const Notes = ({ params }) => {
 		}
 	};
 
+	const deleteNotes = (id) => {
+		const newAllNotes = allNotes.filter((note) => note.id != id);
+		localStorage.setItem("allNotes", JSON.stringify(newAllNotes));
+		router.push(`/${username.split(" ").join("")}`);
+		// window.location.href = `/${username.split(" ").join("")}`;
+	}
+
 	const handleTextareaChange = (e) => {
 		// const inputString = e.target.innerHTML;
 		const inputString = e.target.value;
@@ -110,9 +121,6 @@ const Notes = ({ params }) => {
 			(note) => note.id != noteId
 		);
 		const newAllNotes = [...newAllNotesFiltered, notes];
-		// console.log(newNoteObj)
-		// console.log(newAllNotesFiltered)
-		// console.log(newAllNotes);
 
 		localStorage.setItem("allNotes", JSON.stringify(newAllNotes));
 	}, [notes]);
@@ -135,7 +143,18 @@ const Notes = ({ params }) => {
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins hide-scrollbar">
-				<NotesNavbar username={username} params="/" paths={[{title:notes.title, href:`/${username.split(' ').join('')}/${notes.id}`}]}/>
+				<NotesNavbar
+					username={username}
+					params="/"
+					paths={[
+						{
+							title: notes.title,
+							href: `/${username.split(" ").join("")}/${
+								notes.id
+							}`,
+						},
+					]}
+				/>
 				<div
 					style={{ maxHeight: "100vh" }}
 					className="flex-1 overflow-y-auto hide-scrollbar"
@@ -159,11 +178,8 @@ const Notes = ({ params }) => {
 							</Link>
 
 							<div className="flex gap-x-2">
-								<MenuButton links={links}>
+								{/* <MenuButton links={links}>
 									<Button size="sm">
-										{/* <span className="text-center bg-white rounded-lg h-5 w-5 flex items-center justify-center">
-								</span> */}
-
 										<Image
 											src="/images/edit.svg"
 											width={20}
@@ -173,7 +189,15 @@ const Notes = ({ params }) => {
 										/>
 										<span className="sr-only">Edit</span>
 									</Button>
-								</MenuButton>
+								</MenuButton> */}
+
+								<Button
+									size="sm"
+									className="border-gray-800 border bg-transparent hover:bg-gray-800 transition-colors text-primary "
+									onClick={() => deleteNotes(notes.id)}
+								>
+									<BsTrash className="" size={16} />
+								</Button>
 								<Button
 									size="sm"
 									type="glory"

@@ -62,21 +62,7 @@ const UserPage = () => {
 				Number(obj2.lastModifiedDate) - Number(obj1.lastModifiedDate)
 		);
 		setInfo(sortedNotes);
-		// console.log(sortedNotes)
 	}, [username, showAddCard]); // eslint-disable-line no-console
-
-	// const changetodiv1 = (event) => {
-	// 	setDiv1(true);
-	// 	setDiv2(false);
-
-	// 	const date = new Date().toLocaleDateString("en-GB");
-	// 	const newNoteData = {
-	// 		id: info.length + 1,
-	// 		title: input,
-	// 		createdDate: date,
-	// 		lastModifiedDate: date,
-	// 	};
-	// };
 
 	const addNewCard = () => {
 		const date = new Date().toLocaleDateString("en-GB");
@@ -137,8 +123,6 @@ const UserPage = () => {
 			</div>
 		);
 	}
-
-	console.log(username);
 
 	return (
 		<>

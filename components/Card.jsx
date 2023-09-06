@@ -27,12 +27,12 @@ const Card = ({ title, createdDate, lastModifiedDate, ...props }) => {
 					{title}
 				</p>
 				<div onClick={(e) => e.stopPropagation()}>
-					<MenuButton
+					{/* <MenuButton
 						links={links}
 						onClick={(e) => e.stopPropagation()}
-					>
+					> */}
 						<BsThreeDotsVertical className="h-5 w-5" />
-					</MenuButton>
+					{/* </MenuButton> */}
 				</div>
 			</div>
 			<p className="text-xs text-text-100 flex items-center gap-x-1">
