@@ -42,3 +42,16 @@ export const SkeletonHeading = () => {
 		</SkeletonTheme>
 	);
 };
+
+export const SkeletonTitle = () => {
+	return (
+		<SkeletonTheme
+			baseColor="#292929"
+			highlightColor="#444"
+		>
+			<h2 className="sm:w-2/3 md:w-1/2 mx-6 my-2">
+				<Skeleton className="h-8"/>
+			</h2>
+		</SkeletonTheme>
+	);
+};

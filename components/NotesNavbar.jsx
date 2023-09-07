@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 
-const NotesNavbar = ({ username, paths = [], params = "/", className, ...props }) => {
+const NotesNavbar = ({ username, paths = [], params = "/", loading=false ,className, ...props }) => {
 	const [showSidebar, setShowSidebar] = useState(false);
 	
 	useEffect(() => {
@@ -26,7 +26,7 @@ const NotesNavbar = ({ username, paths = [], params = "/", className, ...props }
 								: "text-slate-400"
 						} hover:text-white cursor-pointer px-2 py-1 text-xs focus:bg-transparent focus:outline-none`}
 					>
-						NoteVault
+						{loading ? 'Loading ...' :'NoteVault'}
 					</Link>
 				</li>
 				{paths.length > 0 &&
@@ -38,7 +38,7 @@ const NotesNavbar = ({ username, paths = [], params = "/", className, ...props }
 							<li>
 								<Link
 									href={path.href}
-									className="truncate text-gray-1100 block px-2 py-1 text-xs leading-5 focus:bg-gray-100 focus:text-gray-900 focus:outline-none "
+									className="truncate text-gray-100 block px-2 py-1 text-xs leading-5 focus:bg-gray-100 focus:outline-none "
 								>
 									{path.title}
 								</Link>

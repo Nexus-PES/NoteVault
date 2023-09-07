@@ -2,14 +2,14 @@ import React from "react";
 import NotesNavbar from "../components/NotesNavbar";
 import { CardSkeleton, SkeletonHeading } from "../components/Skeleton";
 
-
 const RootLoading = () => {
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
 				<NotesNavbar
 					username="Loading.."
-					params={'/'}
+					params={"/"}
+					loading={true}
 					className="-pl-10"
 				/>
 				<div

@@ -6,7 +6,11 @@ import Link from "next/link";
 import { notesData } from "../../../data";
 import { BsRocketTakeoff } from "react-icons/bs";
 import { useSession, signIn } from "next-auth/react";
-import { CardSkeleton, SkeletonHeading } from "../../../components/Skeleton";
+import {
+	CardSkeleton,
+	SkeletonHeading,
+	SkeletonTitle,
+} from "../../../components/Skeleton";
 import NotesNavbar from "../../../components/NotesNavbar";
 
 const UserPage = () => {
@@ -58,10 +62,10 @@ const UserPage = () => {
 			localStorage.setItem("allNotes", JSON.stringify(notesData));
 		}
 		const sortedNotes = JSON.parse(localStorage.getItem("allNotes")).sort(
-			(obj1, obj2) =>
-				Number(obj1.createdDate) - Number(obj2.createdDate)
+			(obj1, obj2) => Number(obj1.createdDate) - Number(obj2.createdDate)
 		);
-		setInfo(sortedNotes);
+		const userNotes = JSON.parse(localStorage.getItem("allNotes"));
+		setInfo(arrSorting(userNotes, "asc"));
 	}, [username, showAddCard]); // eslint-disable-line no-console
 
 	const addNewCard = () => {
@@ -90,6 +94,26 @@ const UserPage = () => {
 		const { title, id } = item;
 	};
 
+	const arrSorting = (arr, type, attribute = "") => {
+		if (type === "asc") {
+			const ascending = arr.sort(
+				(a, b) => new Date(a.createdDate) - new Date(b.createdDate)
+			);
+			return ascending;
+		} else {
+			const descending = arr.sort((a, b) => {
+				return (
+					new Date(b.lastModifiedDate) - new Date(a.lastModifiedDate)
+				);
+			});
+			return descending;
+		}
+		// else {
+		// 	return info;
+		// }
+	};
+
+	console.log(arrSorting(info, "desc"));
 	if (status === "unauthenticated") {
 		return (
 			<div className="w-full h-full flex items-center justify-center text-white font-poppins">
@@ -123,21 +147,11 @@ const UserPage = () => {
 		);
 	}
 
+	console.log(info)
+
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
-				{/* <nav className="flex h-12 max-h-12 items-center justify-between py-2 pl-12 border-b border-dark-100 text-white text-xs">
-					<ul className="flex items-center">
-						<li>
-							<Link
-								href="/"
-								className="text-slate-400 hover:text-white cursor-pointer px-2 py-1 text-xs focus:bg-transparent focus:outline-none"
-							>
-								NoteVault
-							</Link>
-						</li>
-					</ul>
-				</nav> */}
 				<NotesNavbar
 					username={username}
 					params={username}
@@ -146,7 +160,6 @@ const UserPage = () => {
 					style={{ maxHeight: "100vh" }}
 					className="flex-1 overflow-y-auto"
 				>
-					{/* <div className="mx-6 flex flex-col items-center space-x-6"> */}
 					<div className="mx-6 flex justify-start items-center my-14">
 						{status === "loading" ||
 						(status == "authenticated" &&
@@ -163,7 +176,53 @@ const UserPage = () => {
 							</div>
 						)}
 					</div>
+
+					{status === "loading" ||
+					(status === "authenticated" &&
+						greetings.includes("Guest User")) ? (
+						<>
+							<SkeletonTitle />
+							<div className="mx-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
+								<CardSkeleton />
+								<CardSkeleton />
+								<CardSkeleton />
+								<CardSkeleton />
+							</div>
+						</>
+					) : (
+
+						<div className="mx-6">
+							<h2 className="text-text-100 my-2">Recent Notes</h2>
+							<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
+								{arrSorting(info, "desc")
+									.slice(0, 4)
+									.map((item) => (
+										<Link
+											href={`/${username
+												.split(" ")
+												.join("")}/${item.id}`}
+											key={item.id}
+										>
+											<Card
+												{...item}
+												onClick={() =>
+													handleCardClick(item)
+												}
+											/>
+										</Link>
+									))}
+							</div>
+						</div>
+					)}
+
 					<div className="my-6">
+						{status === "loading" ? (
+							<SkeletonTitle />
+						) : (
+							<h2 className="text-text-100 mx-6 my-2">
+								All Notes
+							</h2>
+						)}
 						<div className="mx-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
 							{status === "loading" ||
 							(status == "authenticated" &&
@@ -180,7 +239,7 @@ const UserPage = () => {
 								</>
 							) : (
 								<>
-									{info.map((item) => (
+									{arrSorting(info, "asc").map((item) => (
 										<Link
 											href={`/${username
 												.split(" ")

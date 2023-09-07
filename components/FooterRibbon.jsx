@@ -22,10 +22,16 @@ function FooterRibbon({
 					words
 				</span>
 				<span className="mx-1 hidden sm:inline-block">
-					Created on: <strong>{createdDate}</strong>
+					Created on:{" "}
+					<strong>
+						{new Date(createdDate).toLocaleDateString("en-GB")}
+					</strong>
 				</span>
 				<span className="mx-1">
-					Last Modified on: <strong>{lastModifiedDate}</strong>
+					Last Modified on:{" "}
+					<strong>
+						{new Date(lastModifiedDate).toLocaleDateString("en-GB")}
+					</strong>
 				</span>
 			</div>
 			<div className="flex gap-4 text-[8px] sm:text-[8px] gap-x-2 font-poppins">
@@ -52,7 +58,12 @@ function FooterRibbon({
 						</span>
 					</p>
 				)}
-			{markdownPreview && <AiOutlineEye className="text-white" size={12}/>}
+				{markdownPreview && (
+					<AiOutlineEye
+						className="text-white"
+						size={12}
+					/>
+				)}
 			</div>
 		</div>
 	);

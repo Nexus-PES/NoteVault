@@ -80,7 +80,7 @@ const Notes = ({ params }) => {
 		setNotes({
 			...notes,
 			// content: userNotes,
-			lastModifiedDate: new Date().toLocaleDateString("en-GB"),
+			lastModifiedDate: new Date(),
 		});
 		setStatus("updating");
 
