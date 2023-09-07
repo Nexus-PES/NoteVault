@@ -17,6 +17,9 @@ const Card = ({ title, createdDate, lastModifiedDate, ...props }) => {
 		{ href: "/sign-out", label: "Sign out" },
 	];
 
+	const createdOn = new Date(createdDate).toLocaleDateString("en-GB")
+	const modifiedOn = new Date(lastModifiedDate).toLocaleDateString("en-GB")
+	
 	return (
 		<div
 			{...props}
@@ -31,14 +34,14 @@ const Card = ({ title, createdDate, lastModifiedDate, ...props }) => {
 						links={links}
 						onClick={(e) => e.stopPropagation()}
 					> */}
-						<BsThreeDotsVertical className="h-5 w-5" />
+					<BsThreeDotsVertical className="h-5 w-5" />
 					{/* </MenuButton> */}
 				</div>
 			</div>
 			<p className="text-xs text-text-100 flex items-center gap-x-1">
-				<span>{createdDate}</span>
+				<span>{createdOn}</span>
 				<BsArrowRight className="w-5 inline-block" />
-				<span>{lastModifiedDate}</span>
+				<span>{modifiedOn}</span>
 			</p>
 		</div>
 	);

@@ -59,19 +59,18 @@ const UserPage = () => {
 		}
 		const sortedNotes = JSON.parse(localStorage.getItem("allNotes")).sort(
 			(obj1, obj2) =>
-				Number(obj2.lastModifiedDate) - Number(obj1.lastModifiedDate)
+				Number(obj1.createdDate) - Number(obj2.createdDate)
 		);
 		setInfo(sortedNotes);
 	}, [username, showAddCard]); // eslint-disable-line no-console
 
 	const addNewCard = () => {
-		const date = new Date().toLocaleDateString("en-GB");
 		const newNoteData = {
 			id: info.length + 1,
 			title: input,
-			createdDate: date,
 			content: "",
-			lastModifiedDate: date,
+			createdDate: new Date(),
+			lastModifiedDate: new Date(),
 		};
 
 		setInput("");

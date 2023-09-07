@@ -173,8 +173,8 @@ export const notesData = [
 	{
 		id: 1,
 		title: "Welcome to NoteVault 👋",
-		createdDate: new Date().toLocaleDateString("en-GB"),
-		lastModifiedDate: new Date().toLocaleDateString("en-GB"),
+		createdDate: new Date(),
+		lastModifiedDate: new Date(),
 		content: `# Welcome to [NoteVault](https://notevault.vercel.app) Markdown Notepad
 
 
