@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const NotesNavbar = ({ username, paths = [], params = "/" }) => {
+const NotesNavbar = ({ username, paths = [], params = "/", className, ...props }) => {
 	const [showSidebar, setShowSidebar] = useState(false);
 	
 	useEffect(() => {
@@ -11,9 +11,10 @@ const NotesNavbar = ({ username, paths = [], params = "/" }) => {
 	}, []);
 	return (
 		<nav
+			{...props}
 			className={`${
 				showSidebar ? "" : "px-2"
-			} pl-12 pr-2 flex h-12 max-h-12 items-center justify-between py-2 border-b border-dark-100 text-white text-xs`}
+			} pl-12 pr-2 flex h-12 max-h-12 items-center justify-between py-2 border-b border-dark-100 text-white text-xs ${className}`}
 		>
 			<ul className="flex items-center">
 				<li>
