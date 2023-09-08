@@ -16,19 +16,25 @@ import { BsTrash } from "react-icons/bs";
 import { MdArrowBack } from "react-icons/md";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import NotesNavbar from "../../../../components/NotesNavbar";
-import { useRouter } from "next/navigation";
+import Warning from "../../../../components/Warning";
+import { useRouter, usePathname } from "next/navigation";
 
 
 const Notes = ({ params }) => {
 	const { data: session } = useSession();
 	const { noteId } = params;
 	 const router = useRouter();
+	 const pathname	= usePathname()
 
-	let username;
+	let user;
 	try {
-		username = session.user.name;
+		user = session.user;
 	} catch {
-		username = "Guest User";
+		user = {
+			name: "Guest User",
+			email: "",
+			image: "/",
+		};
 	}
 
 	const allNotes = JSON.parse(localStorage.getItem("allNotes"));
@@ -39,8 +45,8 @@ const Notes = ({ params }) => {
 		currentNote = {
 			id: 0,
 			title: "It's not a bug it's a feature 🐞",
-			createdDate: "27/08/2023",
-			lastModifiedDate: new Date().toLocaleDateString("en-GB"),
+			createdDate: new Date(),
+			lastModifiedDate: new Date(),
 			content: "TODO",
 		};
 	}
@@ -99,7 +105,7 @@ const Notes = ({ params }) => {
 	const deleteNotes = (id) => {
 		const newAllNotes = allNotes.filter((note) => note.id != id);
 		localStorage.setItem("allNotes", JSON.stringify(newAllNotes));
-		router.push(`/${username.split(" ").join("")}`);
+		router.push(`/${user.email.split("@")[0]}`);
 		// window.location.href = `/${username.split(" ").join("")}`;
 	}
 
@@ -140,20 +146,18 @@ const Notes = ({ params }) => {
 	// 	</div>
 	//   );
 
+	const currentNotePath = [{
+		id: notes.id,
+		title: notes.title,
+		href : pathname
+	}]
+
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins hide-scrollbar">
 				<NotesNavbar
-					username={username}
-					params="/"
-					paths={[
-						{
-							title: notes.title,
-							href: `/${username.split(" ").join("")}/${
-								notes.id
-							}`,
-						},
-					]}
+					user={user}
+					paths={currentNotePath}
 				/>
 				<div
 					style={{ maxHeight: "100vh" }}
@@ -166,7 +170,7 @@ const Notes = ({ params }) => {
 								className="text-xs text-center text-text-100 font-semibold hover:bg-dark-100 rounded px-4 py-2 transition font-poppins"
 								href={
 									session
-										? `/${username.split(" ").join("")}`
+										? `/${user.email.split("@")[0]}`
 										: "/"
 								}
 							>
@@ -196,7 +200,10 @@ const Notes = ({ params }) => {
 									className="border-gray-800 border bg-transparent hover:bg-gray-800 transition-colors text-primary "
 									onClick={() => deleteNotes(notes.id)}
 								>
-									<BsTrash className="" size={16} />
+									<BsTrash
+										className=""
+										size={16}
+									/>
 								</Button>
 								<Button
 									size="sm"

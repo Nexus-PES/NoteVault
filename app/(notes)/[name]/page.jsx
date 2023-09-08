@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Card from "../../../components/Card";
+import Warning from "../../../components/Warning";
 import Link from "next/link";
 import { notesData } from "../../../data";
 import { BsRocketTakeoff } from "react-icons/bs";
 import { useSession, signIn } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
 import {
 	CardSkeleton,
 	SkeletonHeading,
@@ -16,11 +18,17 @@ import NotesNavbar from "../../../components/NotesNavbar";
 const UserPage = () => {
 	const { data: session, status } = useSession();
 
-	const [username, setUsername] = useState("Guest User");
+	const pathname = usePathname();
+	const router = useRouter();
+	const [user, setUser] = useState({
+		name: "Guest User",
+		email: "",
+		image: "/",
+	});
 
 	useEffect(() => {
 		if (status == "authenticated") {
-			setUsername(session.user.name);
+			setUser(session.user);
 		}
 	}, [status]);
 
@@ -31,21 +39,21 @@ const UserPage = () => {
 	const [info, setInfo] = useState([]);
 
 	const randomGreeting = [
-		`Salutations! ${username}`,
-		`Hey there, ${username}!`,
-		`Hi, ${username}!`,
-		`Greetings, ${username}!`,
-		`Hello, ${username}!`,
-		`Welcome, ${username}!`,
-		`Hey, ${username}, Let's Begin!`,
-		`Hiya, ${username}!`,
-		`Howdy, ${username}!`,
-		`Aloha, ${username}!`,
-		`Yo, ${username}!`,
-		`Hi there, ${username}!`,
-		`Hola, ${username}!`,
-		`Hey, ${username}, Let's Start!`,
-		`Hey, ${username}, Ready to Roll?`,
+		`Salutations! ${user.name}`,
+		`Hey there, ${user.name}!`,
+		`Hi, ${user.name}!`,
+		`Greetings, ${user.name}!`,
+		`Hello, ${user.name}!`,
+		`Welcome, ${user.name}!`,
+		`Hey, ${user.name}, Let's Begin!`,
+		`Hiya, ${user.name}!`,
+		`Howdy, ${user.name}!`,
+		`Aloha, ${user.name}!`,
+		`Yo, ${user.name}!`,
+		`Hi there, ${user.name}!`,
+		`Hola, ${user.name}!`,
+		`Hey, ${user.name}, Let's Start!`,
+		`Hey, ${user.name}, Ready to Roll?`,
 	];
 
 	useEffect(() => {
@@ -61,12 +69,12 @@ const UserPage = () => {
 		if (localStorage.getItem("allNotes") === null) {
 			localStorage.setItem("allNotes", JSON.stringify(notesData));
 		}
-		const sortedNotes = JSON.parse(localStorage.getItem("allNotes")).sort(
-			(obj1, obj2) => Number(obj1.createdDate) - Number(obj2.createdDate)
-		);
+		// const sortedNotes = JSON.parse(localStorage.getItem("allNotes")).sort(
+		// 	(obj1, obj2) => Number(obj1.createdDate) - Number(obj2.createdDate)
+		// );
 		const userNotes = JSON.parse(localStorage.getItem("allNotes"));
 		setInfo(arrSorting(userNotes, "asc"));
-	}, [username, showAddCard]); // eslint-disable-line no-console
+	}, [user, showAddCard]); // eslint-disable-line no-console
 
 	const addNewCard = () => {
 		const newNoteData = {
@@ -78,7 +86,6 @@ const UserPage = () => {
 		};
 
 		setInput("");
-		// setInfo([...info, newNoteData]);
 		localStorage.setItem(
 			"allNotes",
 			JSON.stringify([...info, newNoteData])
@@ -108,53 +115,39 @@ const UserPage = () => {
 			});
 			return descending;
 		}
-		// else {
-		// 	return info;
-		// }
 	};
 
-	console.log(arrSorting(info, "desc"));
 	if (status === "unauthenticated") {
 		return (
-			<div className="w-full h-full flex items-center justify-center text-white font-poppins">
-				<div className="flex h-full w-full items-center justify-center">
-					<div className="flex space-x-4 rounded border border-dark-100 bg-dark-100 p-6 shadow-md">
-						<div className="flex flex-col">
-							<div className="w-auto sm:w-64 md:w-80 space-y-2 sm:space-y-4">
-								<h5 className="text-sm sm:text-base">
-									User Unauthenticated
-								</h5>
-								<div className="flex flex-col space-y-2">
-									<p className="text-xs sm:text-sm text-text-100">
-										Sign In again to access your notes
-									</p>
-								</div>
-								<div className="flex items-center space-x-2">
-									<button className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-semibold ease-out duration-200 rounded-md transition-all outline-none outline-0 focus-visible:border-4 bg-secondary-600 border-slate-800 hover:bg-secondary-600/80 text-white  focus-visible:outline-white shadow-sm text-xs px-5 py-2">
-										<button
-											onClick={() => signIn("github")}
-											className="truncate"
-										>
-											Sign In
-										</button>
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<Warning
+				title="User Unauthenticated"
+				caption="Sign In again to access your notes"
+				onClick={() => signIn("github")}
+			>
+				Sign In
+			</Warning>
 		);
 	}
 
-	console.log(info)
+	// if (
+	// 	status === "authenticated" &&
+	// 	pathname !== `/${user.email.split("@")[0]}`
+	// ) {
+	// 	router.push(`/${user.email.split("@")[0]}`);
+	// }
+		
+		
+		// console.log(pathname, user.email.split('@')[0], '----')
+		// console.log()
+		
+		// 	console.log(status === "authenticated" && pathname !== `/${user.email.split("@")[0]}`, '---')
 
 	return (
 		<>
 			<main className="flex flex-col flex-1 w-full overflow-x-hidden font-poppins">
 				<NotesNavbar
-					username={username}
-					params={username}
+					user={user}
+					main={true}
 				/>
 				<div
 					style={{ maxHeight: "100vh" }}
@@ -190,7 +183,6 @@ const UserPage = () => {
 							</div>
 						</>
 					) : (
-
 						<div className="mx-6">
 							<h2 className="text-text-100 my-2">Recent Notes</h2>
 							<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
@@ -198,9 +190,9 @@ const UserPage = () => {
 									.slice(0, 4)
 									.map((item) => (
 										<Link
-											href={`/${username
-												.split(" ")
-												.join("")}/${item.id}`}
+											href={`/${
+												user.email.split("@")[0]
+											}/${item.id}`}
 											key={item.id}
 										>
 											<Card
@@ -241,9 +233,9 @@ const UserPage = () => {
 								<>
 									{arrSorting(info, "asc").map((item) => (
 										<Link
-											href={`/${username
-												.split(" ")
-												.join("")}/${item.id}`}
+											href={`/${
+												user.email.split("@")[0]
+											}/${item.id}`}
 											key={item.id}
 										>
 											<Card

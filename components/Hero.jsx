@@ -11,12 +11,14 @@ import Comment from "../components/Comment";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { BsGithub } from "react-icons/bs";
 
+
 const Hero = () => {
 	const { data: session } = useSession();
 	let avatar;
 	if (session) {
 		avatar = session.user.image;
 	}
+
 	return (
 		<main className="container pt-24 text-white flex flex-col justify-center">
 			<div className="flex items-center justify-between sm:mb-20 mb-14 -mt-4">
@@ -84,7 +86,7 @@ const Hero = () => {
 						<Button
 							type="glory"
 							className="px-5 py-2 w-auto text-base sm:text-base sm:px-7 sm:py-2.5 sm:w-auto"
-							href={`/${session.user.name.split(" ").join("")}`}
+							href={`/${session.user.email.split("@")[0]}`}
 						>
 							Start with Notes
 						</Button>

@@ -171,7 +171,7 @@ export const footer = [
 
 export const notesData = [
 	{
-		id: 1,
+		id: 0,
 		title: "Welcome to NoteVault 👋",
 		createdDate: new Date(),
 		lastModifiedDate: new Date(),
