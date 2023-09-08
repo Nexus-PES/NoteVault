@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+
 export const features = [
 	{
 		title: "Features That Empowers",
@@ -171,7 +173,7 @@ export const footer = [
 
 export const notesData = [
 	{
-		id: 0,
+		id: v4(),
 		title: "Welcome to NoteVault 👋",
 		createdDate: new Date(),
 		lastModifiedDate: new Date(),

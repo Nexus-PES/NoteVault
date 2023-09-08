@@ -17,7 +17,7 @@ const NotesNavbar = ({
 		setShowSidebar(JSON.parse(sidebarOpen));
 	}, []);
 
-	console.log(user)
+	console.log(user);
 
 	return (
 		<nav
@@ -44,21 +44,24 @@ const NotesNavbar = ({
 					</li>
 				)}
 
-				{paths.map((path) => (
-					<ul key={path.id} classname="w-40 flex items-center justify-center bg-red-500">
-						<li className="inline-bloack file:text-slate-400 font-xs hover:text-white">
-							/
-						</li>
-						<li>
+				<ul classname="flex items-center justify-center">
+					{paths.map((path) => (
+						<li
+							key={path.id}
+							className="flex items-center"
+						>
+							<span className="inline-bloack file:text-slate-400 font-xs hover:text-white">
+								/
+							</span>
 							<Link
 								href={path.href}
-								className="inline-bloack file:text-gray-100 block px-2 py-1 text-xs leading-5 hover:text-white"
-							>
-								{path.title}
+								className="inline-bloack file:text-gray-100
+								block px-2 py-1 text-xs leading-5
+								hover:text-white" >{path.title}
 							</Link>
 						</li>
-					</ul>
-				))}
+					))}
+				</ul>
 				{/* pathname.split('/').map((path, index) => (
 						<span key={index}>
 							<li className="text-slate-400 font-xs hover:text-white">

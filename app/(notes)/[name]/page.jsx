@@ -14,6 +14,7 @@ import {
 	SkeletonTitle,
 } from "../../../components/Skeleton";
 import NotesNavbar from "../../../components/NotesNavbar";
+import { v4 } from 'uuid';
 
 const UserPage = () => {
 	const { data: session, status } = useSession();
@@ -78,7 +79,7 @@ const UserPage = () => {
 
 	const addNewCard = () => {
 		const newNoteData = {
-			id: info.length + 1,
+			id: v4(),
 			title: input,
 			content: "",
 			createdDate: new Date(),

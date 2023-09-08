@@ -34,7 +34,8 @@
 		"react-pro-sidebar": "^1.1.0-alpha.1",
 		"react-syntax-highlighter": "^15.5.0",
 		"tailwind-merge": "^1.14.0",
-		"tailwindcss": "3.3.3"
+		"tailwindcss": "3.3.3",
+		"uuid": "^9.0.0"
 	},
 	"devDependencies": {
 		"@tailwindcss/forms": "^0.5.4",
