@@ -14,7 +14,7 @@ import {
 	SkeletonTitle,
 } from "../../../components/Skeleton";
 import NotesNavbar from "../../../components/NotesNavbar";
-import { v4 } from 'uuid';
+import { v4 } from "uuid";
 
 const UserPage = () => {
 	const { data: session, status } = useSession();
@@ -130,18 +130,15 @@ const UserPage = () => {
 		);
 	}
 
-	// if (
-	// 	status === "authenticated" &&
-	// 	pathname !== `/${user.email.split("@")[0]}`
-	// ) {
-	// 	router.push(`/${user.email.split("@")[0]}`);
-	// }
-		
-		
-		// console.log(pathname, user.email.split('@')[0], '----')
-		// console.log()
-		
-		// 	console.log(status === "authenticated" && pathname !== `/${user.email.split("@")[0]}`, '---')
+	
+	if (
+		(status === "authenticated") &&
+		pathname !== `/${session.user.email.split("@")[0]}`
+	) {
+		console.log(status, pathname);
+		console.log(pathname !== `/${session.user.email.split("@")[0]}`);
+		router.push(`/${session.user.email.split("@")[0]}`);
+	}
 
 	return (
 		<>

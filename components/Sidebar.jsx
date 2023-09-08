@@ -33,12 +33,12 @@ const SideMenu = ({ className }) => {
 
 	useEffect(() => {
 		setShowSidebar(JSON.parse(localStorage.getItem("sidebar")));
-		console.log(
-			JSON.parse(
-				localStorage.getItem("sidebar"),
-				typeof JSON.parse(localStorage.getItem("sidebar"))
-			)
-		);
+		// console.log(
+		// 	JSON.parse(
+		// 		localStorage.getItem("sidebar"),
+		// 		typeof JSON.parse(localStorage.getItem("sidebar"))
+		// 	)
+		// );
 	}, []);
 
 	useEffect(() => {

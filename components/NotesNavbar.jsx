@@ -17,8 +17,6 @@ const NotesNavbar = ({
 		setShowSidebar(JSON.parse(sidebarOpen));
 	}, []);
 
-	console.log(user);
-
 	return (
 		<nav
 			{...props}
@@ -44,7 +42,7 @@ const NotesNavbar = ({
 					</li>
 				)}
 
-				<ul classname="flex items-center justify-center">
+				<ul className="flex items-center justify-center">
 					{paths.map((path) => (
 						<li
 							key={path.id}
